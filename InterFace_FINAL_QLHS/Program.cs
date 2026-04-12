@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InterFace_FINAL_QLHS.Admin;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace InterFace_FINAL_QLHS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GiaoVu());
+            Application.Run(new TongQuanAdmin());
         }
     }
 }

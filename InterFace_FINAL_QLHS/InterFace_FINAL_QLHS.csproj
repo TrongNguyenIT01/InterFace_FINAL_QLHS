@@ -46,11 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\test3.cs">
+    <Compile Include="Admin\CapTaiKhoan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\test3.Designer.cs">
-      <DependentUpon>test3.cs</DependentUpon>
+    <Compile Include="Admin\CapTaiKhoan.Designer.cs">
+      <DependentUpon>CapTaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Thaydoidotuoi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Thaydoidotuoi.Designer.cs">
+      <DependentUpon>Thaydoidotuoi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\TongQuanAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\TongQuanAdmin.Designer.cs">
+      <DependentUpon>TongQuanAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="Config\test2.cs">
       <SubType>Form</SubType>
@@ -90,6 +102,15 @@
     <Compile Include="GiaoVu\TongQuanGiaoVu.Designer.cs">
       <DependentUpon>TongQuanGiaoVu.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Admin\CapTaiKhoan.resx">
+      <DependentUpon>CapTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Thaydoidotuoi.resx">
+      <DependentUpon>Thaydoidotuoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\TongQuanAdmin.resx">
+      <DependentUpon>TongQuanAdmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>

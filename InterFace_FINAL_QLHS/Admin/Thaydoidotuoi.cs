@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace InterFace_FINAL_QLHS.Admin
 {
-    public partial class test3 : Form
+    public partial class Thaydoidotuoi : Form
     {
-        public test3()
+        public Thaydoidotuoi()
         {
             InitializeComponent();
         }
