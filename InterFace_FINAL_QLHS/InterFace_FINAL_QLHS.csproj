@@ -76,6 +76,12 @@
     <Compile Include="GiaoVien\TEST.Designer.cs">
       <DependentUpon>TEST.cs</DependentUpon>
     </Compile>
+    <Compile Include="GiaoVu\LapDanhSachLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoVu\LapDanhSachLop.Designer.cs">
+      <DependentUpon>LapDanhSachLop.cs</DependentUpon>
+    </Compile>
     <Compile Include="GiaoVu\TraCuuHocSinh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\TongQuanAdmin.resx">
       <DependentUpon>TongQuanAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GiaoVu\LapDanhSachLop.resx">
+      <DependentUpon>LapDanhSachLop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GiaoVu\TiepNhanHocSinh.resx">
       <DependentUpon>TiepNhanHocSinh.cs</DependentUpon>

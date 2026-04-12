@@ -110,5 +110,10 @@ namespace InterFace_FINAL_QLHS
         {
             OpenChildForm(new TraCuuHocSinh());
         }
+
+        private void btnDanhSachLop_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new LapDanhSachLop());
+        }
     }
 }

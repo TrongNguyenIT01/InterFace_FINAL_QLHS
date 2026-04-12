@@ -188,6 +188,7 @@
             this.btnDanhSachLop.Text = "Lập danh sách lớp";
             this.btnDanhSachLop.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDanhSachLop.UseVisualStyleBackColor = true;
+            this.btnDanhSachLop.Click += new System.EventHandler(this.btnDanhSachLop_Click);
             // 
             // btnTiepNhanHocSinh
             // 
