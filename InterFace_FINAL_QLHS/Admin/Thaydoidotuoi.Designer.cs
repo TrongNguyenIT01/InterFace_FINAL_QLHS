@@ -32,19 +32,17 @@
             this.lblThayDoiTuoi = new System.Windows.Forms.Label();
             this.grboxThongtinhientai = new System.Windows.Forms.GroupBox();
             this.lblTuoitoithieuhientai = new System.Windows.Forms.Label();
-            this.nbTuoitoithieuhientai = new System.Windows.Forms.NumericUpDown();
             this.lblTuoitoidahientai = new System.Windows.Forms.Label();
-            this.nbTuoitoidahientai = new System.Windows.Forms.NumericUpDown();
             this.grboxThongtinmoi = new System.Windows.Forms.GroupBox();
             this.lblTuoitoithieumoi = new System.Windows.Forms.Label();
             this.nbTuoitoithieumoi = new System.Windows.Forms.NumericUpDown();
             this.lblTuoitoidamoi = new System.Windows.Forms.Label();
             this.nbTuoitoidamoi = new System.Windows.Forms.NumericUpDown();
             this.btnXacNhan = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.panelTuoi.SuspendLayout();
             this.grboxThongtinhientai.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nbTuoitoithieuhientai)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nbTuoitoidahientai)).BeginInit();
             this.grboxThongtinmoi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nbTuoitoithieumoi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nbTuoitoidamoi)).BeginInit();
@@ -76,10 +74,10 @@
             // 
             // grboxThongtinhientai
             // 
+            this.grboxThongtinhientai.Controls.Add(this.textBox2);
+            this.grboxThongtinhientai.Controls.Add(this.textBox1);
             this.grboxThongtinhientai.Controls.Add(this.lblTuoitoithieuhientai);
-            this.grboxThongtinhientai.Controls.Add(this.nbTuoitoithieuhientai);
             this.grboxThongtinhientai.Controls.Add(this.lblTuoitoidahientai);
-            this.grboxThongtinhientai.Controls.Add(this.nbTuoitoidahientai);
             this.grboxThongtinhientai.Location = new System.Drawing.Point(20, 60);
             this.grboxThongtinhientai.Name = "grboxThongtinhientai";
             this.grboxThongtinhientai.Size = new System.Drawing.Size(560, 120);
@@ -96,23 +94,6 @@
             this.lblTuoitoithieuhientai.TabIndex = 0;
             this.lblTuoitoithieuhientai.Text = "Tuổi tối thiểu hiện tại:";
             // 
-            // nbTuoitoithieuhientai
-            // 
-            this.nbTuoitoithieuhientai.Location = new System.Drawing.Point(200, 30);
-            this.nbTuoitoithieuhientai.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nbTuoitoithieuhientai.Name = "nbTuoitoithieuhientai";
-            this.nbTuoitoithieuhientai.Size = new System.Drawing.Size(120, 22);
-            this.nbTuoitoithieuhientai.TabIndex = 1;
-            this.nbTuoitoithieuhientai.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
             // lblTuoitoidahientai
             // 
             this.lblTuoitoidahientai.AutoSize = true;
@@ -121,23 +102,6 @@
             this.lblTuoitoidahientai.Size = new System.Drawing.Size(118, 16);
             this.lblTuoitoidahientai.TabIndex = 2;
             this.lblTuoitoidahientai.Text = "Tuổi tối đa hiện tại:";
-            // 
-            // nbTuoitoidahientai
-            // 
-            this.nbTuoitoidahientai.Location = new System.Drawing.Point(200, 70);
-            this.nbTuoitoidahientai.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nbTuoitoidahientai.Name = "nbTuoitoidahientai";
-            this.nbTuoitoidahientai.Size = new System.Drawing.Size(120, 22);
-            this.nbTuoitoidahientai.TabIndex = 3;
-            this.nbTuoitoidahientai.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // grboxThongtinmoi
             // 
@@ -216,6 +180,22 @@
             this.btnXacNhan.Text = "✔ Xác nhận thay đổi";
             this.btnXacNhan.UseVisualStyleBackColor = false;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(193, 27);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(127, 22);
+            this.textBox1.TabIndex = 3;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(193, 70);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(127, 22);
+            this.textBox2.TabIndex = 4;
+            // 
             // Thaydoidotuoi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -228,8 +208,6 @@
             this.panelTuoi.PerformLayout();
             this.grboxThongtinhientai.ResumeLayout(false);
             this.grboxThongtinhientai.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nbTuoitoithieuhientai)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nbTuoitoidahientai)).EndInit();
             this.grboxThongtinmoi.ResumeLayout(false);
             this.grboxThongtinmoi.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nbTuoitoithieumoi)).EndInit();
@@ -244,14 +222,14 @@
         private System.Windows.Forms.Label lblThayDoiTuoi;
         private System.Windows.Forms.GroupBox grboxThongtinhientai;
         private System.Windows.Forms.Label lblTuoitoithieuhientai;
-        private System.Windows.Forms.NumericUpDown nbTuoitoithieuhientai;
         private System.Windows.Forms.Label lblTuoitoidahientai;
-        private System.Windows.Forms.NumericUpDown nbTuoitoidahientai;
         private System.Windows.Forms.GroupBox grboxThongtinmoi;
         private System.Windows.Forms.Label lblTuoitoithieumoi;
         private System.Windows.Forms.NumericUpDown nbTuoitoithieumoi;
         private System.Windows.Forms.Label lblTuoitoidamoi;
         private System.Windows.Forms.NumericUpDown nbTuoitoidamoi;
         private System.Windows.Forms.Button btnXacNhan;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
