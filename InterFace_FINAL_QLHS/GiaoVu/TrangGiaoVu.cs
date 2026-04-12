@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InterFace_FINAL_QLHS.GiaoVu;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,9 +12,9 @@ using System.Windows.Forms;
 
 namespace InterFace_FINAL_QLHS
 {
-    public partial class GiaoVu : Form
+    public partial class TrangGiaoVu : Form
     {
-        public GiaoVu()
+        public TrangGiaoVu()
         {
             InitializeComponent();
         }
@@ -40,7 +41,7 @@ namespace InterFace_FINAL_QLHS
             {
                 // Nếu đang đóng thì mở rộng ra
                 panelSidebar.Width += 10;
-                if (panelSidebar.Width >= 150)
+                if (panelSidebar.Width >= 200)
                 {
                     sidebarExpand = true;
                     timerSidebar.Stop();
@@ -103,6 +104,11 @@ namespace InterFace_FINAL_QLHS
         private void btnChiaDoc_Click(object sender, EventArgs e)
         {
             this.LayoutMdi(MdiLayout.TileVertical);
+        }
+
+        private void btnTraCuuHocSinh_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new TraCuuHocSinh());
         }
     }
 }

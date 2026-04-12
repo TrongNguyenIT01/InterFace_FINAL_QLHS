@@ -76,6 +76,12 @@
     <Compile Include="GiaoVien\TEST.Designer.cs">
       <DependentUpon>TEST.cs</DependentUpon>
     </Compile>
+    <Compile Include="GiaoVu\TraCuuHocSinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoVu\TraCuuHocSinh.Designer.cs">
+      <DependentUpon>TraCuuHocSinh.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,11 +102,11 @@
     <Compile Include="GiaoVu\TongQuan.Designer.cs">
       <DependentUpon>TongQuan.cs</DependentUpon>
     </Compile>
-    <Compile Include="GiaoVu\TongQuanGiaoVu.cs">
+    <Compile Include="GiaoVu\TrangGiaoVu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GiaoVu\TongQuanGiaoVu.Designer.cs">
-      <DependentUpon>TongQuanGiaoVu.cs</DependentUpon>
+    <Compile Include="GiaoVu\TrangGiaoVu.Designer.cs">
+      <DependentUpon>TrangGiaoVu.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Admin\CapTaiKhoan.resx">
       <DependentUpon>CapTaiKhoan.cs</DependentUpon>
@@ -110,6 +116,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\TongQuanAdmin.resx">
       <DependentUpon>TongQuanAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GiaoVu\TiepNhanHocSinh.resx">
+      <DependentUpon>TiepNhanHocSinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GiaoVu\TraCuuHocSinh.resx">
+      <DependentUpon>TraCuuHocSinh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -126,8 +138,8 @@
     <EmbeddedResource Include="GiaoVu\TongQuan.resx">
       <DependentUpon>TongQuan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GiaoVu\TongQuanGiaoVu.resx">
-      <DependentUpon>TongQuanGiaoVu.cs</DependentUpon>
+    <EmbeddedResource Include="GiaoVu\TrangGiaoVu.resx">
+      <DependentUpon>TrangGiaoVu.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
