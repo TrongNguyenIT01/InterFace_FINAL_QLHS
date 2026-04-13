@@ -95,6 +95,7 @@
             this.btnChuyenMon.Text = "Chuyên môn";
             this.btnChuyenMon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnChuyenMon.UseVisualStyleBackColor = false;
+            this.btnChuyenMon.Click += new System.EventHandler(this.btnChuyenMon_Click);
             // 
             // btnThayDoiThongTinMonHoc
             // 
@@ -111,6 +112,7 @@
             this.btnThayDoiThongTinMonHoc.Text = "Thay đổi thông tin môn học";
             this.btnThayDoiThongTinMonHoc.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnThayDoiThongTinMonHoc.UseVisualStyleBackColor = false;
+            this.btnThayDoiThongTinMonHoc.Click += new System.EventHandler(this.btnThayDoiThongTinMonHoc_Click);
             // 
             // btnThayDoiQuyDinhThongTinLopHoc
             // 

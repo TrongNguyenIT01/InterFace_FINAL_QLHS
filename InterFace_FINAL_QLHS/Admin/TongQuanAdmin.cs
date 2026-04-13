@@ -109,5 +109,15 @@ namespace InterFace_FINAL_QLHS.Admin
         {
             OpenChildForm(new ThayDoiLop());
         }
+
+        private void btnThayDoiThongTinMonHoc_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ThayDoiMonHoc());
+        }
+
+        private void btnChuyenMon_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ThayDoiThongTinChuyenMon());
+        }
     }
 }

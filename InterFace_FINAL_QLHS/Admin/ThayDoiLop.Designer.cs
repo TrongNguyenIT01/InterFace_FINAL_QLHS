@@ -94,6 +94,7 @@
             // 
             // dataGridViewDanhSachLop
             // 
+            this.dataGridViewDanhSachLop.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewDanhSachLop.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDanhSachLop.Location = new System.Drawing.Point(20, 80);
             this.dataGridViewDanhSachLop.Name = "dataGridViewDanhSachLop";

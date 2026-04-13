@@ -70,6 +70,12 @@
     <Compile Include="Admin\ThayDoiMonHoc.Designer.cs">
       <DependentUpon>ThayDoiMonHoc.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\ThayDoiThongTinChuyenMon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\ThayDoiThongTinChuyenMon.Designer.cs">
+      <DependentUpon>ThayDoiThongTinChuyenMon.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\TongQuanAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\ThayDoiLop.resx">
       <DependentUpon>ThayDoiLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\ThayDoiMonHoc.resx">
+      <DependentUpon>ThayDoiMonHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\ThayDoiThongTinChuyenMon.resx">
+      <DependentUpon>ThayDoiThongTinChuyenMon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\TongQuanAdmin.resx">
       <DependentUpon>TongQuanAdmin.cs</DependentUpon>
