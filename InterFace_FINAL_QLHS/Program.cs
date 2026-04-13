@@ -17,7 +17,7 @@ namespace InterFace_FINAL_QLHS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TrangGiaoVu());
+            Application.Run(new TongQuanAdmin());
         }
     }
 }

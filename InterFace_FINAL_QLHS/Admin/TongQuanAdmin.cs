@@ -104,5 +104,10 @@ namespace InterFace_FINAL_QLHS.Admin
         {
             this.LayoutMdi(MdiLayout.TileVertical);
         }
+
+        private void btnThayDoiQuyDinhThongTinLopHoc_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ThayDoiLop());
+        }
     }
 }

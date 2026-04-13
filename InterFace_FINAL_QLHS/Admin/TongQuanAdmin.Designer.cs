@@ -127,6 +127,7 @@
             this.btnThayDoiQuyDinhThongTinLopHoc.Text = "Thay đổi thông tin lớp học";
             this.btnThayDoiQuyDinhThongTinLopHoc.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnThayDoiQuyDinhThongTinLopHoc.UseVisualStyleBackColor = false;
+            this.btnThayDoiQuyDinhThongTinLopHoc.Click += new System.EventHandler(this.btnThayDoiQuyDinhThongTinLopHoc_Click);
             // 
             // btnThayDoiQuyDinhDoTuoi
             // 
