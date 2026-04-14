@@ -192,6 +192,7 @@
             this.Controls.Add(this.panelTieuDe);
             this.Name = "TongQuan";
             this.Text = "TongQuan";
+            this.Load += new System.EventHandler(this.TongQuan_Load);
             this.panelTieuDe.ResumeLayout(false);
             this.panelTieuDe.PerformLayout();
             this.panel1.ResumeLayout(false);

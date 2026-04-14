@@ -16,5 +16,10 @@ namespace InterFace_FINAL_QLHS
         {
             InitializeComponent();
         }
+
+        private void TongQuan_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

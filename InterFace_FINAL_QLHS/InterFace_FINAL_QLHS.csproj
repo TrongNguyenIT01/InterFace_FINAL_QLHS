@@ -82,12 +82,8 @@
     <Compile Include="Admin\TongQuanAdmin.Designer.cs">
       <DependentUpon>TongQuanAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Config\test2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Config\test2.Designer.cs">
-      <DependentUpon>test2.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Config\Dang_Nhap.cs" />
+    <Compile Include="Config\DataProvider.cs" />
     <Compile Include="GiaoVien\TEST.cs">
       <SubType>Form</SubType>
     </Compile>

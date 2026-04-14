@@ -115,5 +115,20 @@ namespace InterFace_FINAL_QLHS
         {
             OpenChildForm(new LapDanhSachLop());
         }
+
+
+        private void TrangGiaoVu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Owner.Show();
+            this.Close();
+        }
+
+
+    
     }
 }

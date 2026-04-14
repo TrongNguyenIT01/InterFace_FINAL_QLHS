@@ -145,6 +145,7 @@
             this.btnDangnhap.TabIndex = 5;
             this.btnDangnhap.Text = "Đăng Nhập";
             this.btnDangnhap.UseVisualStyleBackColor = false;
+            this.btnDangnhap.Click += new System.EventHandler(this.btnDangnhap_Click);
             // 
             // chkGhinho
             // 

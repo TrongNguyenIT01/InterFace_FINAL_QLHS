@@ -119,5 +119,15 @@ namespace InterFace_FINAL_QLHS.Admin
         {
             OpenChildForm(new ThayDoiThongTinChuyenMon());
         }
+        private void TongQuanAdmin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            this.Owner.Show();
+            this.Close();
+        }
     }
 }
