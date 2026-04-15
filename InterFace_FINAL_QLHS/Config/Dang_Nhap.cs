@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using InterFace_FINAL_QLHS.Admin;
 
 namespace InterFace_FINAL_QLHS.Config
 {
@@ -17,7 +18,7 @@ namespace InterFace_FINAL_QLHS.Config
             SqlParameter[] parameters = new SqlParameter[]
             {
                 new SqlParameter("@username", username),
-                new SqlParameter("@password", password),
+                new SqlParameter("@password", Cap_TaiKhoan.HashPassword(password)),
                 new SqlParameter("@role", role)
             };
             DataTable dt = DataProvider.SelectData(sql, CommandType.Text, parameters);

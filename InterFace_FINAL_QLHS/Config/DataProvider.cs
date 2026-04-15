@@ -14,13 +14,13 @@ public class DataProvider
         //Máy Nguyễn
         get { return @"Data Source=.;Initial Catalog=QLHS;Integrated Security=True;Encrypt=False"; }
     }
+
     public static bool TruyVan_XuLy(string sql)
     {
         SqlConnection con = new SqlConnection(ChuoiKetNoi);
         bool kq = false;
         try
         {
-
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.Connection.Open();
             int count = cmd.ExecuteNonQuery();
@@ -66,6 +66,8 @@ public class DataProvider
 
         int count = cmd.ExecuteNonQuery();
 
+        cmd.Parameters.Clear(); // Xóa Parameters để giải phóng
+
         sqlcon.Close();
         return count;
     }
@@ -89,9 +91,12 @@ public class DataProvider
         SqlDataAdapter da = new SqlDataAdapter(cmd);
         da.Fill(kq);
 
+        cmd.Parameters.Clear(); // Xóa Parameters để giải phóng
+
         sqlcon.Close();
         return kq;
     }
+
     public static DataSet SelectMultiData(string sql)
     {
         DataSet kq = new DataSet();
@@ -105,4 +110,3 @@ public class DataProvider
         return kq;
     }
 }
-

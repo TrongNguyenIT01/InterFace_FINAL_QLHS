@@ -73,5 +73,22 @@ namespace InterFace_FINAL_QLHS
 
 
         }
+
+
+        private bool isPasswordVisible = false;
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            isPasswordVisible = !isPasswordVisible;
+
+            txtMatkhau.UseSystemPasswordChar = !isPasswordVisible;
+
+            
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            txtMatkhau.UseSystemPasswordChar = true;
+        }
     }
 }

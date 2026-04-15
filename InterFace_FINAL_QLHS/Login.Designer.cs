@@ -43,6 +43,7 @@
             this.txtMatkhau = new System.Windows.Forms.TextBox();
             this.txtDangnhap = new System.Windows.Forms.TextBox();
             this.lblTieude = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.panelPhai.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,6 +60,7 @@
             // panelPhai
             // 
             this.panelPhai.BackColor = System.Drawing.Color.White;
+            this.panelPhai.Controls.Add(this.button1);
             this.panelPhai.Controls.Add(this.lblChuacotaikhoan);
             this.panelPhai.Controls.Add(this.linkLienhequantrivien);
             this.panelPhai.Controls.Add(this.linkQuenmk);
@@ -129,9 +131,9 @@
             this.lblTendangnhap.AutoSize = true;
             this.lblTendangnhap.Location = new System.Drawing.Point(26, 71);
             this.lblTendangnhap.Name = "lblTendangnhap";
-            this.lblTendangnhap.Size = new System.Drawing.Size(168, 16);
+            this.lblTendangnhap.Size = new System.Drawing.Size(195, 16);
             this.lblTendangnhap.TabIndex = 6;
-            this.lblTendangnhap.Text = "Tên đăng nhập hoặc Email";
+            this.lblTendangnhap.Text = "Nhập ID người dùng hoặc Email";
             // 
             // btnDangnhap
             // 
@@ -195,6 +197,18 @@
             this.lblTieude.TabIndex = 0;
             this.lblTieude.Text = "Chào Mừng Quay Trở Lại 👋\r\n\r\n\r\n";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.Location = new System.Drawing.Point(546, 152);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(84, 39);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Ẩn/Hiện";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -205,6 +219,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Login";
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.panelPhai.ResumeLayout(false);
             this.panelPhai.PerformLayout();
             this.ResumeLayout(false);
@@ -227,6 +242,7 @@
         private System.Windows.Forms.Label lblChuacotaikhoan;
         private System.Windows.Forms.LinkLabel linkLienhequantrivien;
         private System.Windows.Forms.LinkLabel linkQuenmk;
+        private System.Windows.Forms.Button button1;
     }
 }
 

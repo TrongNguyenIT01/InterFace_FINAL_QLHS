@@ -44,10 +44,10 @@
             this.lblSDT = new System.Windows.Forms.Label();
             this.txtSDT = new System.Windows.Forms.TextBox();
             this.lblChucVu = new System.Windows.Forms.Label();
-            this.txtChucVu = new System.Windows.Forms.TextBox();
             this.lblChuyenMon = new System.Windows.Forms.Label();
-            this.txtChuyenMon = new System.Windows.Forms.TextBox();
             this.btnCapTK = new System.Windows.Forms.Button();
+            this.cbChuyenMon = new System.Windows.Forms.ComboBox();
+            this.cbChucVu = new System.Windows.Forms.ComboBox();
             this.panelCapTK.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,6 +55,8 @@
             // 
             this.panelCapTK.BackColor = System.Drawing.Color.LightSteelBlue;
             this.panelCapTK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelCapTK.Controls.Add(this.cbChucVu);
+            this.panelCapTK.Controls.Add(this.cbChuyenMon);
             this.panelCapTK.Controls.Add(this.lblCapTaiKhoan);
             this.panelCapTK.Controls.Add(this.lblHoTen);
             this.panelCapTK.Controls.Add(this.txtHoTen);
@@ -70,9 +72,7 @@
             this.panelCapTK.Controls.Add(this.lblSDT);
             this.panelCapTK.Controls.Add(this.txtSDT);
             this.panelCapTK.Controls.Add(this.lblChucVu);
-            this.panelCapTK.Controls.Add(this.txtChucVu);
             this.panelCapTK.Controls.Add(this.lblChuyenMon);
-            this.panelCapTK.Controls.Add(this.txtChuyenMon);
             this.panelCapTK.Controls.Add(this.btnCapTK);
             this.panelCapTK.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCapTK.Location = new System.Drawing.Point(0, 0);
@@ -117,6 +117,8 @@
             // 
             // dtpNgaySinh
             // 
+            this.dtpNgaySinh.CustomFormat = "yyyy-MM-dd";
+            this.dtpNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpNgaySinh.Location = new System.Drawing.Point(197, 100);
             this.dtpNgaySinh.Name = "dtpNgaySinh";
             this.dtpNgaySinh.Size = new System.Drawing.Size(400, 22);
@@ -210,13 +212,6 @@
             this.lblChucVu.TabIndex = 14;
             this.lblChucVu.Text = "Chức vụ:";
             // 
-            // txtChucVu
-            // 
-            this.txtChucVu.Location = new System.Drawing.Point(197, 300);
-            this.txtChucVu.Name = "txtChucVu";
-            this.txtChucVu.Size = new System.Drawing.Size(400, 22);
-            this.txtChucVu.TabIndex = 15;
-            // 
             // lblChuyenMon
             // 
             this.lblChuyenMon.AutoSize = true;
@@ -225,13 +220,6 @@
             this.lblChuyenMon.Size = new System.Drawing.Size(84, 16);
             this.lblChuyenMon.TabIndex = 16;
             this.lblChuyenMon.Text = "Chuyên môn:";
-            // 
-            // txtChuyenMon
-            // 
-            this.txtChuyenMon.Location = new System.Drawing.Point(197, 340);
-            this.txtChuyenMon.Name = "txtChuyenMon";
-            this.txtChuyenMon.Size = new System.Drawing.Size(400, 22);
-            this.txtChuyenMon.TabIndex = 17;
             // 
             // btnCapTK
             // 
@@ -244,6 +232,30 @@
             this.btnCapTK.TabIndex = 18;
             this.btnCapTK.Text = "Cấp tài khoản";
             this.btnCapTK.UseVisualStyleBackColor = false;
+            this.btnCapTK.Click += new System.EventHandler(this.btnCapTK_Click);
+            // 
+            // cbChuyenMon
+            // 
+            this.cbChuyenMon.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbChuyenMon.FormattingEnabled = true;
+            this.cbChuyenMon.Location = new System.Drawing.Point(197, 340);
+            this.cbChuyenMon.Name = "cbChuyenMon";
+            this.cbChuyenMon.Size = new System.Drawing.Size(400, 24);
+            this.cbChuyenMon.TabIndex = 19;
+            // 
+            // cbChucVu
+            // 
+            this.cbChucVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbChucVu.FormattingEnabled = true;
+            this.cbChucVu.Items.AddRange(new object[] {
+            "Giáo Vụ",
+            "Giáo Viên",
+            "Admin"});
+            this.cbChucVu.Location = new System.Drawing.Point(197, 300);
+            this.cbChucVu.Name = "cbChucVu";
+            this.cbChucVu.Size = new System.Drawing.Size(400, 24);
+            this.cbChucVu.TabIndex = 20;
+            this.cbChucVu.SelectedIndexChanged += new System.EventHandler(this.cbChucVu_SelectedIndexChanged);
             // 
             // Cap_TaiKhoan
             // 
@@ -253,6 +265,7 @@
             this.Controls.Add(this.panelCapTK);
             this.Name = "Cap_TaiKhoan";
             this.Text = "Cấp Tài Khoản";
+            this.Load += new System.EventHandler(this.Cap_TaiKhoan_Load);
             this.panelCapTK.ResumeLayout(false);
             this.panelCapTK.PerformLayout();
             this.ResumeLayout(false);
@@ -276,9 +289,9 @@
         private System.Windows.Forms.Label lblSDT;
         private System.Windows.Forms.TextBox txtSDT;
         private System.Windows.Forms.Label lblChucVu;
-        private System.Windows.Forms.TextBox txtChucVu;
         private System.Windows.Forms.Label lblChuyenMon;
-        private System.Windows.Forms.TextBox txtChuyenMon;
         private System.Windows.Forms.Button btnCapTK;
+        private System.Windows.Forms.ComboBox cbChuyenMon;
+        private System.Windows.Forms.ComboBox cbChucVu;
     }
 }

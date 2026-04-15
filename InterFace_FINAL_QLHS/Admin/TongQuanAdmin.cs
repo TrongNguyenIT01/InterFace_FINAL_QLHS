@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace InterFace_FINAL_QLHS.Admin
 {
     public partial class TongQuanAdmin : Form
