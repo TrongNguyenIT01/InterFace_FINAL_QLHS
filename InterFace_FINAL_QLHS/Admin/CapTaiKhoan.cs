@@ -179,8 +179,8 @@ namespace InterFace_FINAL_QLHS.Admin
                 else {
                      sql = "INSERT INTO Users(UserID,UserName,Pass_word,Email,Quyen) VALUES (@UserID, @UserName, @Pass_word, @Email, @Quyen)";
 
-                     sql2 = $"INSERT INTO GiaoVien(GiaoVienID, HoTen, NgaySinh, GioiTinh, DiaChi, Email, SoDienThoai, ChucVu, ChuyenMon) " +
-                        $"VALUES (@UserID, @HoTen, @NgaySinh, @GioiTinh, @DiaChi, @Email, @SodienThoai, @MaCM)";
+                     sql2 = $"INSERT INTO GiaoVien(GiaoVienID, HoTen, NgaySinh, GioiTinh, DiaChi, Email, SoDienThoai, MaCM, TrangThai) " +
+                        $"VALUES (@UserID, @HoTen, @NgaySinh, @GioiTinh, @DiaChi, @Email, @SodienThoai, @MaCM, @trangthai)";
 
                     string userID = capID(ChucVu);
                     sp = new SqlParameter[] {
@@ -195,6 +195,7 @@ namespace InterFace_FINAL_QLHS.Admin
                     new SqlParameter("@DiaChi", DiaChi),
                     new SqlParameter("@SoDienThoai", SodienThoai),
                     new SqlParameter("@MaCM", cbChuyenMon.SelectedValue.ToString()),
+                    new SqlParameter("@trangthai","Chưa Phân Công")
                     };
                 }
             }

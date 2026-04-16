@@ -96,10 +96,11 @@
             // 
             this.dataGridViewDanhSachLop.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewDanhSachLop.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewDanhSachLop.Enabled = false;
             this.dataGridViewDanhSachLop.Location = new System.Drawing.Point(20, 80);
             this.dataGridViewDanhSachLop.Name = "dataGridViewDanhSachLop";
             this.dataGridViewDanhSachLop.RowHeadersWidth = 51;
-            this.dataGridViewDanhSachLop.Size = new System.Drawing.Size(720, 150);
+            this.dataGridViewDanhSachLop.Size = new System.Drawing.Size(731, 157);
             this.dataGridViewDanhSachLop.TabIndex = 2;
             // 
             // lblThongTinThayDoi
@@ -219,6 +220,7 @@
             this.Controls.Add(this.panelThayDoiLop);
             this.Name = "ThayDoiLop";
             this.Text = "Thay Đổi Lớp";
+            this.Load += new System.EventHandler(this.ThayDoiLop_Load);
             this.panelThayDoiLop.ResumeLayout(false);
             this.panelThayDoiLop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDanhSachLop)).EndInit();

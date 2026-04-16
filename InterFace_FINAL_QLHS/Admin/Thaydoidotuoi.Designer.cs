@@ -31,6 +31,8 @@
             this.panelTuoi = new System.Windows.Forms.Panel();
             this.lblThayDoiTuoi = new System.Windows.Forms.Label();
             this.grboxThongtinhientai = new System.Windows.Forms.GroupBox();
+            this.txtTuoiMax = new System.Windows.Forms.TextBox();
+            this.txtTuoiMin = new System.Windows.Forms.TextBox();
             this.lblTuoitoithieuhientai = new System.Windows.Forms.Label();
             this.lblTuoitoidahientai = new System.Windows.Forms.Label();
             this.grboxThongtinmoi = new System.Windows.Forms.GroupBox();
@@ -39,8 +41,6 @@
             this.lblTuoitoidamoi = new System.Windows.Forms.Label();
             this.nbTuoitoidamoi = new System.Windows.Forms.NumericUpDown();
             this.btnXacNhan = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.panelTuoi.SuspendLayout();
             this.grboxThongtinhientai.SuspendLayout();
             this.grboxThongtinmoi.SuspendLayout();
@@ -74,16 +74,33 @@
             // 
             // grboxThongtinhientai
             // 
-            this.grboxThongtinhientai.Controls.Add(this.textBox2);
-            this.grboxThongtinhientai.Controls.Add(this.textBox1);
+            this.grboxThongtinhientai.Controls.Add(this.txtTuoiMax);
+            this.grboxThongtinhientai.Controls.Add(this.txtTuoiMin);
             this.grboxThongtinhientai.Controls.Add(this.lblTuoitoithieuhientai);
             this.grboxThongtinhientai.Controls.Add(this.lblTuoitoidahientai);
             this.grboxThongtinhientai.Location = new System.Drawing.Point(20, 60);
             this.grboxThongtinhientai.Name = "grboxThongtinhientai";
-            this.grboxThongtinhientai.Size = new System.Drawing.Size(560, 120);
+            this.grboxThongtinhientai.Size = new System.Drawing.Size(715, 124);
             this.grboxThongtinhientai.TabIndex = 1;
             this.grboxThongtinhientai.TabStop = false;
             this.grboxThongtinhientai.Text = "Thông Tin Hiện Tại";
+            this.grboxThongtinhientai.Enter += new System.EventHandler(this.grboxThongtinhientai_Enter);
+            // 
+            // txtTuoiMax
+            // 
+            this.txtTuoiMax.Location = new System.Drawing.Point(193, 70);
+            this.txtTuoiMax.Name = "txtTuoiMax";
+            this.txtTuoiMax.ReadOnly = true;
+            this.txtTuoiMax.Size = new System.Drawing.Size(127, 22);
+            this.txtTuoiMax.TabIndex = 4;
+            // 
+            // txtTuoiMin
+            // 
+            this.txtTuoiMin.Location = new System.Drawing.Point(193, 27);
+            this.txtTuoiMin.Name = "txtTuoiMin";
+            this.txtTuoiMin.ReadOnly = true;
+            this.txtTuoiMin.Size = new System.Drawing.Size(127, 22);
+            this.txtTuoiMin.TabIndex = 3;
             // 
             // lblTuoitoithieuhientai
             // 
@@ -111,7 +128,7 @@
             this.grboxThongtinmoi.Controls.Add(this.nbTuoitoidamoi);
             this.grboxThongtinmoi.Location = new System.Drawing.Point(20, 190);
             this.grboxThongtinmoi.Name = "grboxThongtinmoi";
-            this.grboxThongtinmoi.Size = new System.Drawing.Size(560, 120);
+            this.grboxThongtinmoi.Size = new System.Drawing.Size(715, 122);
             this.grboxThongtinmoi.TabIndex = 2;
             this.grboxThongtinmoi.TabStop = false;
             this.grboxThongtinmoi.Text = "Thông Tin Mới";
@@ -173,28 +190,13 @@
             this.btnXacNhan.BackColor = System.Drawing.Color.LimeGreen;
             this.btnXacNhan.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.btnXacNhan.ForeColor = System.Drawing.Color.White;
-            this.btnXacNhan.Location = new System.Drawing.Point(225, 330);
+            this.btnXacNhan.Location = new System.Drawing.Point(263, 318);
             this.btnXacNhan.Name = "btnXacNhan";
             this.btnXacNhan.Size = new System.Drawing.Size(227, 40);
             this.btnXacNhan.TabIndex = 3;
             this.btnXacNhan.Text = "✔ Xác nhận thay đổi";
             this.btnXacNhan.UseVisualStyleBackColor = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(193, 27);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(127, 22);
-            this.textBox1.TabIndex = 3;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(193, 70);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(127, 22);
-            this.textBox2.TabIndex = 4;
+            this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
             // 
             // Thaydoidotuoi
             // 
@@ -229,7 +231,7 @@
         private System.Windows.Forms.Label lblTuoitoidamoi;
         private System.Windows.Forms.NumericUpDown nbTuoitoidamoi;
         private System.Windows.Forms.Button btnXacNhan;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtTuoiMax;
+        private System.Windows.Forms.TextBox txtTuoiMin;
     }
 }
