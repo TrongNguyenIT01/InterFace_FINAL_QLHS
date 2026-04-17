@@ -12,7 +12,7 @@ public class DataProvider
     public static string ChuoiKetNoi
     {
         //Máy Nguyễn
-        get { return @"Data Source=.;Initial Catalog=QLHS;Integrated Security=True;Encrypt=False"; }
+        get { return @"Data Source=.;Initial Catalog=QLHS;Integrated Security=True;Encrypt=False"; } 
         //Máy Kiên
         //get { return @"Data Source=.;Initial Catalog=QLHS;Integrated Security=True;Encrypt=False"; }
         //Máy Phú
