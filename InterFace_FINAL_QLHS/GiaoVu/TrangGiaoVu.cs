@@ -83,6 +83,7 @@ namespace InterFace_FINAL_QLHS
 
         private void btnTongQuan_Click(object sender, EventArgs e)
         {
+            OpenChildForm(new TongQuan());
         }
 
         private void btnTiepNhanHocSinh_Click(object sender, EventArgs e)
