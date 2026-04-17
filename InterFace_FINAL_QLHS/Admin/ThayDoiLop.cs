@@ -25,10 +25,10 @@ namespace InterFace_FINAL_QLHS.Admin
             dataGridViewDanhSachLop.DataSource = dt;
 
             dataGridViewDanhSachLop.Columns[0].HeaderText = "Mã Lớp";
-            dataGridViewDanhSachLop.Columns[1].HeaderText = "Tên Lớp";
+            dataGridViewDanhSachLop.Columns[1].HeaderText = "Tên Lớp Hứa Gia Kiên";
             dataGridViewDanhSachLop.Columns[2].HeaderText = "Sỉ Số";
             dataGridViewDanhSachLop.Columns[3].HeaderText = "Sỉ Số Tối Đa";
-            dataGridViewDanhSachLop.Columns[4].HeaderText = "GVCN";
+            //dataGridViewDanhSachLop.Columns[4].HeaderText = "GVCN";
         }
 
       
