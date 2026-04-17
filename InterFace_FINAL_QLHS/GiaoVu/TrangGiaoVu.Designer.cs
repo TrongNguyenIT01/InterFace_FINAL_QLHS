@@ -52,6 +52,7 @@
             // 
             // timerSidebar
             // 
+            this.timerSidebar.Interval = 10;
             this.timerSidebar.Tick += new System.EventHandler(this.timerSidebar_Tick);
             // 
             // btnSidebar
