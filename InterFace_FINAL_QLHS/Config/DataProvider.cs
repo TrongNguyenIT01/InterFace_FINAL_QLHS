@@ -53,6 +53,19 @@ public class DataProvider
         return kq;
     }
 
+
+    public static int ExcuteNonQuery_trans(string sql, CommandType type, SqlParameter[] paras, SqlConnection conn, SqlTransaction tran)
+    {
+        using (SqlCommand cmd = new SqlCommand(sql, conn, tran))
+        {
+            cmd.CommandType = type;
+
+            if (paras != null)
+                cmd.Parameters.AddRange(paras);
+
+            return cmd.ExecuteNonQuery();
+        }
+    }
     public static int ExcuteNonQuery(string sql, CommandType type, SqlParameter[] paras)
     {
         SqlConnection sqlcon = new SqlConnection(ChuoiKetNoi);

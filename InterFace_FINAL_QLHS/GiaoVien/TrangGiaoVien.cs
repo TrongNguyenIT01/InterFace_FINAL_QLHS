@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace InterFace_FINAL_QLHS.GiaoVien
 {
-    public partial class TEST : Form
+    public partial class TrangGiaoVien : Form
     {
-        public TEST()
+        public TrangGiaoVien()
         {
             InitializeComponent();
         }
