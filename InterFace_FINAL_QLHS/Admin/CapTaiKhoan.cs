@@ -45,19 +45,25 @@ namespace InterFace_FINAL_QLHS.Admin
         {
             string prefix = "";
 
-            string tableName = "Users";
-            string id = "UserID";
+            string tableName = "";
+            string id = "";
 
             switch (vaitro)
             {
                 case "Admin":
                     prefix = "AD";
+                    tableName= "NhanVien";
+                    id= "NhanVienID";
                     break;
                 case "Giáo Viên":
                     prefix = "GV";
+                    tableName = "GiaoVien";
+                    id = "GiaoVienID";
                     break;
                 case "Giáo Vụ":
                     prefix = "GVU";
+                    tableName = "NhanVien";
+                    id = "NhanVienID";
                     break;
                 default: return "";
             }

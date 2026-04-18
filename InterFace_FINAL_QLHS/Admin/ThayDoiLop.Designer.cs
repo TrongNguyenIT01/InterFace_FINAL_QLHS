@@ -207,6 +207,7 @@
             this.btnXoa.TabIndex = 13;
             this.btnXoa.Text = "✖ Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
@@ -220,6 +221,7 @@
             this.btnSua.TabIndex = 14;
             this.btnSua.Text = "✎ Sửa";
             this.btnSua.UseVisualStyleBackColor = false;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // cbGVCN
             // 
