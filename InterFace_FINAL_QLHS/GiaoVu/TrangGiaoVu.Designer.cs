@@ -64,7 +64,7 @@
             this.btnSidebar.Location = new System.Drawing.Point(0, 0);
             this.btnSidebar.Margin = new System.Windows.Forms.Padding(10);
             this.btnSidebar.Name = "btnSidebar";
-            this.btnSidebar.Size = new System.Drawing.Size(270, 35);
+            this.btnSidebar.Size = new System.Drawing.Size(275, 35);
             this.btnSidebar.TabIndex = 0;
             this.btnSidebar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSidebar.UseVisualStyleBackColor = true;
@@ -78,7 +78,7 @@
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogout.Location = new System.Drawing.Point(0, 545);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(270, 35);
+            this.btnLogout.Size = new System.Drawing.Size(275, 35);
             this.btnLogout.TabIndex = 9;
             this.btnLogout.Text = "Đăng xuất";
             this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -103,7 +103,7 @@
             this.panelSidebar.ForeColor = System.Drawing.Color.DarkBlue;
             this.panelSidebar.Location = new System.Drawing.Point(0, 0);
             this.panelSidebar.Name = "panelSidebar";
-            this.panelSidebar.Size = new System.Drawing.Size(270, 580);
+            this.panelSidebar.Size = new System.Drawing.Size(275, 580);
             this.panelSidebar.TabIndex = 0;
             // 
             // btnSapXepGV
@@ -114,11 +114,12 @@
             this.btnSapXepGV.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSapXepGV.Location = new System.Drawing.Point(0, 280);
             this.btnSapXepGV.Name = "btnSapXepGV";
-            this.btnSapXepGV.Size = new System.Drawing.Size(270, 35);
+            this.btnSapXepGV.Size = new System.Drawing.Size(275, 35);
             this.btnSapXepGV.TabIndex = 8;
             this.btnSapXepGV.Text = "Sắp xếp giáo viên";
             this.btnSapXepGV.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSapXepGV.UseVisualStyleBackColor = true;
+            this.btnSapXepGV.Click += new System.EventHandler(this.btnSapXepGV_Click);
             // 
             // btnXemBaoCaoHK
             // 
@@ -128,11 +129,12 @@
             this.btnXemBaoCaoHK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnXemBaoCaoHK.Location = new System.Drawing.Point(0, 245);
             this.btnXemBaoCaoHK.Name = "btnXemBaoCaoHK";
-            this.btnXemBaoCaoHK.Size = new System.Drawing.Size(270, 35);
+            this.btnXemBaoCaoHK.Size = new System.Drawing.Size(275, 35);
             this.btnXemBaoCaoHK.TabIndex = 7;
             this.btnXemBaoCaoHK.Text = "Báo cáo tổng kết học kỳ";
             this.btnXemBaoCaoHK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXemBaoCaoHK.UseVisualStyleBackColor = true;
+            this.btnXemBaoCaoHK.Click += new System.EventHandler(this.btnXemBaoCaoHK_Click);
             // 
             // btnXemBaoCaoMon
             // 
@@ -142,11 +144,12 @@
             this.btnXemBaoCaoMon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnXemBaoCaoMon.Location = new System.Drawing.Point(0, 210);
             this.btnXemBaoCaoMon.Name = "btnXemBaoCaoMon";
-            this.btnXemBaoCaoMon.Size = new System.Drawing.Size(270, 35);
+            this.btnXemBaoCaoMon.Size = new System.Drawing.Size(275, 35);
             this.btnXemBaoCaoMon.TabIndex = 6;
             this.btnXemBaoCaoMon.Text = "Báo cáo tổng kết môn";
             this.btnXemBaoCaoMon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXemBaoCaoMon.UseVisualStyleBackColor = true;
+            this.btnXemBaoCaoMon.Click += new System.EventHandler(this.btnXemBaoCaoMon_Click);
             // 
             // btnXemDiem
             // 
@@ -156,11 +159,12 @@
             this.btnXemDiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnXemDiem.Location = new System.Drawing.Point(0, 175);
             this.btnXemDiem.Name = "btnXemDiem";
-            this.btnXemDiem.Size = new System.Drawing.Size(270, 35);
+            this.btnXemDiem.Size = new System.Drawing.Size(275, 35);
             this.btnXemDiem.TabIndex = 5;
             this.btnXemDiem.Text = "Xem bảng điểm môn";
             this.btnXemDiem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXemDiem.UseVisualStyleBackColor = true;
+            this.btnXemDiem.Click += new System.EventHandler(this.btnXemDiem_Click);
             // 
             // btnTraCuuHocSinh
             // 
@@ -170,7 +174,7 @@
             this.btnTraCuuHocSinh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTraCuuHocSinh.Location = new System.Drawing.Point(0, 140);
             this.btnTraCuuHocSinh.Name = "btnTraCuuHocSinh";
-            this.btnTraCuuHocSinh.Size = new System.Drawing.Size(270, 35);
+            this.btnTraCuuHocSinh.Size = new System.Drawing.Size(275, 35);
             this.btnTraCuuHocSinh.TabIndex = 4;
             this.btnTraCuuHocSinh.Text = "Tra cứu học sinh";
             this.btnTraCuuHocSinh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -185,7 +189,7 @@
             this.btnDanhSachLop.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDanhSachLop.Location = new System.Drawing.Point(0, 105);
             this.btnDanhSachLop.Name = "btnDanhSachLop";
-            this.btnDanhSachLop.Size = new System.Drawing.Size(270, 35);
+            this.btnDanhSachLop.Size = new System.Drawing.Size(275, 35);
             this.btnDanhSachLop.TabIndex = 3;
             this.btnDanhSachLop.Text = "Lập danh sách lớp";
             this.btnDanhSachLop.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -200,7 +204,7 @@
             this.btnTiepNhanHocSinh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTiepNhanHocSinh.Location = new System.Drawing.Point(0, 70);
             this.btnTiepNhanHocSinh.Name = "btnTiepNhanHocSinh";
-            this.btnTiepNhanHocSinh.Size = new System.Drawing.Size(270, 35);
+            this.btnTiepNhanHocSinh.Size = new System.Drawing.Size(275, 35);
             this.btnTiepNhanHocSinh.TabIndex = 2;
             this.btnTiepNhanHocSinh.Text = "Tiếp nhận học sinh";
             this.btnTiepNhanHocSinh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -215,7 +219,7 @@
             this.btnTongQuan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTongQuan.Location = new System.Drawing.Point(0, 35);
             this.btnTongQuan.Name = "btnTongQuan";
-            this.btnTongQuan.Size = new System.Drawing.Size(270, 35);
+            this.btnTongQuan.Size = new System.Drawing.Size(275, 35);
             this.btnTongQuan.TabIndex = 1;
             this.btnTongQuan.Text = "Tổng quan";
             this.btnTongQuan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -229,9 +233,9 @@
             this.btnXepChong,
             this.btnChiaNgang,
             this.btnChiaDoc});
-            this.statusStrip1.Location = new System.Drawing.Point(270, 554);
+            this.statusStrip1.Location = new System.Drawing.Point(275, 554);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(714, 26);
+            this.statusStrip1.Size = new System.Drawing.Size(709, 26);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 

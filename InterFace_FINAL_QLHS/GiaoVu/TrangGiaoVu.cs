@@ -53,6 +53,7 @@ namespace InterFace_FINAL_QLHS
                     btnXemBaoCaoHK.Text = "Báo cáo tổng kết học kỳ";
                     btnXemBaoCaoMon.Text = "Báo cáo tổng kết môn";
                     btnXemDiem.Text = "Xem bảng điểm môn";
+                    btnLogout.Text = "Đăng xuất";
                 }
             }
         }
@@ -128,7 +129,24 @@ namespace InterFace_FINAL_QLHS
             this.Close();
         }
 
+        private void btnXemDiem_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new BangDiemMon());
+        }
 
-    
+        private void btnXemBaoCaoMon_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new BaoCaoMon());
+        }
+
+        private void btnXemBaoCaoHK_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new BaoCaoHocKy());
+        }
+
+        private void btnSapXepGV_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new PhanCongGV());
+        }
     }
 }

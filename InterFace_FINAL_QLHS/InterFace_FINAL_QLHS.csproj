@@ -90,11 +90,35 @@
     <Compile Include="GiaoVien\TEST.Designer.cs">
       <DependentUpon>TEST.cs</DependentUpon>
     </Compile>
+    <Compile Include="GiaoVu\BangDiemMon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoVu\BangDiemMon.Designer.cs">
+      <DependentUpon>BangDiemMon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GiaoVu\BaoCaoHocKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoVu\BaoCaoHocKy.Designer.cs">
+      <DependentUpon>BaoCaoHocKy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GiaoVu\BaoCaoMon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoVu\BaoCaoMon.Designer.cs">
+      <DependentUpon>BaoCaoMon.cs</DependentUpon>
+    </Compile>
     <Compile Include="GiaoVu\LapDanhSachLop.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GiaoVu\LapDanhSachLop.Designer.cs">
       <DependentUpon>LapDanhSachLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GiaoVu\PhanCongGV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoVu\PhanCongGV.Designer.cs">
+      <DependentUpon>PhanCongGV.cs</DependentUpon>
     </Compile>
     <Compile Include="GiaoVu\TraCuuHocSinh.cs">
       <SubType>Form</SubType>
@@ -146,8 +170,20 @@
     <EmbeddedResource Include="Admin\TongQuanAdmin.resx">
       <DependentUpon>TongQuanAdmin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GiaoVu\BangDiemMon.resx">
+      <DependentUpon>BangDiemMon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GiaoVu\BaoCaoHocKy.resx">
+      <DependentUpon>BaoCaoHocKy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GiaoVu\BaoCaoMon.resx">
+      <DependentUpon>BaoCaoMon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GiaoVu\LapDanhSachLop.resx">
       <DependentUpon>LapDanhSachLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GiaoVu\PhanCongGV.resx">
+      <DependentUpon>PhanCongGV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GiaoVu\TiepNhanHocSinh.resx">
       <DependentUpon>TiepNhanHocSinh.cs</DependentUpon>
