@@ -71,15 +71,25 @@ namespace InterFace_FINAL_QLHS
             {
                 if (f.GetType() == childForm.GetType())
                 {
-                    f.Activate(); // Nếu mở rồi thì chỉ cần hiện nó lên trên cùng
-                    f.WindowState = FormWindowState.Normal; // Đưa về kích thước bình thường nếu đang thu nhỏ
+                    f.Activate();
+                    f.WindowState = FormWindowState.Maximized; // Ép full màn hình khi kích hoạt lại
                     return;
                 }
             }
 
-            // 2. Nếu chưa có, thiết lập để nó nằm trong Form cha
+            // 2. Thiết lập cho form mới
             childForm.MdiParent = this;
+
+            // Thêm sự kiện FormClosed để xử lý khi đóng form này thì form khác tự to lên (nếu cần)
+            childForm.FormClosed += (s, e) => {
+                if (this.MdiChildren.Length > 0)
+                {
+                    this.MdiChildren[0].WindowState = FormWindowState.Maximized;
+                }
+            };
+
             childForm.Show();
+            childForm.WindowState = FormWindowState.Maximized; // Ép full màn hình ngay khi mở
         }
 
         private void btnTongQuan_Click(object sender, EventArgs e)
