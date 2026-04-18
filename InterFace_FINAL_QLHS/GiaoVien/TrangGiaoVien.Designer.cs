@@ -28,8 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrangGiaoVien));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.timesidebar = new System.Windows.Forms.Timer(this.components);
+            this.stXepChong = new System.Windows.Forms.ToolStripStatusLabel();
+            this.stChiaNgang = new System.Windows.Forms.ToolStripStatusLabel();
+            this.stChiadoc = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnDangXuat = new System.Windows.Forms.Button();
             this.btnDoiMK = new System.Windows.Forms.Button();
             this.btnTTGV = new System.Windows.Forms.Button();
@@ -37,8 +43,8 @@
             this.btnNhapDiem = new System.Windows.Forms.Button();
             this.btnTongQuan = new System.Windows.Forms.Button();
             this.btnDashBoard = new System.Windows.Forms.Button();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.panel1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -56,6 +62,45 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(364, 450);
             this.panel1.TabIndex = 0;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stXepChong,
+            this.stChiaNgang,
+            this.stChiadoc});
+            this.statusStrip1.Location = new System.Drawing.Point(364, 424);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(436, 26);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // timesidebar
+            // 
+            this.timesidebar.Interval = 10;
+            this.timesidebar.Tick += new System.EventHandler(this.Timesidebar_Tick);
+            // 
+            // stXepChong
+            // 
+            this.stXepChong.Name = "stXepChong";
+            this.stXepChong.Size = new System.Drawing.Size(82, 20);
+            this.stXepChong.Text = "Xếp Chồng";
+            this.stXepChong.Click += new System.EventHandler(this.stXepChong_Click);
+            // 
+            // stChiaNgang
+            // 
+            this.stChiaNgang.Name = "stChiaNgang";
+            this.stChiaNgang.Size = new System.Drawing.Size(87, 20);
+            this.stChiaNgang.Text = "Chia Ngang";
+            this.stChiaNgang.Click += new System.EventHandler(this.stChiaNgang_Click);
+            // 
+            // stChiadoc
+            // 
+            this.stChiadoc.Name = "stChiadoc";
+            this.stChiadoc.Size = new System.Drawing.Size(69, 20);
+            this.stChiadoc.Text = "Chia Dọc";
+            this.stChiadoc.Click += new System.EventHandler(this.stChiadoc_Click);
             // 
             // btnDangXuat
             // 
@@ -79,6 +124,7 @@
             this.btnDoiMK.BackColor = System.Drawing.Color.LightBlue;
             this.btnDoiMK.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.btnDoiMK.ForeColor = System.Drawing.Color.DarkBlue;
+            this.btnDoiMK.Image = ((System.Drawing.Image)(resources.GetObject("btnDoiMK.Image")));
             this.btnDoiMK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDoiMK.Location = new System.Drawing.Point(0, 235);
             this.btnDoiMK.Name = "btnDoiMK";
@@ -94,6 +140,7 @@
             this.btnTTGV.BackColor = System.Drawing.Color.LightBlue;
             this.btnTTGV.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.btnTTGV.ForeColor = System.Drawing.Color.DarkBlue;
+            this.btnTTGV.Image = ((System.Drawing.Image)(resources.GetObject("btnTTGV.Image")));
             this.btnTTGV.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTTGV.Location = new System.Drawing.Point(0, 188);
             this.btnTTGV.Name = "btnTTGV";
@@ -109,6 +156,7 @@
             this.btnTraCuuHS.BackColor = System.Drawing.Color.LightBlue;
             this.btnTraCuuHS.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.btnTraCuuHS.ForeColor = System.Drawing.Color.DarkBlue;
+            this.btnTraCuuHS.Image = ((System.Drawing.Image)(resources.GetObject("btnTraCuuHS.Image")));
             this.btnTraCuuHS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTraCuuHS.Location = new System.Drawing.Point(0, 141);
             this.btnTraCuuHS.Name = "btnTraCuuHS";
@@ -124,6 +172,7 @@
             this.btnNhapDiem.BackColor = System.Drawing.Color.LightBlue;
             this.btnNhapDiem.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.btnNhapDiem.ForeColor = System.Drawing.Color.DarkBlue;
+            this.btnNhapDiem.Image = ((System.Drawing.Image)(resources.GetObject("btnNhapDiem.Image")));
             this.btnNhapDiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNhapDiem.Location = new System.Drawing.Point(0, 94);
             this.btnNhapDiem.Name = "btnNhapDiem";
@@ -139,6 +188,7 @@
             this.btnTongQuan.BackColor = System.Drawing.Color.LightBlue;
             this.btnTongQuan.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.btnTongQuan.ForeColor = System.Drawing.Color.DarkBlue;
+            this.btnTongQuan.Image = ((System.Drawing.Image)(resources.GetObject("btnTongQuan.Image")));
             this.btnTongQuan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTongQuan.Location = new System.Drawing.Point(0, 47);
             this.btnTongQuan.Name = "btnTongQuan";
@@ -148,6 +198,7 @@
             this.btnTongQuan.Text = "Tổng quan";
             this.btnTongQuan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTongQuan.UseVisualStyleBackColor = false;
+            this.btnTongQuan.Click += new System.EventHandler(this.btnTongQuan_Click);
             // 
             // btnDashBoard
             // 
@@ -162,15 +213,7 @@
             this.btnDashBoard.Size = new System.Drawing.Size(364, 50);
             this.btnDashBoard.TabIndex = 0;
             this.btnDashBoard.UseVisualStyleBackColor = false;
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Location = new System.Drawing.Point(364, 428);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(436, 22);
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "statusStrip1";
+            this.btnDashBoard.Click += new System.EventHandler(this.btnDashBoard_Click);
             // 
             // TrangGiaoVien
             // 
@@ -183,6 +226,8 @@
             this.Name = "TrangGiaoVien";
             this.Text = "Trang Giáo Viên";
             this.panel1.ResumeLayout(false);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,5 +244,9 @@
         private System.Windows.Forms.Button btnDashBoard;
         private System.Windows.Forms.Button btnDangXuat;
         private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.Timer timesidebar;
+        private System.Windows.Forms.ToolStripStatusLabel stXepChong;
+        private System.Windows.Forms.ToolStripStatusLabel stChiaNgang;
+        private System.Windows.Forms.ToolStripStatusLabel stChiadoc;
     }
 }

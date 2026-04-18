@@ -1,4 +1,5 @@
 ﻿using InterFace_FINAL_QLHS.Admin;
+using InterFace_FINAL_QLHS.GiaoVien;
 using System;
 using System.Collections.Generic;
 using System.Linq;
