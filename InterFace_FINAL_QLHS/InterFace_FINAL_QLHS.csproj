@@ -84,11 +84,11 @@
     </Compile>
     <Compile Include="Config\Dang_Nhap.cs" />
     <Compile Include="Config\DataProvider.cs" />
-    <Compile Include="GiaoVien\TEST.cs">
+    <Compile Include="GiaoVien\TrangGiaoVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GiaoVien\TEST.Designer.cs">
-      <DependentUpon>TEST.cs</DependentUpon>
+    <Compile Include="GiaoVien\TrangGiaoVien.Designer.cs">
+      <DependentUpon>TrangGiaoVien.cs</DependentUpon>
     </Compile>
     <Compile Include="GiaoVu\BangDiemMon.cs">
       <SubType>Form</SubType>
@@ -170,6 +170,9 @@
     <EmbeddedResource Include="Admin\TongQuanAdmin.resx">
       <DependentUpon>TongQuanAdmin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GiaoVien\TrangGiaoVien.resx">
+      <DependentUpon>TrangGiaoVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GiaoVu\BangDiemMon.resx">
       <DependentUpon>BangDiemMon.cs</DependentUpon>
     </EmbeddedResource>
@@ -202,6 +205,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="GiaoVu\TongQuan.resx">
       <DependentUpon>TongQuan.cs</DependentUpon>
@@ -222,6 +226,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\menu-fill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout-box-line.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
