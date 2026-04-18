@@ -16,6 +16,11 @@ namespace InterFace_FINAL_QLHS.Admin
         {
             InitializeComponent();
         }
+        private void ThayDoiLop_Load(object sender, EventArgs e)
+        {
+            Load_ds();
+            LayDuLieuGV();
+        }
 
         private void Load_ds() {
             string sql= @"SELECT * FROM Lop";
@@ -31,11 +36,19 @@ namespace InterFace_FINAL_QLHS.Admin
             dataGridViewDanhSachLop.Columns[4].HeaderText = "GVCN";
         }
 
-      
-
-        private void ThayDoiLop_Load(object sender, EventArgs e)
+        private void LayDuLieuGV()
         {
-            Load_ds();
+            string sql = "SELECT * FROM GiaoVien WHERE TrangThai =N'Chưa Phân Công' ";
+
+            DataTable dt = DataProvider.TruyVan_LayDuLieu(sql);
+            cbGVCN.DataSource = dt;
+            cbGVCN.DisplayMember = "HoTen";
+            cbGVCN.ValueMember = "GiaoVienID";
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
