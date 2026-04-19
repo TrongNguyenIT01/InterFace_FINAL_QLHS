@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using InterFace_FINAL_QLHS.Admin;
 using InterFace_FINAL_QLHS.Config;
+using InterFace_FINAL_QLHS.GiaoVien;
 
 namespace InterFace_FINAL_QLHS
 {
@@ -44,6 +45,7 @@ namespace InterFace_FINAL_QLHS
                 else if (cbVaitro.Text == "Giáo Viên")
                 {
                     dn = Dang_Nhap.checkDN(txtDangnhap.Text, txtMatkhau.Text, 1);
+                    f = new TrangGiaoVien();
                 }
                 else if (cbVaitro.Text == "Giáo Vụ")
                 {

@@ -24,10 +24,10 @@ namespace InterFace_FINAL_QLHS.Admin
         }
 
         private void Load_ds() {
-            string sql= @"SELECT * FROM Lop";
+            string sql = @"SELECT * FROM Lop";
 
-           DataTable dt = DataProvider.TruyVan_LayDuLieu(sql);
-            
+            DataTable dt = DataProvider.TruyVan_LayDuLieu(sql);
+
             dataGridViewDanhSachLop.DataSource = dt;
 
             dataGridViewDanhSachLop.Columns[0].HeaderText = "Mã Lớp";
@@ -37,12 +37,13 @@ namespace InterFace_FINAL_QLHS.Admin
             dataGridViewDanhSachLop.Columns[4].HeaderText = "GVCN";
         }
 
+
         private void LayDuLieuGV()
         {
             string sql = "SELECT * FROM GiaoVien WHERE TrangThai = N'Chưa Phân Công'";
             DataTable dt = DataProvider.TruyVan_LayDuLieu(sql);
 
-            
+
             DataRow row = dt.NewRow();
             row["GiaoVienID"] = DBNull.Value;
             row["HoTen"] = "-- Chọn giáo viên --";
@@ -52,7 +53,16 @@ namespace InterFace_FINAL_QLHS.Admin
             cbGVCN.DisplayMember = "HoTen";
             cbGVCN.ValueMember = "GiaoVienID";
 
-            cbGVCN.SelectedIndex = 0; 
+            cbGVCN.SelectedIndex = 0;
+        }
+
+        private void LamMoiGiaoDien()
+        {
+            txtMaLop.Text = "";
+            txtSiSoToiDa.Text = "";
+            txtTenLop.Text = "";
+            Load_ds();
+            LayDuLieuGV();
         }
         private bool KiemTraDuLieu()
         {
@@ -87,157 +97,167 @@ namespace InterFace_FINAL_QLHS.Admin
 
             return true;
         }
+
+        const string TrangThai_1 = "Chưa Phân Công";
+        const string TrangThai_2 = "Đã Phân Công GVCN";
+
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (KiemTraDuLieu())
+            if (!KiemTraDuLieu()) return;
+            if (cbGVCN.SelectedIndex == 0)
             {
-                string sql = $"INSERT INTO Lop (MaLop,TenLop, SiSoToiDa, GiaoVienID) " +
-                    $"VALUES (@malop, @tenlop, @sisomax, @gvcn)";
-                string sql2 = $"UPDATE GiaoVien SET TrangThai = N'Đã Phân Công GVCN' WHERE GiaoVienID = @gvcn";
+                MessageBox.Show($"Vui lòng chọn giáo viên!", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-                SqlParameter[] sp = new SqlParameter[] {
-                new SqlParameter("@malop",txtMaLop.Text),
-                new SqlParameter("@tenlop", txtTenLop.Text),
-                new SqlParameter("@sisomax", txtSiSoToiDa.Text),
+            using (SqlConnection conn = new SqlConnection(DataProvider.ChuoiKetNoi))
+            {
+                conn.Open();
+                SqlTransaction tran = conn.BeginTransaction();
+                try
+                {
+
+                    string sqlLop = "INSERT INTO Lop (MaLop, TenLop, SiSoToiDa, GiaoVienID) VALUES (@malop, @tenlop, @sisomax, @gvcn)";
+                    SqlParameter[] spLop = {
+                new SqlParameter("@malop", txtMaLop.Text.Trim()),
+                new SqlParameter("@tenlop", txtTenLop.Text.Trim()),
+                new SqlParameter("@sisomax", txtSiSoToiDa.Text.Trim()),
                 new SqlParameter("@gvcn", cbGVCN.SelectedValue)
-                };
+            };
+                    DataProvider.ExcuteNonQuery_trans(sqlLop, CommandType.Text, spLop, conn, tran);
 
-                bool kq = DataProvider.ExcuteNonQuery(sql, CommandType.Text, sp) > 0;
-                if (kq)
-                {
-                    MessageBox.Show("Thêm lớp thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    DataProvider.ExcuteNonQuery(sql2, CommandType.Text, sp);
-                    Load_ds();
-                    txtMaLop.Text =null;
-                    txtSiSoToiDa.Text = null;
-                    txtTenLop.Text = null;
-                    LayDuLieuGV();
+                    //update gv
+                    string sqlGV = $"UPDATE GiaoVien SET TrangThai = @tt WHERE GiaoVienID = @id";
+                    DataProvider.ExcuteNonQuery_trans(sqlGV, CommandType.Text,
+                        new SqlParameter[] {
+                    new SqlParameter("@tt", TrangThai_2),
+                    new SqlParameter("@id", cbGVCN.SelectedValue)
+                        }, conn, tran);
+
+                    tran.Commit();
+                    MessageBox.Show("Thêm lớp thành công!");
+                    LamMoiGiaoDien();
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Thêm lớp thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tran.Rollback();
+                    MessageBox.Show("Lỗi thêm lớp: " + ex.Message);
                 }
             }
-        
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            string maLop = txtMaLop.Text;
-            string sqlGet = "SELECT GiaoVienID FROM Lop WHERE MaLop = @malop";
-            SqlParameter[] spGet = {
-        new SqlParameter("@malop", maLop)
-    };
+            string maLop = txtMaLop.Text.Trim();
+            if (string.IsNullOrEmpty(maLop)) return;
 
-            DataTable dt = DataProvider.SelectData(sqlGet, CommandType.Text, spGet);
-            string gvID = null;
-
-            if (dt.Rows.Count > 0)
-                gvID = dt.Rows[0]["GiaoVienID"]?.ToString();
-
-
-            string sqlDelete = "DELETE FROM Lop WHERE MaLop = @malop";
-            SqlParameter[] spDelete = {
-        new SqlParameter("@malop", maLop)
-    };
-
-            if (MessageBox.Show("Bạn có chắc muốn xóa lớp này?", "Xác nhận",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Bạn có chắc muốn xóa?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                bool kq = DataProvider.ExcuteNonQuery(sqlDelete, CommandType.Text, spDelete) > 0;
-
-                if (kq)
+                using (SqlConnection conn = new SqlConnection(DataProvider.ChuoiKetNoi))
                 {
-                    
-                    if (!string.IsNullOrEmpty(gvID))
+                    conn.Open();
+                    SqlTransaction tran = conn.BeginTransaction();
+                    try
                     {
-                        string sqlUpdate = "UPDATE GiaoVien SET TrangThai = N'Chưa Phân Công' WHERE GiaoVienID = @id";
-                        SqlParameter[] spUpdate = {
-                    new SqlParameter("@id", gvID)
-                };
+                        // lấy gv cũ
+                        string sqlGetGV = "SELECT GiaoVienID FROM Lop WHERE MaLop = @malop";
+                        SqlCommand cmd = new SqlCommand(sqlGetGV, conn, tran);
+                        cmd.Parameters.AddWithValue("@malop", maLop);
+                        object result = cmd.ExecuteScalar();
+                        string gvID = result != DBNull.Value ? result?.ToString() : null;
 
-                        DataProvider.ExcuteNonQuery(sqlUpdate, CommandType.Text, spUpdate);
+                        // xóa
+                        string sqlDel = "DELETE FROM Lop WHERE MaLop = @malop";
+                        DataProvider.ExcuteNonQuery_trans(sqlDel, CommandType.Text,
+                            new SqlParameter[] { new SqlParameter("@malop", maLop) }, conn, tran);
+
+                        // nhả phân công
+                        if (!string.IsNullOrEmpty(gvID))
+                        {
+                            string sqlUpdateGV = "UPDATE GiaoVien SET TrangThai = @tt WHERE GiaoVienID = @id";
+                            DataProvider.ExcuteNonQuery_trans(sqlUpdateGV, CommandType.Text,
+                                new SqlParameter[] {
+                            new SqlParameter("@tt", TrangThai_1),
+                            new SqlParameter("@id", gvID)
+                                }, conn, tran);
+                        }
+
+                        tran.Commit();
+                        MessageBox.Show("Xóa thành công!");
+                        LamMoiGiaoDien();
                     }
-
-                    MessageBox.Show("Xóa lớp thành công!", "Thông báo",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    Load_ds();
-                    txtMaLop.Text = null;
-                    txtSiSoToiDa.Text = null;
-                    txtTenLop.Text = null;
-                    LayDuLieuGV();
-                }
-                else
-                {
-                    MessageBox.Show("Xóa lớp thất bại!", "Lỗi",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    catch (Exception ex)
+                    {
+                        tran.Rollback();
+                        MessageBox.Show("Lỗi xóa: " + ex.Message);
+                    }
                 }
             }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            string maLop = txtMaLop.Text;
-            string gvMoi = cbGVCN.SelectedValue.ToString();
+            string maLop = txtMaLop.Text.Trim();
+            if (cbGVCN.SelectedValue == null) return;
+            string gvMoiID = cbGVCN.SelectedValue.ToString();
 
             using (SqlConnection conn = new SqlConnection(DataProvider.ChuoiKetNoi))
             {
                 conn.Open();
                 SqlTransaction tran = conn.BeginTransaction();
-
                 try
                 {
-                    
-                    string sqlGet = "SELECT GiaoVienID FROM Lop WHERE MaLop = @malop";
-                    SqlCommand cmdGet = new SqlCommand(sqlGet, conn, tran);
-                    cmdGet.Parameters.AddWithValue("@malop", maLop);
+                    //lất gv cũ
+                    string sqlCheck = "SELECT GiaoVienID FROM Lop WHERE MaLop = @malop";
+                    SqlCommand cmd = new SqlCommand(sqlCheck, conn, tran);
+                    cmd.Parameters.AddWithValue("@malop", maLop);
+                    string gvCuID = cmd.ExecuteScalar()?.ToString();
 
-                    string gvCu = cmdGet.ExecuteScalar()?.ToString();
 
-                    
-                    if (!string.IsNullOrEmpty(gvCu) && gvCu != gvMoi)
+                    if (gvCuID != gvMoiID)
                     {
-                 
-                        string sqlOld = "UPDATE GiaoVien SET TrangThai = N'Chưa Phân Công' WHERE GiaoVienID = @id";
-                        DataProvider.ExcuteNonQuery_trans(sqlOld, CommandType.Text,
-                            new SqlParameter[] { new SqlParameter("@id", gvCu) }, conn, tran);
 
-                       
-                        string sqlNew = "UPDATE GiaoVien SET TrangThai = N'Đã Phân Công' WHERE GiaoVienID = @id";
-                        DataProvider.ExcuteNonQuery_trans(sqlNew, CommandType.Text,
-                            new SqlParameter[] { new SqlParameter("@id", gvMoi) }, conn, tran);
+                        if (!string.IsNullOrEmpty(gvCuID))
+                        {
+                            DataProvider.ExcuteNonQuery_trans("UPDATE GiaoVien SET TrangThai = @tt WHERE GiaoVienID = @id",
+                                CommandType.Text, new SqlParameter[] {
+                            new SqlParameter("@tt", TrangThai_1),
+                            new SqlParameter("@id", gvCuID)
+                                }, conn, tran);
+                        }
+
+
+                        DataProvider.ExcuteNonQuery_trans("UPDATE GiaoVien SET TrangThai = @tt WHERE GiaoVienID = @id",
+                            CommandType.Text, new SqlParameter[] {
+                        new SqlParameter("@tt", TrangThai_2),
+                        new SqlParameter("@id", gvMoiID)
+                            }, conn, tran);
                     }
 
-                   
-                    string sqlUpdate = @"UPDATE Lop 
-                                SET TenLop = @tenlop, 
-                                    SiSoToiDa = @sisomax, 
-                                    GiaoVienID = @gvcn 
-                                WHERE MaLop = @malop";
 
-                    SqlParameter[] sp = {
-                new SqlParameter("@tenlop", txtTenLop.Text),
-                new SqlParameter("@sisomax", txtSiSoToiDa.Text),
-                new SqlParameter("@gvcn", gvMoi),
+                    string sqlUpdateLop = "UPDATE Lop SET TenLop = @ten, SiSoToiDa = @siso, GiaoVienID = @gvid WHERE MaLop = @malop";
+                    SqlParameter[] spLop = {
+                new SqlParameter("@ten", txtTenLop.Text.Trim()),
+                new SqlParameter("@siso", txtSiSoToiDa.Text.Trim()),
+                new SqlParameter("@gvid", gvMoiID),
                 new SqlParameter("@malop", maLop)
             };
-
-                    DataProvider.ExcuteNonQuery_trans(sqlUpdate, CommandType.Text, sp, conn, tran);
+                    DataProvider.ExcuteNonQuery_trans(sqlUpdateLop, CommandType.Text, spLop, conn, tran);
 
                     tran.Commit();
                     MessageBox.Show("Cập nhật thành công!");
-                    txtMaLop.Text = null;
-                    txtSiSoToiDa.Text = null;
-                    txtTenLop.Text = null;
-                    Load_ds();
+                    LamMoiGiaoDien();
                 }
                 catch (Exception ex)
                 {
                     tran.Rollback();
-                    MessageBox.Show("Lỗi: " + ex.Message);
+                    MessageBox.Show("Lỗi cập nhật: " + ex.Message);
                 }
             }
         }
     }
+
+
+
 }
+        
