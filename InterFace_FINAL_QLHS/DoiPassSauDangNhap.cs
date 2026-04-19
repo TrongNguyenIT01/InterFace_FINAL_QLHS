@@ -71,5 +71,27 @@ namespace InterFace_FINAL_QLHS
                 MessageBox.Show("Mật khẩu hiện tại không chính xác!");
             }
         }
+        private bool isPasswordVisible1 = false;
+        private bool isPasswordVisible2 = false;
+        private bool isPasswordVisible3 = false;
+        private void button1_Click(object sender, EventArgs e)
+        {
+            isPasswordVisible1 = !isPasswordVisible1;
+
+            txtPassCu.UseSystemPasswordChar = !isPasswordVisible1;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            isPasswordVisible2 = !isPasswordVisible2;
+
+            txtPassMoi.UseSystemPasswordChar = !isPasswordVisible2;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            isPasswordVisible3 = !isPasswordVisible3;
+            txtXacNhanPass.UseSystemPasswordChar = !isPasswordVisible3;
+        }
     }
 }

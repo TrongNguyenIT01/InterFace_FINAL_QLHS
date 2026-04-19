@@ -31,11 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TongQuanAdmin));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.btnXepChong = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btnChiaNgang = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btnChiaDoc = new System.Windows.Forms.ToolStripStatusLabel();
-            this.Timesidebar = new System.Windows.Forms.Timer(this.components);
+            this.btnThongTinNamHoc = new System.Windows.Forms.Button();
             this.btnThongTinHK = new System.Windows.Forms.Button();
             this.btnDangXuat = new System.Windows.Forms.Button();
             this.btnChuyenMon = new System.Windows.Forms.Button();
@@ -44,7 +40,12 @@
             this.btnThayDoiQuyDinhDoTuoi = new System.Windows.Forms.Button();
             this.btnCapTaiKhoan = new System.Windows.Forms.Button();
             this.btnSideBar = new System.Windows.Forms.Button();
-            this.btnThongTinNamHoc = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.btnXepChong = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnChiaNgang = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnChiaDoc = new System.Windows.Forms.ToolStripStatusLabel();
+            this.Timesidebar = new System.Windows.Forms.Timer(this.components);
+            this.btnDoiPass = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -52,6 +53,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightGray;
+            this.panel1.Controls.Add(this.btnDoiPass);
             this.panel1.Controls.Add(this.btnThongTinNamHoc);
             this.panel1.Controls.Add(this.btnThongTinHK);
             this.panel1.Controls.Add(this.btnDangXuat);
@@ -67,44 +69,22 @@
             this.panel1.Size = new System.Drawing.Size(364, 518);
             this.panel1.TabIndex = 0;
             // 
-            // statusStrip1
+            // btnThongTinNamHoc
             // 
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnXepChong,
-            this.btnChiaNgang,
-            this.btnChiaDoc});
-            this.statusStrip1.Location = new System.Drawing.Point(364, 492);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(690, 26);
-            this.statusStrip1.TabIndex = 1;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // btnXepChong
-            // 
-            this.btnXepChong.Name = "btnXepChong";
-            this.btnXepChong.Size = new System.Drawing.Size(82, 20);
-            this.btnXepChong.Text = "Xếp Chồng";
-            this.btnXepChong.Click += new System.EventHandler(this.btnXepChong_Click);
-            // 
-            // btnChiaNgang
-            // 
-            this.btnChiaNgang.Name = "btnChiaNgang";
-            this.btnChiaNgang.Size = new System.Drawing.Size(87, 20);
-            this.btnChiaNgang.Text = "Chia Ngang";
-            this.btnChiaNgang.Click += new System.EventHandler(this.btnChiaNgang_Click);
-            // 
-            // btnChiaDoc
-            // 
-            this.btnChiaDoc.Name = "btnChiaDoc";
-            this.btnChiaDoc.Size = new System.Drawing.Size(69, 20);
-            this.btnChiaDoc.Text = "Chia Dọc";
-            this.btnChiaDoc.Click += new System.EventHandler(this.btnChiaDoc_Click);
-            // 
-            // Timesidebar
-            // 
-            this.Timesidebar.Interval = 10;
-            this.Timesidebar.Tick += new System.EventHandler(this.Timesidebar_Tick);
+            this.btnThongTinNamHoc.BackColor = System.Drawing.Color.LightBlue;
+            this.btnThongTinNamHoc.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.btnThongTinNamHoc.ForeColor = System.Drawing.Color.DarkBlue;
+            this.btnThongTinNamHoc.Image = ((System.Drawing.Image)(resources.GetObject("btnThongTinNamHoc.Image")));
+            this.btnThongTinNamHoc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnThongTinNamHoc.Location = new System.Drawing.Point(0, 328);
+            this.btnThongTinNamHoc.Name = "btnThongTinNamHoc";
+            this.btnThongTinNamHoc.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnThongTinNamHoc.Size = new System.Drawing.Size(364, 50);
+            this.btnThongTinNamHoc.TabIndex = 8;
+            this.btnThongTinNamHoc.Text = "Thông Tin Năm Học";
+            this.btnThongTinNamHoc.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnThongTinNamHoc.UseVisualStyleBackColor = false;
+            this.btnThongTinNamHoc.Click += new System.EventHandler(this.btnThongTinNamHoc_Click);
             // 
             // btnThongTinHK
             // 
@@ -242,22 +222,62 @@
             this.btnSideBar.UseVisualStyleBackColor = false;
             this.btnSideBar.Click += new System.EventHandler(this.btnSideBar_Click);
             // 
-            // btnThongTinNamHoc
+            // statusStrip1
             // 
-            this.btnThongTinNamHoc.BackColor = System.Drawing.Color.LightBlue;
-            this.btnThongTinNamHoc.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.btnThongTinNamHoc.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnThongTinNamHoc.Image = ((System.Drawing.Image)(resources.GetObject("btnThongTinNamHoc.Image")));
-            this.btnThongTinNamHoc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThongTinNamHoc.Location = new System.Drawing.Point(0, 328);
-            this.btnThongTinNamHoc.Name = "btnThongTinNamHoc";
-            this.btnThongTinNamHoc.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnThongTinNamHoc.Size = new System.Drawing.Size(364, 50);
-            this.btnThongTinNamHoc.TabIndex = 8;
-            this.btnThongTinNamHoc.Text = "Thông Tin Năm Học";
-            this.btnThongTinNamHoc.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnThongTinNamHoc.UseVisualStyleBackColor = false;
-            this.btnThongTinNamHoc.Click += new System.EventHandler(this.btnThongTinNamHoc_Click);
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnXepChong,
+            this.btnChiaNgang,
+            this.btnChiaDoc});
+            this.statusStrip1.Location = new System.Drawing.Point(364, 492);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(690, 26);
+            this.statusStrip1.TabIndex = 1;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // btnXepChong
+            // 
+            this.btnXepChong.Name = "btnXepChong";
+            this.btnXepChong.Size = new System.Drawing.Size(82, 20);
+            this.btnXepChong.Text = "Xếp Chồng";
+            this.btnXepChong.Click += new System.EventHandler(this.btnXepChong_Click);
+            // 
+            // btnChiaNgang
+            // 
+            this.btnChiaNgang.Name = "btnChiaNgang";
+            this.btnChiaNgang.Size = new System.Drawing.Size(87, 20);
+            this.btnChiaNgang.Text = "Chia Ngang";
+            this.btnChiaNgang.Click += new System.EventHandler(this.btnChiaNgang_Click);
+            // 
+            // btnChiaDoc
+            // 
+            this.btnChiaDoc.Name = "btnChiaDoc";
+            this.btnChiaDoc.Size = new System.Drawing.Size(69, 20);
+            this.btnChiaDoc.Text = "Chia Dọc";
+            this.btnChiaDoc.Click += new System.EventHandler(this.btnChiaDoc_Click);
+            // 
+            // Timesidebar
+            // 
+            this.Timesidebar.Interval = 10;
+            this.Timesidebar.Tick += new System.EventHandler(this.Timesidebar_Tick);
+            // 
+            // btnDoiPass
+            // 
+            this.btnDoiPass.BackColor = System.Drawing.Color.LightBlue;
+            this.btnDoiPass.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnDoiPass.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.btnDoiPass.ForeColor = System.Drawing.Color.DarkBlue;
+            this.btnDoiPass.Image = ((System.Drawing.Image)(resources.GetObject("btnDoiPass.Image")));
+            this.btnDoiPass.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDoiPass.Location = new System.Drawing.Point(0, 418);
+            this.btnDoiPass.Name = "btnDoiPass";
+            this.btnDoiPass.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnDoiPass.Size = new System.Drawing.Size(364, 50);
+            this.btnDoiPass.TabIndex = 9;
+            this.btnDoiPass.Text = "Đổi mật khẩu";
+            this.btnDoiPass.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDoiPass.UseVisualStyleBackColor = false;
+            this.btnDoiPass.Click += new System.EventHandler(this.btnDoiPass_Click);
             // 
             // TongQuanAdmin
             // 
@@ -294,5 +314,6 @@
         private System.Windows.Forms.Timer Timesidebar;
         private System.Windows.Forms.Button btnThongTinHK;
         private System.Windows.Forms.Button btnThongTinNamHoc;
+        private System.Windows.Forms.Button btnDoiPass;
     }
 }
