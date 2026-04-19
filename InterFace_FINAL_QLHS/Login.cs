@@ -92,5 +92,12 @@ namespace InterFace_FINAL_QLHS
         {
             txtMatkhau.UseSystemPasswordChar = true;
         }
+
+        private void linkQuenmk_MouseClick(object sender, MouseEventArgs e)
+        {
+            //mở trang quen mat khau
+            Form f = new QuenMatKhau();
+            f.Show();
+        }
     }
 }

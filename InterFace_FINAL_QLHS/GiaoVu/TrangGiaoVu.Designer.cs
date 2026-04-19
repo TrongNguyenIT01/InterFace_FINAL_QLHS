@@ -46,6 +46,7 @@
             this.btnXepChong = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnChiaNgang = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnChiaDoc = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnDoiPass = new System.Windows.Forms.Button();
             this.panelSidebar.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -88,6 +89,7 @@
             // panelSidebar
             // 
             this.panelSidebar.BackColor = System.Drawing.Color.LightBlue;
+            this.panelSidebar.Controls.Add(this.btnDoiPass);
             this.panelSidebar.Controls.Add(this.btnLogout);
             this.panelSidebar.Controls.Add(this.btnSapXepGV);
             this.panelSidebar.Controls.Add(this.btnXemBaoCaoHK);
@@ -260,6 +262,21 @@
             this.btnChiaDoc.Text = "Chia dọc";
             this.btnChiaDoc.Click += new System.EventHandler(this.btnChiaDoc_Click);
             // 
+            // btnDoiPass
+            // 
+            this.btnDoiPass.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnDoiPass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDoiPass.Image = ((System.Drawing.Image)(resources.GetObject("btnDoiPass.Image")));
+            this.btnDoiPass.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDoiPass.Location = new System.Drawing.Point(0, 510);
+            this.btnDoiPass.Name = "btnDoiPass";
+            this.btnDoiPass.Size = new System.Drawing.Size(275, 35);
+            this.btnDoiPass.TabIndex = 10;
+            this.btnDoiPass.Text = "Đổi mật khẩu";
+            this.btnDoiPass.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDoiPass.UseVisualStyleBackColor = true;
+            this.btnDoiPass.Click += new System.EventHandler(this.btnDoiPass_Click);
+            // 
             // TrangGiaoVu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -295,5 +312,6 @@
         private System.Windows.Forms.ToolStripStatusLabel btnXepChong;
         private System.Windows.Forms.ToolStripStatusLabel btnChiaNgang;
         private System.Windows.Forms.ToolStripStatusLabel btnChiaDoc;
+        private System.Windows.Forms.Button btnDoiPass;
     }
 }

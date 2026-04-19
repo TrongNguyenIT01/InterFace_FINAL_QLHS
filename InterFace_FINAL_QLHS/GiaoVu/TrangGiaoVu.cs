@@ -79,7 +79,7 @@ namespace InterFace_FINAL_QLHS
 
             // 2. Thiết lập cho form mới
             childForm.MdiParent = this;
-
+            childForm.FormBorderStyle = FormBorderStyle.None;
             // Thêm sự kiện FormClosed để xử lý khi đóng form này thì form khác tự to lên (nếu cần)
             childForm.FormClosed += (s, e) => {
                 if (this.MdiChildren.Length > 0)
@@ -157,6 +157,11 @@ namespace InterFace_FINAL_QLHS
         private void btnSapXepGV_Click(object sender, EventArgs e)
         {
             OpenChildForm(new PhanCongGV());
+        }
+
+        private void btnDoiPass_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new DoiPassSauDangNhap());
         }
     }
 }
