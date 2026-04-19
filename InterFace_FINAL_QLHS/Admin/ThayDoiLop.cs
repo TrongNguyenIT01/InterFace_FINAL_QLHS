@@ -104,11 +104,11 @@ namespace InterFace_FINAL_QLHS.Admin
         private void btnThem_Click(object sender, EventArgs e)
         {
             if (!KiemTraDuLieu()) return;
-            if (cbGVCN.SelectedIndex == 0)
-            {
-                MessageBox.Show($"Vui lòng chọn giáo viên!", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            //if (cbGVCN.SelectedIndex == 0)
+            //{
+            //    MessageBox.Show($"Vui lòng chọn giáo viên!", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
 
             using (SqlConnection conn = new SqlConnection(DataProvider.ChuoiKetNoi))
             {
@@ -198,8 +198,10 @@ namespace InterFace_FINAL_QLHS.Admin
         private void btnSua_Click(object sender, EventArgs e)
         {
             string maLop = txtMaLop.Text.Trim();
-            if (cbGVCN.SelectedValue == null) return;
-            string gvMoiID = cbGVCN.SelectedValue.ToString();
+            if (string.IsNullOrEmpty(maLop)) return;
+
+   
+            string gvMoiID = cbGVCN.SelectedValue?.ToString();
 
             using (SqlConnection conn = new SqlConnection(DataProvider.ChuoiKetNoi))
             {
@@ -207,16 +209,16 @@ namespace InterFace_FINAL_QLHS.Admin
                 SqlTransaction tran = conn.BeginTransaction();
                 try
                 {
-                    //lất gv cũ
+                    // Lấy GV cũ 
                     string sqlCheck = "SELECT GiaoVienID FROM Lop WHERE MaLop = @malop";
                     SqlCommand cmd = new SqlCommand(sqlCheck, conn, tran);
                     cmd.Parameters.AddWithValue("@malop", maLop);
                     string gvCuID = cmd.ExecuteScalar()?.ToString();
 
-
+                
                     if (gvCuID != gvMoiID)
                     {
-
+                      
                         if (!string.IsNullOrEmpty(gvCuID))
                         {
                             DataProvider.ExcuteNonQuery_trans("UPDATE GiaoVien SET TrangThai = @tt WHERE GiaoVienID = @id",
@@ -226,20 +228,23 @@ namespace InterFace_FINAL_QLHS.Admin
                                 }, conn, tran);
                         }
 
-
-                        DataProvider.ExcuteNonQuery_trans("UPDATE GiaoVien SET TrangThai = @tt WHERE GiaoVienID = @id",
-                            CommandType.Text, new SqlParameter[] {
-                        new SqlParameter("@tt", TrangThai_2),
-                        new SqlParameter("@id", gvMoiID)
-                            }, conn, tran);
+                        // update trạng thái
+                        if (!string.IsNullOrEmpty(gvMoiID))
+                        {
+                            DataProvider.ExcuteNonQuery_trans("UPDATE GiaoVien SET TrangThai = @tt WHERE GiaoVienID = @id",
+                                CommandType.Text, new SqlParameter[] {
+                            new SqlParameter("@tt", TrangThai_2),
+                            new SqlParameter("@id", gvMoiID)
+                                }, conn, tran);
+                        }
                     }
 
-
+                    
                     string sqlUpdateLop = "UPDATE Lop SET TenLop = @ten, SiSoToiDa = @siso, GiaoVienID = @gvid WHERE MaLop = @malop";
                     SqlParameter[] spLop = {
                 new SqlParameter("@ten", txtTenLop.Text.Trim()),
                 new SqlParameter("@siso", txtSiSoToiDa.Text.Trim()),
-                new SqlParameter("@gvid", gvMoiID),
+                new SqlParameter("@gvid", string.IsNullOrEmpty(gvMoiID) ? DBNull.Value : (object)gvMoiID),
                 new SqlParameter("@malop", maLop)
             };
                     DataProvider.ExcuteNonQuery_trans(sqlUpdateLop, CommandType.Text, spLop, conn, tran);
