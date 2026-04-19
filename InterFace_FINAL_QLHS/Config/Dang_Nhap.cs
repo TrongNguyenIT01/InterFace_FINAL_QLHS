@@ -1,11 +1,12 @@
-﻿using System;
+﻿using InterFace_FINAL_QLHS.Admin;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data;
-using InterFace_FINAL_QLHS.Admin;
+using static InterFace_FINAL_QLHS.QuenMK;
 
 namespace InterFace_FINAL_QLHS.Config
 {
@@ -25,6 +26,7 @@ namespace InterFace_FINAL_QLHS.Config
 
             if (dt.Rows.Count > 0)
             {
+                UserSession.CurrentUsername = username;
                 return true;
             }
             else

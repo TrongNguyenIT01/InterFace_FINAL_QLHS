@@ -136,6 +136,15 @@
         ZqekRvplfosDc/uIvkAcuHgAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="btnDoiPass.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAADSSURBVEhL1ZUxCsJAFERfIegBLBT0RmItWNuI4AUtPIGCFnZ2go14AlFWfiBMMLMxjT4YyPLf
+        /GIDCfwAPWANnIFnJD2vgK7KTRkDp9JizREYaimXDrCPRRdgAvQjU+Aas60Wc1nGgrRooENgBNzDmekw
+        h0OU5zoosQhno4McHlGuu+P0jpJz00EOxYt05Hpvimtpk50uLaPyt/mIFQy2bwWD7VvBYPtWMNi+Cm3P
+        FVRoe65gBYPtW8Fg+1Yw2L4VDLZfCG3zkfQLVLlpaj92/8cL17Wema6l0nYAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="btnSapXepGV.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAADRJREFUSEtj
@@ -210,6 +219,6 @@
     <value>163, 17</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>64</value>
+    <value>25</value>
   </metadata>
 </root>

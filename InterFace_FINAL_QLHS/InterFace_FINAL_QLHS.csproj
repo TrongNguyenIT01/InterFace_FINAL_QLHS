@@ -96,24 +96,6 @@
     </Compile>
     <Compile Include="Config\Dang_Nhap.cs" />
     <Compile Include="Config\DataProvider.cs" />
-    <Compile Include="GiaoVien\DoiMatKhau.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GiaoVien\DoiMatKhau.Designer.cs">
-      <DependentUpon>DoiMatKhau.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GiaoVien\NhapDiem.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GiaoVien\NhapDiem.Designer.cs">
-      <DependentUpon>NhapDiem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GiaoVien\ThongTinGiaoVien.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GiaoVien\ThongTinGiaoVien.Designer.cs">
-      <DependentUpon>ThongTinGiaoVien.cs</DependentUpon>
-    </Compile>
     <Compile Include="GiaoVien\TongQuan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +176,13 @@
     <Compile Include="GiaoVu\TrangGiaoVu.Designer.cs">
       <DependentUpon>TrangGiaoVu.cs</DependentUpon>
     </Compile>
+    <Compile Include="QuenMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuenMatKhau.Designer.cs">
+      <DependentUpon>QuenMatKhau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuenMK.cs" />
     <EmbeddedResource Include="Admin\CapTaiKhoan.resx">
       <DependentUpon>CapTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
@@ -217,15 +206,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\TongQuanAdmin.resx">
       <DependentUpon>TongQuanAdmin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GiaoVien\DoiMatKhau.resx">
-      <DependentUpon>DoiMatKhau.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GiaoVien\NhapDiem.resx">
-      <DependentUpon>NhapDiem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GiaoVien\ThongTinGiaoVien.resx">
-      <DependentUpon>ThongTinGiaoVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GiaoVien\TongQuan.resx">
       <DependentUpon>TongQuan.cs</DependentUpon>
@@ -275,6 +255,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GiaoVu\TrangGiaoVu.resx">
       <DependentUpon>TrangGiaoVu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuenMatKhau.resx">
+      <DependentUpon>QuenMatKhau.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

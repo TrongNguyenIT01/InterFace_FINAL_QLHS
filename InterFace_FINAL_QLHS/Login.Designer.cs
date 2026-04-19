@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.panelTrai = new System.Windows.Forms.Panel();
             this.panelPhai = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.lblChuacotaikhoan = new System.Windows.Forms.Label();
             this.linkLienhequantrivien = new System.Windows.Forms.LinkLabel();
             this.linkQuenmk = new System.Windows.Forms.LinkLabel();
@@ -43,7 +44,6 @@
             this.txtMatkhau = new System.Windows.Forms.TextBox();
             this.txtDangnhap = new System.Windows.Forms.TextBox();
             this.lblTieude = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.panelPhai.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,6 +79,18 @@
             this.panelPhai.Size = new System.Drawing.Size(667, 554);
             this.panelPhai.TabIndex = 1;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.Location = new System.Drawing.Point(546, 152);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(84, 39);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Ẩn/Hiện";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // lblChuacotaikhoan
             // 
             this.lblChuacotaikhoan.AutoSize = true;
@@ -107,6 +119,7 @@
             this.linkQuenmk.TabIndex = 9;
             this.linkQuenmk.TabStop = true;
             this.linkQuenmk.Text = "Quên Mật Khẩu";
+            this.linkQuenmk.MouseClick += new System.Windows.Forms.MouseEventHandler(this.linkQuenmk_MouseClick);
             // 
             // lblVaitro
             // 
@@ -196,18 +209,6 @@
             this.lblTieude.Size = new System.Drawing.Size(390, 114);
             this.lblTieude.TabIndex = 0;
             this.lblTieude.Text = "Chào Mừng Quay Trở Lại 👋\r\n\r\n\r\n";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(546, 152);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(84, 39);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Ẩn/Hiện";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Login
             // 
