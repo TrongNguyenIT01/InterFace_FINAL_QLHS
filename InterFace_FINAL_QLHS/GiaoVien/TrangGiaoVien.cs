@@ -117,5 +117,11 @@ namespace InterFace_FINAL_QLHS.GiaoVien
         {
             OpenChildForm(new DoiMatKhau());
         }
+
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            this.Owner.Show();
+            this.Close();
+        }
     }
 }

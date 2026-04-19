@@ -7,12 +7,11 @@
         private System.Windows.Forms.Label lblDSNamHOc;
         private System.Windows.Forms.Label lblThongTinThayDOi;
         private System.Windows.Forms.Label lblMaNamHoc;
-        private System.Windows.Forms.TextBox txtMaNamHoc;
+        private System.Windows.Forms.TextBox txtMaNH;
         private System.Windows.Forms.Label lblTenNamHoc;
-        private System.Windows.Forms.TextBox txtTenNamHoc;
+        private System.Windows.Forms.TextBox txtTenNH;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button btnXoa;
-        private System.Windows.Forms.Button btnSua;
 
         protected override void Dispose(bool disposing)
         {
@@ -31,13 +30,13 @@
             this.lblDSNamHOc = new System.Windows.Forms.Label();
             this.lblThongTinThayDOi = new System.Windows.Forms.Label();
             this.lblMaNamHoc = new System.Windows.Forms.Label();
-            this.txtMaNamHoc = new System.Windows.Forms.TextBox();
+            this.txtMaNH = new System.Windows.Forms.TextBox();
             this.lblTenNamHoc = new System.Windows.Forms.Label();
-            this.txtTenNamHoc = new System.Windows.Forms.TextBox();
+            this.txtTenNH = new System.Windows.Forms.TextBox();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
-            this.btnSua = new System.Windows.Forms.Button();
             this.dgvDSNamHoc = new System.Windows.Forms.DataGridView();
+            this.btnSua = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSNamHoc)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,7 +56,7 @@
             this.lblDSNamHOc.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblDSNamHOc.Location = new System.Drawing.Point(15, 60);
             this.lblDSNamHOc.Name = "lblDSNamHOc";
-            this.lblDSNamHOc.Size = new System.Drawing.Size(175, 23);
+            this.lblDSNamHOc.Size = new System.Drawing.Size(147, 19);
             this.lblDSNamHOc.TabIndex = 1;
             this.lblDSNamHOc.Text = "Danh sách Năm Học:";
             // 
@@ -67,7 +66,7 @@
             this.lblThongTinThayDOi.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblThongTinThayDOi.Location = new System.Drawing.Point(550, 60);
             this.lblThongTinThayDOi.Name = "lblThongTinThayDOi";
-            this.lblThongTinThayDOi.Size = new System.Drawing.Size(93, 23);
+            this.lblThongTinThayDOi.Size = new System.Drawing.Size(76, 19);
             this.lblThongTinThayDOi.TabIndex = 2;
             this.lblThongTinThayDOi.Text = "Thông tin:";
             // 
@@ -77,19 +76,18 @@
             this.lblMaNamHoc.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lblMaNamHoc.Location = new System.Drawing.Point(550, 100);
             this.lblMaNamHoc.Name = "lblMaNamHoc";
-            this.lblMaNamHoc.Size = new System.Drawing.Size(115, 23);
+            this.lblMaNamHoc.Size = new System.Drawing.Size(93, 19);
             this.lblMaNamHoc.TabIndex = 4;
             this.lblMaNamHoc.Text = "Mã Năm Học:";
             // 
-            // txtMaNamHoc
+            // txtMaNH
             // 
-            this.txtMaNamHoc.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtMaNamHoc.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtMaNamHoc.Location = new System.Drawing.Point(688, 97);
-            this.txtMaNamHoc.Name = "txtMaNamHoc";
-            this.txtMaNamHoc.Size = new System.Drawing.Size(300, 30);
-            this.txtMaNamHoc.TabIndex = 5;
-            this.txtMaNamHoc.TextChanged += new System.EventHandler(this.txtMaNamHoc_TextChanged);
+            this.txtMaNH.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtMaNH.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtMaNH.Location = new System.Drawing.Point(688, 97);
+            this.txtMaNH.Name = "txtMaNH";
+            this.txtMaNH.Size = new System.Drawing.Size(300, 25);
+            this.txtMaNH.TabIndex = 5;
             // 
             // lblTenNamHoc
             // 
@@ -97,19 +95,18 @@
             this.lblTenNamHoc.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lblTenNamHoc.Location = new System.Drawing.Point(550, 150);
             this.lblTenNamHoc.Name = "lblTenNamHoc";
-            this.lblTenNamHoc.Size = new System.Drawing.Size(117, 23);
+            this.lblTenNamHoc.Size = new System.Drawing.Size(94, 19);
             this.lblTenNamHoc.TabIndex = 6;
             this.lblTenNamHoc.Text = "Tên Năm Học:";
             // 
-            // txtTenNamHoc
+            // txtTenNH
             // 
-            this.txtTenNamHoc.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtTenNamHoc.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtTenNamHoc.Location = new System.Drawing.Point(688, 147);
-            this.txtTenNamHoc.Name = "txtTenNamHoc";
-            this.txtTenNamHoc.Size = new System.Drawing.Size(300, 30);
-            this.txtTenNamHoc.TabIndex = 7;
-            this.txtTenNamHoc.TextChanged += new System.EventHandler(this.txtTenNamHoc_TextChanged);
+            this.txtTenNH.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtTenNH.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtTenNH.Location = new System.Drawing.Point(688, 147);
+            this.txtTenNH.Name = "txtTenNH";
+            this.txtTenNH.Size = new System.Drawing.Size(300, 25);
+            this.txtTenNH.TabIndex = 7;
             // 
             // btnThem
             // 
@@ -117,12 +114,13 @@
             this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThem.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnThem.ForeColor = System.Drawing.Color.White;
-            this.btnThem.Location = new System.Drawing.Point(650, 250);
+            this.btnThem.Location = new System.Drawing.Point(649, 235);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(80, 35);
             this.btnThem.TabIndex = 10;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = false;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnXoa
             // 
@@ -130,12 +128,25 @@
             this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnXoa.ForeColor = System.Drawing.Color.White;
-            this.btnXoa.Location = new System.Drawing.Point(800, 250);
+            this.btnXoa.Location = new System.Drawing.Point(840, 235);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(80, 35);
             this.btnXoa.TabIndex = 11;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            // 
+            // dgvDSNamHoc
+            // 
+            this.dgvDSNamHoc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDSNamHoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDSNamHoc.Location = new System.Drawing.Point(19, 97);
+            this.dgvDSNamHoc.Name = "dgvDSNamHoc";
+            this.dgvDSNamHoc.ReadOnly = true;
+            this.dgvDSNamHoc.RowHeadersWidth = 51;
+            this.dgvDSNamHoc.RowTemplate.Height = 24;
+            this.dgvDSNamHoc.Size = new System.Drawing.Size(514, 341);
+            this.dgvDSNamHoc.TabIndex = 13;
             // 
             // btnSua
             // 
@@ -143,36 +154,26 @@
             this.btnSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSua.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnSua.ForeColor = System.Drawing.Color.White;
-            this.btnSua.Location = new System.Drawing.Point(725, 300);
+            this.btnSua.Location = new System.Drawing.Point(744, 302);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(80, 35);
             this.btnSua.TabIndex = 12;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = false;
-            // 
-            // dgvDSNamHoc
-            // 
-            this.dgvDSNamHoc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvDSNamHoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDSNamHoc.Location = new System.Drawing.Point(19, 108);
-            this.dgvDSNamHoc.Name = "dgvDSNamHoc";
-            this.dgvDSNamHoc.RowHeadersWidth = 51;
-            this.dgvDSNamHoc.RowTemplate.Height = 24;
-            this.dgvDSNamHoc.Size = new System.Drawing.Size(478, 336);
-            this.dgvDSNamHoc.TabIndex = 13;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // ThongTinNamHoc
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 450);
             this.Controls.Add(this.dgvDSNamHoc);
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnThem);
-            this.Controls.Add(this.txtTenNamHoc);
+            this.Controls.Add(this.txtTenNH);
             this.Controls.Add(this.lblTenNamHoc);
-            this.Controls.Add(this.txtMaNamHoc);
+            this.Controls.Add(this.txtMaNH);
             this.Controls.Add(this.lblMaNamHoc);
             this.Controls.Add(this.lblThongTinThayDOi);
             this.Controls.Add(this.lblDSNamHOc);
@@ -180,6 +181,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.Name = "ThongTinNamHoc";
             this.Text = "Thông Tin Năm Học";
+            this.Load += new System.EventHandler(this.ThongTinNamHoc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSNamHoc)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -189,5 +191,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvDSNamHoc;
+        private System.Windows.Forms.Button btnSua;
     }
 }
