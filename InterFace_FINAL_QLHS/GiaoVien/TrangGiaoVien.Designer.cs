@@ -32,10 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrangGiaoVien));
             this.panel1 = new System.Windows.Forms.Panel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.timesidebar = new System.Windows.Forms.Timer(this.components);
             this.stXepChong = new System.Windows.Forms.ToolStripStatusLabel();
             this.stChiaNgang = new System.Windows.Forms.ToolStripStatusLabel();
             this.stChiadoc = new System.Windows.Forms.ToolStripStatusLabel();
+            this.timesidebar = new System.Windows.Forms.Timer(this.components);
             this.btnDangXuat = new System.Windows.Forms.Button();
             this.btnDoiMK = new System.Windows.Forms.Button();
             this.btnTTGV = new System.Windows.Forms.Button();
@@ -76,11 +76,6 @@
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // timesidebar
-            // 
-            this.timesidebar.Interval = 10;
-            this.timesidebar.Tick += new System.EventHandler(this.Timesidebar_Tick);
-            // 
             // stXepChong
             // 
             this.stXepChong.Name = "stXepChong";
@@ -101,6 +96,11 @@
             this.stChiadoc.Size = new System.Drawing.Size(69, 20);
             this.stChiadoc.Text = "Chia Dọc";
             this.stChiadoc.Click += new System.EventHandler(this.stChiadoc_Click);
+            // 
+            // timesidebar
+            // 
+            this.timesidebar.Interval = 10;
+            this.timesidebar.Tick += new System.EventHandler(this.Timesidebar_Tick);
             // 
             // btnDangXuat
             // 
@@ -134,6 +134,7 @@
             this.btnDoiMK.Text = "Đổi Mật Khẩu";
             this.btnDoiMK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDoiMK.UseVisualStyleBackColor = false;
+            this.btnDoiMK.Click += new System.EventHandler(this.btnDoiMK_Click);
             // 
             // btnTTGV
             // 
@@ -150,6 +151,7 @@
             this.btnTTGV.Text = "Thông Tin Giáo Viên";
             this.btnTTGV.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTTGV.UseVisualStyleBackColor = false;
+            this.btnTTGV.Click += new System.EventHandler(this.btnTTGV_Click);
             // 
             // btnTraCuuHS
             // 
@@ -166,6 +168,7 @@
             this.btnTraCuuHS.Text = "Tra Cứu Học Sinh";
             this.btnTraCuuHS.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTraCuuHS.UseVisualStyleBackColor = false;
+            this.btnTraCuuHS.Click += new System.EventHandler(this.btnTraCuuHS_Click);
             // 
             // btnNhapDiem
             // 
@@ -182,6 +185,7 @@
             this.btnNhapDiem.Text = "Nhập Điểm";
             this.btnNhapDiem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNhapDiem.UseVisualStyleBackColor = false;
+            this.btnNhapDiem.Click += new System.EventHandler(this.btnNhapDiem_Click);
             // 
             // btnTongQuan
             // 

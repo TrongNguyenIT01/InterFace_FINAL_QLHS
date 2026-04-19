@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbltitle = new System.Windows.Forms.Label();
             this.lblDScacchuyenmon = new System.Windows.Forms.Label();
             this.lblThongTinThayDoi = new System.Windows.Forms.Label();
@@ -47,50 +49,50 @@
             // lbltitle
             // 
             this.lbltitle.AutoSize = true;
-            this.lbltitle.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltitle.Location = new System.Drawing.Point(232, 9);
             this.lbltitle.Name = "lbltitle";
-            this.lbltitle.Size = new System.Drawing.Size(404, 35);
+            this.lbltitle.Size = new System.Drawing.Size(481, 41);
             this.lbltitle.TabIndex = 0;
             this.lbltitle.Text = "Thay Đổi Thông Tin Chuyên Môn";
             // 
             // lblDScacchuyenmon
             // 
             this.lblDScacchuyenmon.AutoSize = true;
-            this.lblDScacchuyenmon.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDScacchuyenmon.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDScacchuyenmon.Location = new System.Drawing.Point(12, 91);
             this.lblDScacchuyenmon.Name = "lblDScacchuyenmon";
-            this.lblDScacchuyenmon.Size = new System.Drawing.Size(211, 22);
+            this.lblDScacchuyenmon.Size = new System.Drawing.Size(237, 23);
             this.lblDScacchuyenmon.TabIndex = 1;
             this.lblDScacchuyenmon.Text = "Danh Sách Các Chuyên Môn:";
             // 
             // lblThongTinThayDoi
             // 
             this.lblThongTinThayDoi.AutoSize = true;
-            this.lblThongTinThayDoi.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblThongTinThayDoi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblThongTinThayDoi.Location = new System.Drawing.Point(533, 116);
             this.lblThongTinThayDoi.Name = "lblThongTinThayDoi";
-            this.lblThongTinThayDoi.Size = new System.Drawing.Size(156, 22);
+            this.lblThongTinThayDoi.Size = new System.Drawing.Size(190, 28);
             this.lblThongTinThayDoi.TabIndex = 2;
             this.lblThongTinThayDoi.Text = "Thông Tin Thay Đổi :";
             // 
             // lblMaMon
             // 
             this.lblMaMon.AutoSize = true;
-            this.lblMaMon.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMaMon.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMaMon.Location = new System.Drawing.Point(533, 164);
             this.lblMaMon.Name = "lblMaMon";
-            this.lblMaMon.Size = new System.Drawing.Size(132, 22);
+            this.lblMaMon.Size = new System.Drawing.Size(146, 23);
             this.lblMaMon.TabIndex = 3;
             this.lblMaMon.Text = "Mã Chuyên Môn :";
             // 
             // lblTenMon
             // 
             this.lblTenMon.AutoSize = true;
-            this.lblTenMon.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenMon.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTenMon.Location = new System.Drawing.Point(533, 211);
             this.lblTenMon.Name = "lblTenMon";
-            this.lblTenMon.Size = new System.Drawing.Size(133, 22);
+            this.lblTenMon.Size = new System.Drawing.Size(143, 23);
             this.lblTenMon.TabIndex = 4;
             this.lblTenMon.Text = "Tên Chuyên Môn:";
             // 
@@ -98,24 +100,26 @@
             // 
             this.txtMaCM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.txtMaCM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMaCM.Location = new System.Drawing.Point(682, 164);
+            this.txtMaCM.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaCM.Location = new System.Drawing.Point(704, 164);
             this.txtMaCM.Name = "txtMaCM";
-            this.txtMaCM.Size = new System.Drawing.Size(267, 27);
+            this.txtMaCM.Size = new System.Drawing.Size(267, 30);
             this.txtMaCM.TabIndex = 5;
             // 
             // txtTenCM
             // 
             this.txtTenCM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.txtTenCM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTenCM.Location = new System.Drawing.Point(682, 208);
+            this.txtTenCM.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTenCM.Location = new System.Drawing.Point(704, 208);
             this.txtTenCM.Name = "txtTenCM";
-            this.txtTenCM.Size = new System.Drawing.Size(267, 27);
+            this.txtTenCM.Size = new System.Drawing.Size(267, 30);
             this.txtTenCM.TabIndex = 6;
             // 
             // btnThem
             // 
             this.btnThem.BackColor = System.Drawing.Color.Lime;
-            this.btnThem.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem.ForeColor = System.Drawing.Color.White;
             this.btnThem.Location = new System.Drawing.Point(537, 347);
             this.btnThem.Name = "btnThem";
@@ -128,7 +132,7 @@
             // btnXoa
             // 
             this.btnXoa.BackColor = System.Drawing.Color.Red;
-            this.btnXoa.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.ForeColor = System.Drawing.Color.White;
             this.btnXoa.Location = new System.Drawing.Point(682, 347);
             this.btnXoa.Name = "btnXoa";
@@ -141,7 +145,7 @@
             // btnSua
             // 
             this.btnSua.BackColor = System.Drawing.Color.Orange;
-            this.btnSua.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSua.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSua.ForeColor = System.Drawing.Color.White;
             this.btnSua.Location = new System.Drawing.Point(824, 347);
             this.btnSua.Name = "btnSua";
@@ -154,7 +158,23 @@
             // dtgChuyenMon
             // 
             this.dtgChuyenMon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgChuyenMon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dtgChuyenMon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgChuyenMon.DefaultCellStyle = dataGridViewCellStyle4;
             this.dtgChuyenMon.Location = new System.Drawing.Point(3, 116);
             this.dtgChuyenMon.Name = "dtgChuyenMon";
             this.dtgChuyenMon.ReadOnly = true;

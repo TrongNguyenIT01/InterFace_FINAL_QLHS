@@ -53,6 +53,8 @@ namespace InterFace_FINAL_QLHS.Admin
                     btnThayDoiQuyDinhThongTinLopHoc.Text = "Thay đổi thông tin lớp học";
                     btnThayDoiThongTinMonHoc.Text = "Thay đổi thông tin môn học";
                     btnChuyenMon.Text = "Chuyên môn";
+                    btnThongTinHK.Text = "Thông tin học kỳ";
+                    btnThongTinNamHoc.Text = "Thông tin năm học";
                     btnDangXuat.Text = "Đăng xuất";
                 }
             }
@@ -129,6 +131,16 @@ namespace InterFace_FINAL_QLHS.Admin
         {
             this.Owner.Show();
             this.Close();
+        }
+
+        private void btnThongTinHK_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ThongTinHocKy());
+        }
+
+        private void btnThongTinNamHoc_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ThongTinNamHoc());
         }
     }
 }

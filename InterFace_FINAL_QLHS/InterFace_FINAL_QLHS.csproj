@@ -76,6 +76,18 @@
     <Compile Include="Admin\ThayDoiThongTinChuyenMon.Designer.cs">
       <DependentUpon>ThayDoiThongTinChuyenMon.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\ThongTinHocKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\ThongTinHocKy.Designer.cs">
+      <DependentUpon>ThongTinHocKy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ThongTinNamHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\ThongTinNamHoc.Designer.cs">
+      <DependentUpon>ThongTinNamHoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\TongQuanAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,11 +96,35 @@
     </Compile>
     <Compile Include="Config\Dang_Nhap.cs" />
     <Compile Include="Config\DataProvider.cs" />
+    <Compile Include="GiaoVien\DoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoVien\DoiMatKhau.Designer.cs">
+      <DependentUpon>DoiMatKhau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GiaoVien\NhapDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoVien\NhapDiem.Designer.cs">
+      <DependentUpon>NhapDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GiaoVien\ThongTinGiaoVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoVien\ThongTinGiaoVien.Designer.cs">
+      <DependentUpon>ThongTinGiaoVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="GiaoVien\TongQuan.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GiaoVien\TongQuan.Designer.cs">
       <DependentUpon>TongQuan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GiaoVien\TraCuuHocSinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoVien\TraCuuHocSinh.Designer.cs">
+      <DependentUpon>TraCuuHocSinh.cs</DependentUpon>
     </Compile>
     <Compile Include="GiaoVien\TrangGiaoVien.cs">
       <SubType>Form</SubType>
@@ -173,11 +209,29 @@
     <EmbeddedResource Include="Admin\ThayDoiThongTinChuyenMon.resx">
       <DependentUpon>ThayDoiThongTinChuyenMon.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admin\ThongTinHocKy.resx">
+      <DependentUpon>ThongTinHocKy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\ThongTinNamHoc.resx">
+      <DependentUpon>ThongTinNamHoc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\TongQuanAdmin.resx">
       <DependentUpon>TongQuanAdmin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GiaoVien\DoiMatKhau.resx">
+      <DependentUpon>DoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GiaoVien\NhapDiem.resx">
+      <DependentUpon>NhapDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GiaoVien\ThongTinGiaoVien.resx">
+      <DependentUpon>ThongTinGiaoVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GiaoVien\TongQuan.resx">
       <DependentUpon>TongQuan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GiaoVien\TraCuuHocSinh.resx">
+      <DependentUpon>TraCuuHocSinh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GiaoVien\TrangGiaoVien.resx">
       <DependentUpon>TrangGiaoVien.cs</DependentUpon>

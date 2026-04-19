@@ -45,11 +45,11 @@ namespace InterFace_FINAL_QLHS.GiaoVien
                     sidebarExpand = true;
                     timesidebar.Stop();
                     btnDashBoard.Text = "";
-                    btnTongQuan.Text = "Cấp Tài Khoản";
-                    btnNhapDiem.Text = "Thay đổi độ tuổi";
-                    btnTraCuuHS.Text = "Thay đổi thông tin lớp học";
-                    btnTTGV.Text = "Thay đổi thông tin môn học";
-                    btnDoiMK.Text = "Chuyên môn";
+                    btnTongQuan.Text = "Tổng Quan";
+                    btnNhapDiem.Text = "Nhập Điểm";
+                    btnTraCuuHS.Text = "Tra Cứu Học Sinh";
+                    btnTTGV.Text = "Thông Tin Giáo Viên";
+                    btnDoiMK.Text = "Đổi Mật Khẩu";
                     btnDangXuat.Text = "Đăng xuất";
                 }
             }
@@ -96,6 +96,26 @@ namespace InterFace_FINAL_QLHS.GiaoVien
         private void btnTongQuan_Click(object sender, EventArgs e)
         {
             OpenChildForm(new TongQuan());
+        }
+
+        private void btnNhapDiem_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new NhapDiem());
+        }
+
+        private void btnTraCuuHS_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new TraCuuHocSinh());
+        }
+
+        private void btnTTGV_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ThongTinGiaoVien());
+        }
+
+        private void btnDoiMK_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new DoiMatKhau());
         }
     }
 }
