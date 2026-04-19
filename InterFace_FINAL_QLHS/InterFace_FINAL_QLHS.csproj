@@ -96,6 +96,36 @@
     </Compile>
     <Compile Include="Config\Dang_Nhap.cs" />
     <Compile Include="Config\DataProvider.cs" />
+    <Compile Include="DoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoiMatKhau.Designer.cs">
+      <DependentUpon>DoiMatKhau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoiPassSauDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoiPassSauDangNhap.Designer.cs">
+      <DependentUpon>DoiPassSauDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GiaoVien\DoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoVien\DoiMatKhau.Designer.cs">
+      <DependentUpon>DoiMatKhau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GiaoVien\NhapDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoVien\NhapDiem.Designer.cs">
+      <DependentUpon>NhapDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GiaoVien\ThongTinGiaoVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoVien\ThongTinGiaoVien.Designer.cs">
+      <DependentUpon>ThongTinGiaoVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="GiaoVien\TongQuan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,6 +236,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\TongQuanAdmin.resx">
       <DependentUpon>TongQuanAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoiMatKhau.resx">
+      <DependentUpon>DoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoiPassSauDangNhap.resx">
+      <DependentUpon>DoiPassSauDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GiaoVien\DoiMatKhau.resx">
+      <DependentUpon>DoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GiaoVien\NhapDiem.resx">
+      <DependentUpon>NhapDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GiaoVien\ThongTinGiaoVien.resx">
+      <DependentUpon>ThongTinGiaoVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GiaoVien\TongQuan.resx">
       <DependentUpon>TongQuan.cs</DependentUpon>
