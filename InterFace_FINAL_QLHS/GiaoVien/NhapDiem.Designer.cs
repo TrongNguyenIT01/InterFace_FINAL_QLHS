@@ -30,7 +30,11 @@
             this.dgvDanhSachHS = new System.Windows.Forms.DataGridView();
             this.lblChonLop = new System.Windows.Forms.Label();
             this.lblHocKy = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachHS)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbChonLop
@@ -38,17 +42,7 @@
             this.cbChonLop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbChonLop.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cbChonLop.FormattingEnabled = true;
-            this.cbChonLop.Items.AddRange(new object[] {
-            "10A1",
-            "10A2",
-            "10A3",
-            "10A4",
-            "11A1",
-            "11A2",
-            "11A3",
-            "12A1",
-            "12A2"});
-            this.cbChonLop.Location = new System.Drawing.Point(16, 65);
+            this.cbChonLop.Location = new System.Drawing.Point(3, 54);
             this.cbChonLop.Name = "cbChonLop";
             this.cbChonLop.Size = new System.Drawing.Size(140, 31);
             this.cbChonLop.TabIndex = 0;
@@ -58,11 +52,7 @@
             this.cbChonHocKy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbChonHocKy.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cbChonHocKy.FormattingEnabled = true;
-            this.cbChonHocKy.Items.AddRange(new object[] {
-            "Hoc ky 1",
-            "Hoc ky 2",
-            "Cuoi ky"});
-            this.cbChonHocKy.Location = new System.Drawing.Point(185, 65);
+            this.cbChonHocKy.Location = new System.Drawing.Point(169, 54);
             this.cbChonHocKy.Name = "cbChonHocKy";
             this.cbChonHocKy.Size = new System.Drawing.Size(140, 31);
             this.cbChonHocKy.TabIndex = 1;
@@ -73,7 +63,7 @@
             this.btnTim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTim.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnTim.ForeColor = System.Drawing.Color.White;
-            this.btnTim.Location = new System.Drawing.Point(511, 65);
+            this.btnTim.Location = new System.Drawing.Point(513, 23);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(120, 40);
             this.btnTim.TabIndex = 2;
@@ -86,7 +76,7 @@
             this.btnNhapDiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNhapDiem.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnNhapDiem.ForeColor = System.Drawing.Color.White;
-            this.btnNhapDiem.Location = new System.Drawing.Point(662, 65);
+            this.btnNhapDiem.Location = new System.Drawing.Point(668, 23);
             this.btnNhapDiem.Name = "btnNhapDiem";
             this.btnNhapDiem.Size = new System.Drawing.Size(120, 40);
             this.btnNhapDiem.TabIndex = 3;
@@ -95,8 +85,9 @@
             // 
             // lblTitle
             // 
+            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lblTitle.Location = new System.Drawing.Point(251, 4);
+            this.lblTitle.Location = new System.Drawing.Point(237, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(321, 30);
             this.lblTitle.TabIndex = 4;
@@ -107,7 +98,7 @@
             // 
             this.dgvDanhSachHS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDanhSachHS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDanhSachHS.Location = new System.Drawing.Point(12, 142);
+            this.dgvDanhSachHS.Location = new System.Drawing.Point(0, 283);
             this.dgvDanhSachHS.Name = "dgvDanhSachHS";
             this.dgvDanhSachHS.RowHeadersWidth = 51;
             this.dgvDanhSachHS.RowTemplate.Height = 24;
@@ -117,7 +108,7 @@
             // lblChonLop
             // 
             this.lblChonLop.AutoSize = true;
-            this.lblChonLop.Location = new System.Drawing.Point(12, 30);
+            this.lblChonLop.Location = new System.Drawing.Point(28, 11);
             this.lblChonLop.Name = "lblChonLop";
             this.lblChonLop.Size = new System.Drawing.Size(84, 23);
             this.lblChonLop.TabIndex = 6;
@@ -126,31 +117,51 @@
             // lblHocKy
             // 
             this.lblHocKy.AutoSize = true;
-            this.lblHocKy.Location = new System.Drawing.Point(181, 30);
+            this.lblHocKy.Location = new System.Drawing.Point(201, 11);
             this.lblHocKy.Name = "lblHocKy";
             this.lblHocKy.Size = new System.Drawing.Size(108, 23);
             this.lblHocKy.TabIndex = 7;
             this.lblHocKy.Text = "Chọn Học Kỳ";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lblTitle);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(800, 35);
+            this.panel1.TabIndex = 8;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.lblChonLop);
+            this.panel2.Controls.Add(this.cbChonLop);
+            this.panel2.Controls.Add(this.lblHocKy);
+            this.panel2.Controls.Add(this.btnNhapDiem);
+            this.panel2.Controls.Add(this.cbChonHocKy);
+            this.panel2.Controls.Add(this.btnTim);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 35);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(800, 108);
+            this.panel2.TabIndex = 9;
             // 
             // NhapDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lblHocKy);
-            this.Controls.Add(this.lblChonLop);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvDanhSachHS);
-            this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.btnNhapDiem);
-            this.Controls.Add(this.btnTim);
-            this.Controls.Add(this.cbChonHocKy);
-            this.Controls.Add(this.cbChonLop);
             this.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.Name = "NhapDiem";
             this.Text = "Nhập Điểm";
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachHS)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -159,5 +170,7 @@
         private System.Windows.Forms.DataGridView dgvDanhSachHS;
         private System.Windows.Forms.Label lblChonLop;
         private System.Windows.Forms.Label lblHocKy;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }
