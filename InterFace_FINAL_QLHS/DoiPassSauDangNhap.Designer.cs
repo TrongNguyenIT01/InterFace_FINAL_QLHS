@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DoiPassSauDangNhap));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -122,7 +121,7 @@
             // 
             // button1
             // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Image = global::InterFace_FINAL_QLHS.Properties.Resources.eye_off_line;
             this.button1.Location = new System.Drawing.Point(602, 90);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(42, 37);
@@ -132,7 +131,7 @@
             // 
             // button2
             // 
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Image = global::InterFace_FINAL_QLHS.Properties.Resources.eye_off_line;
             this.button2.Location = new System.Drawing.Point(602, 172);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(42, 37);
@@ -142,7 +141,7 @@
             // 
             // button3
             // 
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.Image = global::InterFace_FINAL_QLHS.Properties.Resources.eye_off_line;
             this.button3.Location = new System.Drawing.Point(602, 247);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(42, 37);

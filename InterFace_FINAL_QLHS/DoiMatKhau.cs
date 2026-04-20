@@ -62,6 +62,14 @@ namespace InterFace_FINAL_QLHS
             isPasswordVisible1 = !isPasswordVisible1;
 
             txtNewPass.UseSystemPasswordChar = !isPasswordVisible1;
+            if (isPasswordVisible1)
+            {
+                button1.Image = Properties.Resources.eye_line;
+            }
+            else
+            {
+                button1.Image = Properties.Resources.eye_off_line;
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -69,6 +77,14 @@ namespace InterFace_FINAL_QLHS
             isPasswordVisible2 = !isPasswordVisible2;
 
             txtKiemLaiPass.UseSystemPasswordChar = !isPasswordVisible2;
+            if (isPasswordVisible2)
+            {
+                button2.Image = Properties.Resources.eye_line;
+            }
+            else
+            {
+                button2.Image = Properties.Resources.eye_off_line;
+            }
         }
     }
 }
