@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace InterFace_FINAL_QLHS
 {
@@ -138,6 +139,67 @@ namespace InterFace_FINAL_QLHS
             {
                 Import_data(ofd.FileName);
             }
+        }
+
+        private bool kiemtradulieu() { 
+            if(string.IsNullOrWhiteSpace(txtHoTenHS.Text) || (!rbtnNam.Checked && !rbtnNu.Checked )
+                || string.IsNullOrWhiteSpace(txtDiaChi.Text)|| string.IsNullOrWhiteSpace(txtEmail.Text)
+                || string.IsNullOrWhiteSpace(txtSDT.Text) || string.IsNullOrWhiteSpace(txtHoTenPH.Text))
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(txtEmail.Text);
+                return addr.Address == txtEmail.Text;
+            }
+            catch
+            {
+                MessageBox.Show("Định dạng email không hợp lệ!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+
+        private void btnTiepNhan_Click(object sender, EventArgs e)
+        {
+            if (kiemtradulieu())
+            {
+                string sql = @"INSERT INTO TiepNhanHS(MaTiepNhan, HoTen, NgaySinh," +
+                                     $"GioiTinh,DiaChi, Email, SoDienThoai, KhoiLop, TenPH,NgayTiepNhan,TrangThai) VALUES" +
+                                     $"('TN'+ RIGHT('0000' + CAST(NEXT VALUE FOR Seq_TiepNhan AS Varchar),4), @HoTen, @NgaySinh, @GioiTinh, @DiaChi, @Email, @SoDienThoai, @KhoiLop, @TenPH, @NgayTiepNhan,@TrangThai)";
+                SqlParameter[] sp = new SqlParameter[] {
+                                new SqlParameter("@HoTen", txtHoTenHS.Text.Trim()),
+                                new SqlParameter("@NgaySinh", dtpNgaySinh.Value),
+                                new SqlParameter("@GioiTinh", rbtnNam.Checked ? "Nam" : "Nữ"),
+                                new SqlParameter("@DiaChi", txtDiaChi.Text.Trim()),
+                                new SqlParameter("@Email", txtEmail.Text.Trim()),
+                                new SqlParameter("@SoDienThoai", txtSDT.Text.Trim()),
+                                new SqlParameter("@KhoiLop", nudKhoiLop.Value  ),
+                                new SqlParameter("@TenPH", txtHoTenPH.Text.Trim()),
+                                new SqlParameter("@NgayTiepNhan", dtpNgayTN.Value),
+                                new SqlParameter("@TrangThai", "Chưa Phân Lớp")
+                            };
+
+                using (SqlConnection conn = new SqlConnection(DataProvider.ChuoiKetNoi))
+                {
+                    conn.Open();
+                    SqlTransaction tran = conn.BeginTransaction();
+                    try
+                    {
+                        DataProvider.ExcuteNonQuery_trans(sql,CommandType.Text, sp, conn, tran);
+                        tran.Commit();
+                        MessageBox.Show("Tiếp nhận học sinh thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        tran.Rollback();
+                        MessageBox.Show("Tiếp nhận học sinh thất bại!\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+                
         }
     }
 }
