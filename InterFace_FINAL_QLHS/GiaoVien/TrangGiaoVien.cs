@@ -68,14 +68,23 @@ namespace InterFace_FINAL_QLHS.GiaoVien
                 if (f.GetType() == childForm.GetType())
                 {
                     f.Activate(); // Nếu mở rồi thì chỉ cần hiện nó lên trên cùng
-                    f.WindowState = FormWindowState.Normal; // Đưa về kích thước bình thường nếu đang thu nhỏ
+                    f.WindowState = FormWindowState.Maximized; // Đưa về kích thước bình thường nếu đang thu nhỏ
                     return;
                 }
             }
+            childForm.MdiParent = this;
+
+            // Thêm sự kiện FormClosed để xử lý khi đóng form này thì form khác tự to lên (nếu cần)
+            childForm.FormClosed += (s, e) => {
+                if (this.MdiChildren.Length > 0)
+                {
+                    this.MdiChildren[0].WindowState = FormWindowState.Maximized;
+                }
+            };
 
             // 2. Nếu chưa có, thiết lập để nó nằm trong Form cha
-            childForm.MdiParent = this;
             childForm.Show();
+            childForm.WindowState = FormWindowState.Maximized;
         }
 
         private void stXepChong_Click(object sender, EventArgs e)
