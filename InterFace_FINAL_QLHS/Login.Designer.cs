@@ -81,13 +81,13 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button1.BackColor = System.Drawing.Color.White;
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(546, 152);
+            this.button1.Image = global::InterFace_FINAL_QLHS.Properties.Resources.eye_off_line;
+            this.button1.Location = new System.Drawing.Point(546, 148);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(84, 39);
+            this.button1.Size = new System.Drawing.Size(46, 39);
             this.button1.TabIndex = 12;
-            this.button1.Text = "Ẩn/Hiện";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 

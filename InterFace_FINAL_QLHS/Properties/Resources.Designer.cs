@@ -63,6 +63,26 @@ namespace InterFace_FINAL_QLHS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap eye_line {
+            get {
+                object obj = ResourceManager.GetObject("eye-line", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap eye_off_line {
+            get {
+                object obj = ResourceManager.GetObject("eye-off-line", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logout_box_line {
             get {
                 object obj = ResourceManager.GetObject("logout-box-line", resourceCulture);

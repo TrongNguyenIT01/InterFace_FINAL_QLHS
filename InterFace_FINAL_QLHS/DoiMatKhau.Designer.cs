@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DoiMatKhau));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,7 +44,7 @@
             this.label1.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label1.Location = new System.Drawing.Point(52, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(456, 40);
+            this.label1.Size = new System.Drawing.Size(444, 38);
             this.label1.TabIndex = 0;
             this.label1.Text = "THIẾT LẬP MẬT KHẨU MỚI";
             // 
@@ -72,9 +71,9 @@
             // btnLuuCapNhat
             // 
             this.btnLuuCapNhat.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnLuuCapNhat.Location = new System.Drawing.Point(233, 236);
+            this.btnLuuCapNhat.Location = new System.Drawing.Point(222, 236);
             this.btnLuuCapNhat.Name = "btnLuuCapNhat";
-            this.btnLuuCapNhat.Size = new System.Drawing.Size(94, 28);
+            this.btnLuuCapNhat.Size = new System.Drawing.Size(105, 28);
             this.btnLuuCapNhat.TabIndex = 3;
             this.btnLuuCapNhat.Text = "Xác nhận";
             this.btnLuuCapNhat.UseVisualStyleBackColor = true;
@@ -101,7 +100,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Image = global::InterFace_FINAL_QLHS.Properties.Resources.eye_off_line;
             this.button1.Location = new System.Drawing.Point(469, 113);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(39, 34);
@@ -112,7 +111,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Image = global::InterFace_FINAL_QLHS.Properties.Resources.eye_off_line;
             this.button2.Location = new System.Drawing.Point(469, 162);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(39, 34);

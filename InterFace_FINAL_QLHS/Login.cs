@@ -84,8 +84,15 @@ namespace InterFace_FINAL_QLHS
             isPasswordVisible = !isPasswordVisible;
 
             txtMatkhau.UseSystemPasswordChar = !isPasswordVisible;
+            if (isPasswordVisible)
+            {
+                button1.Image = Properties.Resources.eye_line;
+            }
+            else
+            {
+                button1.Image = Properties.Resources.eye_off_line;
+            }
 
-            
         }
 
         private void Login_Load(object sender, EventArgs e)
