@@ -34,6 +34,7 @@
             this.btnSidebar = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.panelSidebar = new System.Windows.Forms.Panel();
+            this.btnDoiPass = new System.Windows.Forms.Button();
             this.btnSapXepGV = new System.Windows.Forms.Button();
             this.btnXemBaoCaoHK = new System.Windows.Forms.Button();
             this.btnXemBaoCaoMon = new System.Windows.Forms.Button();
@@ -46,7 +47,6 @@
             this.btnXepChong = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnChiaNgang = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnChiaDoc = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btnDoiPass = new System.Windows.Forms.Button();
             this.panelSidebar.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -63,9 +63,9 @@
             this.btnSidebar.Image = ((System.Drawing.Image)(resources.GetObject("btnSidebar.Image")));
             this.btnSidebar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSidebar.Location = new System.Drawing.Point(0, 0);
-            this.btnSidebar.Margin = new System.Windows.Forms.Padding(10);
+            this.btnSidebar.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.btnSidebar.Name = "btnSidebar";
-            this.btnSidebar.Size = new System.Drawing.Size(275, 35);
+            this.btnSidebar.Size = new System.Drawing.Size(206, 28);
             this.btnSidebar.TabIndex = 0;
             this.btnSidebar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSidebar.UseVisualStyleBackColor = true;
@@ -77,9 +77,10 @@
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogout.Location = new System.Drawing.Point(0, 545);
+            this.btnLogout.Location = new System.Drawing.Point(0, 456);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(275, 35);
+            this.btnLogout.Size = new System.Drawing.Size(206, 28);
             this.btnLogout.TabIndex = 9;
             this.btnLogout.Text = "Đăng xuất";
             this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -104,9 +105,26 @@
             this.panelSidebar.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.panelSidebar.ForeColor = System.Drawing.Color.DarkBlue;
             this.panelSidebar.Location = new System.Drawing.Point(0, 0);
+            this.panelSidebar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelSidebar.Name = "panelSidebar";
-            this.panelSidebar.Size = new System.Drawing.Size(275, 580);
+            this.panelSidebar.Size = new System.Drawing.Size(206, 484);
             this.panelSidebar.TabIndex = 0;
+            // 
+            // btnDoiPass
+            // 
+            this.btnDoiPass.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnDoiPass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDoiPass.Image = ((System.Drawing.Image)(resources.GetObject("btnDoiPass.Image")));
+            this.btnDoiPass.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDoiPass.Location = new System.Drawing.Point(0, 428);
+            this.btnDoiPass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDoiPass.Name = "btnDoiPass";
+            this.btnDoiPass.Size = new System.Drawing.Size(206, 28);
+            this.btnDoiPass.TabIndex = 10;
+            this.btnDoiPass.Text = "Đổi mật khẩu";
+            this.btnDoiPass.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDoiPass.UseVisualStyleBackColor = true;
+            this.btnDoiPass.Click += new System.EventHandler(this.btnDoiPass_Click);
             // 
             // btnSapXepGV
             // 
@@ -114,9 +132,10 @@
             this.btnSapXepGV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSapXepGV.Image = ((System.Drawing.Image)(resources.GetObject("btnSapXepGV.Image")));
             this.btnSapXepGV.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSapXepGV.Location = new System.Drawing.Point(0, 280);
+            this.btnSapXepGV.Location = new System.Drawing.Point(0, 224);
+            this.btnSapXepGV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSapXepGV.Name = "btnSapXepGV";
-            this.btnSapXepGV.Size = new System.Drawing.Size(275, 35);
+            this.btnSapXepGV.Size = new System.Drawing.Size(206, 28);
             this.btnSapXepGV.TabIndex = 8;
             this.btnSapXepGV.Text = "Sắp xếp giáo viên";
             this.btnSapXepGV.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -129,9 +148,10 @@
             this.btnXemBaoCaoHK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXemBaoCaoHK.Image = ((System.Drawing.Image)(resources.GetObject("btnXemBaoCaoHK.Image")));
             this.btnXemBaoCaoHK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXemBaoCaoHK.Location = new System.Drawing.Point(0, 245);
+            this.btnXemBaoCaoHK.Location = new System.Drawing.Point(0, 196);
+            this.btnXemBaoCaoHK.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnXemBaoCaoHK.Name = "btnXemBaoCaoHK";
-            this.btnXemBaoCaoHK.Size = new System.Drawing.Size(275, 35);
+            this.btnXemBaoCaoHK.Size = new System.Drawing.Size(206, 28);
             this.btnXemBaoCaoHK.TabIndex = 7;
             this.btnXemBaoCaoHK.Text = "Báo cáo tổng kết học kỳ";
             this.btnXemBaoCaoHK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -144,9 +164,10 @@
             this.btnXemBaoCaoMon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXemBaoCaoMon.Image = ((System.Drawing.Image)(resources.GetObject("btnXemBaoCaoMon.Image")));
             this.btnXemBaoCaoMon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXemBaoCaoMon.Location = new System.Drawing.Point(0, 210);
+            this.btnXemBaoCaoMon.Location = new System.Drawing.Point(0, 168);
+            this.btnXemBaoCaoMon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnXemBaoCaoMon.Name = "btnXemBaoCaoMon";
-            this.btnXemBaoCaoMon.Size = new System.Drawing.Size(275, 35);
+            this.btnXemBaoCaoMon.Size = new System.Drawing.Size(206, 28);
             this.btnXemBaoCaoMon.TabIndex = 6;
             this.btnXemBaoCaoMon.Text = "Báo cáo tổng kết môn";
             this.btnXemBaoCaoMon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -159,9 +180,10 @@
             this.btnXemDiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXemDiem.Image = ((System.Drawing.Image)(resources.GetObject("btnXemDiem.Image")));
             this.btnXemDiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXemDiem.Location = new System.Drawing.Point(0, 175);
+            this.btnXemDiem.Location = new System.Drawing.Point(0, 140);
+            this.btnXemDiem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnXemDiem.Name = "btnXemDiem";
-            this.btnXemDiem.Size = new System.Drawing.Size(275, 35);
+            this.btnXemDiem.Size = new System.Drawing.Size(206, 28);
             this.btnXemDiem.TabIndex = 5;
             this.btnXemDiem.Text = "Xem bảng điểm môn";
             this.btnXemDiem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -174,9 +196,10 @@
             this.btnTraCuuHocSinh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTraCuuHocSinh.Image = ((System.Drawing.Image)(resources.GetObject("btnTraCuuHocSinh.Image")));
             this.btnTraCuuHocSinh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTraCuuHocSinh.Location = new System.Drawing.Point(0, 140);
+            this.btnTraCuuHocSinh.Location = new System.Drawing.Point(0, 112);
+            this.btnTraCuuHocSinh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnTraCuuHocSinh.Name = "btnTraCuuHocSinh";
-            this.btnTraCuuHocSinh.Size = new System.Drawing.Size(275, 35);
+            this.btnTraCuuHocSinh.Size = new System.Drawing.Size(206, 28);
             this.btnTraCuuHocSinh.TabIndex = 4;
             this.btnTraCuuHocSinh.Text = "Tra cứu học sinh";
             this.btnTraCuuHocSinh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -189,9 +212,10 @@
             this.btnDanhSachLop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDanhSachLop.Image = ((System.Drawing.Image)(resources.GetObject("btnDanhSachLop.Image")));
             this.btnDanhSachLop.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDanhSachLop.Location = new System.Drawing.Point(0, 105);
+            this.btnDanhSachLop.Location = new System.Drawing.Point(0, 84);
+            this.btnDanhSachLop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDanhSachLop.Name = "btnDanhSachLop";
-            this.btnDanhSachLop.Size = new System.Drawing.Size(275, 35);
+            this.btnDanhSachLop.Size = new System.Drawing.Size(206, 28);
             this.btnDanhSachLop.TabIndex = 3;
             this.btnDanhSachLop.Text = "Lập danh sách lớp";
             this.btnDanhSachLop.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -204,9 +228,10 @@
             this.btnTiepNhanHocSinh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTiepNhanHocSinh.Image = ((System.Drawing.Image)(resources.GetObject("btnTiepNhanHocSinh.Image")));
             this.btnTiepNhanHocSinh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTiepNhanHocSinh.Location = new System.Drawing.Point(0, 70);
+            this.btnTiepNhanHocSinh.Location = new System.Drawing.Point(0, 56);
+            this.btnTiepNhanHocSinh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnTiepNhanHocSinh.Name = "btnTiepNhanHocSinh";
-            this.btnTiepNhanHocSinh.Size = new System.Drawing.Size(275, 35);
+            this.btnTiepNhanHocSinh.Size = new System.Drawing.Size(206, 28);
             this.btnTiepNhanHocSinh.TabIndex = 2;
             this.btnTiepNhanHocSinh.Text = "Tiếp nhận học sinh";
             this.btnTiepNhanHocSinh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -219,9 +244,10 @@
             this.btnTongQuan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTongQuan.Image = ((System.Drawing.Image)(resources.GetObject("btnTongQuan.Image")));
             this.btnTongQuan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTongQuan.Location = new System.Drawing.Point(0, 35);
+            this.btnTongQuan.Location = new System.Drawing.Point(0, 28);
+            this.btnTongQuan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnTongQuan.Name = "btnTongQuan";
-            this.btnTongQuan.Size = new System.Drawing.Size(275, 35);
+            this.btnTongQuan.Size = new System.Drawing.Size(206, 28);
             this.btnTongQuan.TabIndex = 1;
             this.btnTongQuan.Text = "Tổng quan";
             this.btnTongQuan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -235,56 +261,43 @@
             this.btnXepChong,
             this.btnChiaNgang,
             this.btnChiaDoc});
-            this.statusStrip1.Location = new System.Drawing.Point(275, 554);
+            this.statusStrip1.Location = new System.Drawing.Point(206, 462);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(709, 26);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(542, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // btnXepChong
             // 
             this.btnXepChong.Name = "btnXepChong";
-            this.btnXepChong.Size = new System.Drawing.Size(80, 20);
+            this.btnXepChong.Size = new System.Drawing.Size(64, 17);
             this.btnXepChong.Text = "Xếp chồng";
             this.btnXepChong.Click += new System.EventHandler(this.btnXepChong_Click);
             // 
             // btnChiaNgang
             // 
             this.btnChiaNgang.Name = "btnChiaNgang";
-            this.btnChiaNgang.Size = new System.Drawing.Size(84, 20);
+            this.btnChiaNgang.Size = new System.Drawing.Size(68, 17);
             this.btnChiaNgang.Text = "Chia ngang";
             this.btnChiaNgang.Click += new System.EventHandler(this.btnChiaNgang_Click);
             // 
             // btnChiaDoc
             // 
             this.btnChiaDoc.Name = "btnChiaDoc";
-            this.btnChiaDoc.Size = new System.Drawing.Size(67, 20);
+            this.btnChiaDoc.Size = new System.Drawing.Size(54, 17);
             this.btnChiaDoc.Text = "Chia dọc";
             this.btnChiaDoc.Click += new System.EventHandler(this.btnChiaDoc_Click);
             // 
-            // btnDoiPass
-            // 
-            this.btnDoiPass.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnDoiPass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDoiPass.Image = ((System.Drawing.Image)(resources.GetObject("btnDoiPass.Image")));
-            this.btnDoiPass.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDoiPass.Location = new System.Drawing.Point(0, 510);
-            this.btnDoiPass.Name = "btnDoiPass";
-            this.btnDoiPass.Size = new System.Drawing.Size(275, 35);
-            this.btnDoiPass.TabIndex = 10;
-            this.btnDoiPass.Text = "Đổi mật khẩu";
-            this.btnDoiPass.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDoiPass.UseVisualStyleBackColor = true;
-            this.btnDoiPass.Click += new System.EventHandler(this.btnDoiPass_Click);
-            // 
             // TrangGiaoVu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 580);
+            this.ClientSize = new System.Drawing.Size(748, 484);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.panelSidebar);
             this.IsMdiContainer = true;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "TrangGiaoVu";
             this.Text = "GiaoVu";
             this.panelSidebar.ResumeLayout(false);
