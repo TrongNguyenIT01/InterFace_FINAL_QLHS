@@ -115,7 +115,7 @@ namespace InterFace_FINAL_QLHS.GiaoVien
 
         private void btnDoiMK_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new DoiMatKhau());
+            OpenChildForm(new DoiPassSauDangNhap());
         }
 
         private void btnDangXuat_Click(object sender, EventArgs e)
