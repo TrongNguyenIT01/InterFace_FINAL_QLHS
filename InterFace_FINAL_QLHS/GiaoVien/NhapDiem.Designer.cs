@@ -42,28 +42,30 @@
             this.cbChonLop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbChonLop.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cbChonLop.FormattingEnabled = true;
-            this.cbChonLop.Location = new System.Drawing.Point(3, 54);
+            this.cbChonLop.Location = new System.Drawing.Point(32, 54);
             this.cbChonLop.Name = "cbChonLop";
             this.cbChonLop.Size = new System.Drawing.Size(140, 31);
             this.cbChonLop.TabIndex = 0;
             // 
             // cbChonHocKy
             // 
+            this.cbChonHocKy.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbChonHocKy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbChonHocKy.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cbChonHocKy.FormattingEnabled = true;
-            this.cbChonHocKy.Location = new System.Drawing.Point(169, 54);
+            this.cbChonHocKy.Location = new System.Drawing.Point(215, 54);
             this.cbChonHocKy.Name = "cbChonHocKy";
             this.cbChonHocKy.Size = new System.Drawing.Size(140, 31);
             this.cbChonHocKy.TabIndex = 1;
             // 
             // btnTim
             // 
+            this.btnTim.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnTim.BackColor = System.Drawing.Color.LimeGreen;
             this.btnTim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTim.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnTim.ForeColor = System.Drawing.Color.White;
-            this.btnTim.Location = new System.Drawing.Point(513, 23);
+            this.btnTim.Location = new System.Drawing.Point(523, 23);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(120, 40);
             this.btnTim.TabIndex = 2;
@@ -72,6 +74,7 @@
             // 
             // btnNhapDiem
             // 
+            this.btnNhapDiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNhapDiem.BackColor = System.Drawing.Color.Orange;
             this.btnNhapDiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNhapDiem.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
@@ -91,24 +94,25 @@
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(321, 30);
             this.lblTitle.TabIndex = 4;
-            this.lblTitle.Text = "Danh sách học sinh";
+            this.lblTitle.Text = "Danh Sách Học Sinh";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dgvDanhSachHS
             // 
             this.dgvDanhSachHS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDanhSachHS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDanhSachHS.Location = new System.Drawing.Point(0, 283);
+            this.dgvDanhSachHS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDanhSachHS.Location = new System.Drawing.Point(0, 0);
             this.dgvDanhSachHS.Name = "dgvDanhSachHS";
             this.dgvDanhSachHS.RowHeadersWidth = 51;
             this.dgvDanhSachHS.RowTemplate.Height = 24;
-            this.dgvDanhSachHS.Size = new System.Drawing.Size(770, 299);
+            this.dgvDanhSachHS.Size = new System.Drawing.Size(800, 450);
             this.dgvDanhSachHS.TabIndex = 5;
             // 
             // lblChonLop
             // 
             this.lblChonLop.AutoSize = true;
-            this.lblChonLop.Location = new System.Drawing.Point(28, 11);
+            this.lblChonLop.Location = new System.Drawing.Point(28, 23);
             this.lblChonLop.Name = "lblChonLop";
             this.lblChonLop.Size = new System.Drawing.Size(84, 23);
             this.lblChonLop.TabIndex = 6;
@@ -117,7 +121,7 @@
             // lblHocKy
             // 
             this.lblHocKy.AutoSize = true;
-            this.lblHocKy.Location = new System.Drawing.Point(201, 11);
+            this.lblHocKy.Location = new System.Drawing.Point(211, 23);
             this.lblHocKy.Name = "lblHocKy";
             this.lblHocKy.Size = new System.Drawing.Size(108, 23);
             this.lblHocKy.TabIndex = 7;
