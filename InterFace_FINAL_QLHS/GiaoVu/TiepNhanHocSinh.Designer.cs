@@ -139,6 +139,7 @@
             this.btnImport.TabIndex = 21;
             this.btnImport.Text = "Import";
             this.btnImport.UseVisualStyleBackColor = false;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
             // btnTiepNhan
             // 
