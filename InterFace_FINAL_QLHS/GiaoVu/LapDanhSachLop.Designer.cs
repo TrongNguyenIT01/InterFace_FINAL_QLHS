@@ -42,7 +42,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnTimLop = new System.Windows.Forms.Button();
             this.cbLop = new System.Windows.Forms.ComboBox();
-            this.cbKhoiDanhSachLop = new System.Windows.Forms.ComboBox();
+            this.txtGVCN = new System.Windows.Forms.TextBox();
+            this.txtSiSo = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -63,7 +64,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1377, 81);
+            this.panel1.Size = new System.Drawing.Size(1745, 81);
             this.panel1.TabIndex = 0;
             // 
             // btnRutKhoiLop
@@ -130,8 +131,8 @@
             this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.splitContainer1.Panel2.Controls.Add(this.dgvLop);
             this.splitContainer1.Panel2.Controls.Add(this.panel2);
-            this.splitContainer1.Size = new System.Drawing.Size(1377, 683);
-            this.splitContainer1.SplitterDistance = 687;
+            this.splitContainer1.Size = new System.Drawing.Size(1745, 856);
+            this.splitContainer1.SplitterDistance = 871;
             this.splitContainer1.TabIndex = 1;
             this.splitContainer1.Resize += new System.EventHandler(this.splitContainer1_Resize);
             // 
@@ -145,7 +146,7 @@
             this.dgvTN.Name = "dgvTN";
             this.dgvTN.RowHeadersWidth = 51;
             this.dgvTN.RowTemplate.Height = 24;
-            this.dgvTN.Size = new System.Drawing.Size(687, 613);
+            this.dgvTN.Size = new System.Drawing.Size(871, 786);
             this.dgvTN.TabIndex = 2;
             // 
             // panel3
@@ -156,7 +157,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(687, 70);
+            this.panel3.Size = new System.Drawing.Size(871, 70);
             this.panel3.TabIndex = 1;
             // 
             // btnTimHSTN
@@ -171,6 +172,7 @@
             this.btnTimHSTN.TabIndex = 2;
             this.btnTimHSTN.Text = "Tìm";
             this.btnTimHSTN.UseVisualStyleBackColor = false;
+            this.btnTimHSTN.Click += new System.EventHandler(this.btnTimHSTN_Click);
             // 
             // cbKhoiTN
             // 
@@ -195,57 +197,66 @@
             this.dgvLop.Name = "dgvLop";
             this.dgvLop.RowHeadersWidth = 51;
             this.dgvLop.RowTemplate.Height = 24;
-            this.dgvLop.Size = new System.Drawing.Size(686, 613);
+            this.dgvLop.Size = new System.Drawing.Size(870, 786);
             this.dgvLop.TabIndex = 1;
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.txtSiSo);
+            this.panel2.Controls.Add(this.txtGVCN);
             this.panel2.Controls.Add(this.btnTimLop);
             this.panel2.Controls.Add(this.cbLop);
-            this.panel2.Controls.Add(this.cbKhoiDanhSachLop);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(686, 70);
+            this.panel2.Size = new System.Drawing.Size(870, 70);
             this.panel2.TabIndex = 0;
             // 
             // btnTimLop
             // 
+            this.btnTimLop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnTimLop.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnTimLop.Location = new System.Drawing.Point(309, 23);
+            this.btnTimLop.Location = new System.Drawing.Point(180, 18);
             this.btnTimLop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTimLop.Name = "btnTimLop";
             this.btnTimLop.Size = new System.Drawing.Size(75, 30);
             this.btnTimLop.TabIndex = 4;
             this.btnTimLop.Text = "Tìm";
-            this.btnTimLop.UseVisualStyleBackColor = true;
+            this.btnTimLop.UseVisualStyleBackColor = false;
+            this.btnTimLop.Click += new System.EventHandler(this.btnTimLop_Click);
             // 
             // cbLop
             // 
             this.cbLop.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cbLop.FormattingEnabled = true;
-            this.cbLop.Location = new System.Drawing.Point(156, 23);
+            this.cbLop.Location = new System.Drawing.Point(3, 20);
             this.cbLop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbLop.Name = "cbLop";
-            this.cbLop.Size = new System.Drawing.Size(135, 27);
+            this.cbLop.Size = new System.Drawing.Size(162, 27);
             this.cbLop.TabIndex = 3;
             // 
-            // cbKhoiDanhSachLop
+            // txtGVCN
             // 
-            this.cbKhoiDanhSachLop.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.cbKhoiDanhSachLop.FormattingEnabled = true;
-            this.cbKhoiDanhSachLop.Location = new System.Drawing.Point(15, 23);
-            this.cbKhoiDanhSachLop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbKhoiDanhSachLop.Name = "cbKhoiDanhSachLop";
-            this.cbKhoiDanhSachLop.Size = new System.Drawing.Size(135, 27);
-            this.cbKhoiDanhSachLop.TabIndex = 2;
+            this.txtGVCN.Location = new System.Drawing.Point(270, 20);
+            this.txtGVCN.Multiline = true;
+            this.txtGVCN.Name = "txtGVCN";
+            this.txtGVCN.Size = new System.Drawing.Size(295, 32);
+            this.txtGVCN.TabIndex = 5;
+            // 
+            // txtSiSo
+            // 
+            this.txtSiSo.Location = new System.Drawing.Point(617, 20);
+            this.txtSiSo.Multiline = true;
+            this.txtSiSo.Name = "txtSiSo";
+            this.txtSiSo.Size = new System.Drawing.Size(224, 32);
+            this.txtSiSo.TabIndex = 6;
             // 
             // LapDanhSachLop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1377, 764);
+            this.ClientSize = new System.Drawing.Size(1745, 937);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -261,6 +272,7 @@
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLop)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -278,8 +290,9 @@
         private System.Windows.Forms.ComboBox cbKhoiTN;
         private System.Windows.Forms.Button btnTimLop;
         private System.Windows.Forms.ComboBox cbLop;
-        private System.Windows.Forms.ComboBox cbKhoiDanhSachLop;
         private System.Windows.Forms.DataGridView dgvTN;
         private System.Windows.Forms.DataGridView dgvLop;
+        private System.Windows.Forms.TextBox txtSiSo;
+        private System.Windows.Forms.TextBox txtGVCN;
     }
 }
