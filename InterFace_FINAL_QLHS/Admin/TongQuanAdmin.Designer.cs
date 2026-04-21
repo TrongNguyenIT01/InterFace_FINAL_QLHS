@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TongQuanAdmin));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnDoiPass = new System.Windows.Forms.Button();
             this.btnThongTinNamHoc = new System.Windows.Forms.Button();
             this.btnThongTinHK = new System.Windows.Forms.Button();
             this.btnDangXuat = new System.Windows.Forms.Button();
@@ -45,7 +46,6 @@
             this.btnChiaNgang = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnChiaDoc = new System.Windows.Forms.ToolStripStatusLabel();
             this.Timesidebar = new System.Windows.Forms.Timer(this.components);
-            this.btnDoiPass = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -68,6 +68,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(364, 518);
             this.panel1.TabIndex = 0;
+            // 
+            // btnDoiPass
+            // 
+            this.btnDoiPass.BackColor = System.Drawing.Color.LightBlue;
+            this.btnDoiPass.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnDoiPass.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.btnDoiPass.ForeColor = System.Drawing.Color.DarkBlue;
+            this.btnDoiPass.Image = ((System.Drawing.Image)(resources.GetObject("btnDoiPass.Image")));
+            this.btnDoiPass.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDoiPass.Location = new System.Drawing.Point(0, 418);
+            this.btnDoiPass.Name = "btnDoiPass";
+            this.btnDoiPass.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnDoiPass.Size = new System.Drawing.Size(364, 50);
+            this.btnDoiPass.TabIndex = 9;
+            this.btnDoiPass.Text = "Đổi mật khẩu";
+            this.btnDoiPass.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDoiPass.UseVisualStyleBackColor = false;
+            this.btnDoiPass.Click += new System.EventHandler(this.btnDoiPass_Click);
             // 
             // btnThongTinNamHoc
             // 
@@ -261,24 +279,6 @@
             this.Timesidebar.Interval = 10;
             this.Timesidebar.Tick += new System.EventHandler(this.Timesidebar_Tick);
             // 
-            // btnDoiPass
-            // 
-            this.btnDoiPass.BackColor = System.Drawing.Color.LightBlue;
-            this.btnDoiPass.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnDoiPass.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.btnDoiPass.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnDoiPass.Image = ((System.Drawing.Image)(resources.GetObject("btnDoiPass.Image")));
-            this.btnDoiPass.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDoiPass.Location = new System.Drawing.Point(0, 418);
-            this.btnDoiPass.Name = "btnDoiPass";
-            this.btnDoiPass.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnDoiPass.Size = new System.Drawing.Size(364, 50);
-            this.btnDoiPass.TabIndex = 9;
-            this.btnDoiPass.Text = "Đổi mật khẩu";
-            this.btnDoiPass.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDoiPass.UseVisualStyleBackColor = false;
-            this.btnDoiPass.Click += new System.EventHandler(this.btnDoiPass_Click);
-            // 
             // TongQuanAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -289,6 +289,7 @@
             this.IsMdiContainer = true;
             this.Name = "TongQuanAdmin";
             this.Text = "Admin";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
