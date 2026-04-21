@@ -39,11 +39,22 @@ namespace InterFace_FINAL_QLHS.GiaoVu
             dgvTN.Columns[7].HeaderText = "Khối Lớp";
             dgvTN.Columns[8].HeaderText = "Tên Phụ Huynh";
             dgvTN.Columns[9].HeaderText = "Ngày Tiếp Nhận";
+
+            cbKhoiTN.SelectedIndex = 0;
         }
 
         private void LapDanhSachLop_Load(object sender, EventArgs e)
         {
             Load_DS_TN();
+        }
+
+        private void btnXepLop_Click(object sender, EventArgs e)
+        {
+            if(cbKhoiTN.SelectedIndex == 0)
+            {
+                MessageBox.Show("Vui lòng chọn khối lớp để xếp lớp tự động.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
     }
 }
