@@ -101,7 +101,6 @@ namespace InterFace_FINAL_QLHS.GiaoVu
 
         private void btnChonLopChuNhiem_Click(object sender, EventArgs e)
         {
-            // Kiểm tra xem đã chọn giáo viên ở bảng bên phải chưa
             if (dgvChonLopGV.CurrentRow == null)
             {
                 MessageBox.Show("Vui lòng chọn một bản ghi phân công ở bảng bên phải trước!");
@@ -117,62 +116,69 @@ namespace InterFace_FINAL_QLHS.GiaoVu
             {
                 conn.Open();
 
-                // 1. Kiểm tra xem lớp này ĐÃ CÓ chủ nhiệm chưa
-                string sqlCheckCN = @"SELECT GV.HoTen, GV.GiaoVienID 
-                             FROM Lop L 
-                             JOIN GiaoVien GV ON L.GiaoVienID = GV.GiaoVienID 
-                             WHERE L.MaLop = @MaLop";
+                // --- BƯỚC 1: KIỂM TRA XEM GIÁO VIÊN ĐANG CHỌN ĐÃ CHỦ NHIỆM LỚP NÀO CHƯA ---
+                // Chúng ta kiểm tra cột TrangThai hoặc truy vấn trực tiếp bảng Lop
+                string sqlCheckGVBận = "SELECT TenLop FROM Lop WHERE GiaoVienID = @MaGV";
+                SqlCommand cmdCheckGV = new SqlCommand(sqlCheckGVBận, conn);
+                cmdCheckGV.Parameters.AddWithValue("@MaGV", maGV);
+                object lopHienTai = cmdCheckGV.ExecuteScalar();
 
-                SqlCommand cmdCheck = new SqlCommand(sqlCheckCN, conn);
-                cmdCheck.Parameters.AddWithValue("@MaLop", maLop);
-                SqlDataAdapter da = new SqlDataAdapter(cmdCheck);
-                DataTable dtCN = new DataTable();
-                da.Fill(dtCN);
-
-                if (dtCN.Rows.Count > 0)
+                if (lopHienTai != null)
                 {
-                    string maGVCu = dtCN.Rows[0]["GiaoVienID"].ToString();
+                    // Nếu tìm thấy lớp mà GV này đang chủ nhiệm, thông báo và chặn lại
+                    MessageBox.Show($"Giáo viên {tenGVChon} hiện đang là chủ nhiệm của lớp {lopHienTai}. \nMột giáo viên chỉ có thể chủ nhiệm một lớp!",
+                                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // --- BƯỚC 2: KIỂM TRA LỚP ĐỊNH PHÂN CÔNG ĐÃ CÓ CHỦ NHIỆM CHƯA (Dùng lại logic cũ) ---
+                string sqlCheckCN = @"SELECT GiaoVienID, (SELECT HoTen FROM GiaoVien WHERE GiaoVienID = Lop.GiaoVienID) as HoTen 
+                             FROM Lop WHERE MaLop = @MaLop";
+
+                SqlCommand cmdCheckLop = new SqlCommand(sqlCheckCN, conn);
+                cmdCheckLop.Parameters.AddWithValue("@MaLop", maLop);
+                DataTable dtCN = new DataTable();
+                using (SqlDataAdapter da = new SqlDataAdapter(cmdCheckLop)) { da.Fill(dtCN); }
+
+                string maGVCu = "";
+                if (dtCN.Rows.Count > 0 && dtCN.Rows[0]["GiaoVienID"] != DBNull.Value)
+                {
+                    maGVCu = dtCN.Rows[0]["GiaoVienID"].ToString();
                     string tenGVChuNhiemCu = dtCN.Rows[0]["HoTen"].ToString();
 
-                    // Nếu giáo viên đang chọn chính là chủ nhiệm hiện tại rồi thì thôi
-                    if (maGV == maGVCu)
-                    {
-                        MessageBox.Show($"{tenGVChon} hiện đã là chủ nhiệm của lớp {tenLop} rồi.");
-                        return;
-                    }
-
-                    // Thông báo xác nhận thay thế
                     DialogResult result = MessageBox.Show(
                         $"Lớp {tenLop} đã có giáo viên chủ nhiệm là: {tenGVChuNhiemCu}.\n\n" +
                         $"Bạn có muốn thay thế bằng giáo viên {tenGVChon} không?",
-                        "Xác nhận thay đổi chủ nhiệm",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question);
+                        "Xác nhận thay đổi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     if (result == DialogResult.No) return;
                 }
 
-                // 2. Thực hiện cập nhật (Sử dụng Transaction để đảm bảo an toàn dữ liệu)
+                // --- BƯỚC 3: THỰC HIỆN CẬP NHẬT TRONG TRANSACTION ---
                 SqlTransaction tran = conn.BeginTransaction();
                 try
                 {
-                    // Bước A: Nếu có chủ nhiệm cũ, ta có thể trả trạng thái của họ về 'Chưa chủ nhiệm' (tùy logic của Phú)
-                    // Ở đây mình làm theo hướng cập nhật thẳng cho GV mới:
+                    // A. Trả trạng thái GV cũ (nếu có)
+                    if (!string.IsNullOrEmpty(maGVCu))
+                    {
+                        string sqlUpdateGVCu = "UPDATE GiaoVien SET TrangThai = N'Chưa Phân Công' WHERE GiaoVienID = @MaGVCu";
+                        SqlParameter[] pOld = { new SqlParameter("@MaGVCu", maGVCu) };
+                        DataProvider.ExcuteNonQuery_trans(sqlUpdateGVCu, CommandType.Text, pOld, conn, tran);
+                    }
 
-                    // Bước B: Cập nhật giáo viên chủ nhiệm cho Lớp
+                    // B. Cập nhật mã GV mới vào bảng Lop
                     string sqlLop = "UPDATE Lop SET GiaoVienID = @MaGV WHERE MaLop = @MaLop";
                     SqlParameter[] p1 = { new SqlParameter("@MaGV", maGV), new SqlParameter("@MaLop", maLop) };
                     DataProvider.ExcuteNonQuery_trans(sqlLop, CommandType.Text, p1, conn, tran);
 
-                    // Bước C: Cập nhật trạng thái cho Giáo viên mới
-                    string sqlGV = "UPDATE GiaoVien SET TrangThai = N'Đã Phân Công GVCN' WHERE GiaoVienID = @MaGV";
+                    // C. Cập nhật trạng thái GV mới thành 'Đã Phân Công GVCN'
+                    string sqlGVNew = "UPDATE GiaoVien SET TrangThai = N'Đã Phân Công GVCN' WHERE GiaoVienID = @MaGV";
                     SqlParameter[] p2 = { new SqlParameter("@MaGV", maGV) };
-                    DataProvider.ExcuteNonQuery_trans(sqlGV, CommandType.Text, p2, conn, tran);
+                    DataProvider.ExcuteNonQuery_trans(sqlGVNew, CommandType.Text, p2, conn, tran);
 
                     tran.Commit();
-                    MessageBox.Show($"Đã xác nhận {tenGVChon} là giáo viên chủ nhiệm của lớp {tenLop}!");
+                    MessageBox.Show($"Phân công {tenGVChon} chủ nhiệm lớp {tenLop} thành công!");
 
-                    // Cập nhật lại UI nếu cần
                     FilterGiaoVien();
                 }
                 catch (Exception ex)
@@ -201,8 +207,8 @@ namespace InterFace_FINAL_QLHS.GiaoVu
         {
             string maLop = cbChonLop.SelectedValue.ToString();
 
-            // 1. Lấy mã GV đang là chủ nhiệm hiện tại của lớp đó để trả lại trạng thái
-            string sqlCheck = "SELECT GiaoVienID FROM Lop WHERE MaLop = @MaLop";
+            // 1. Lấy mã GV đang là chủ nhiệm hiện tại của lớp đó
+            string sqlCheck = "SELECT GiaoVienID FROM Lop WHERE MaLop = @MaLop";
             SqlParameter[] pCheck = { new SqlParameter("@MaLop", maLop) };
             DataTable dt = DataProvider.SelectData(sqlCheck, CommandType.Text, pCheck);
 
@@ -216,18 +222,25 @@ namespace InterFace_FINAL_QLHS.GiaoVu
                     SqlTransaction tran = conn.BeginTransaction();
                     try
                     {
-                        // Gỡ mã GV khỏi bảng Lop
-                        string sql1 = "UPDATE Lop SET GiaoVienID = NULL WHERE MaLop = @MaLop";
+                        // Gỡ mã GV khỏi bảng Lop
+                        string sql1 = "UPDATE Lop SET GiaoVienID = NULL WHERE MaLop = @MaLop";
                         DataProvider.ExcuteNonQuery_trans(sql1, CommandType.Text, pCheck, conn, tran);
 
-                        // Trả lại trạng thái cho GV
-                        string sql2 = "UPDATE GiaoVien SET TrangThai = N'Chưa Phân Công' WHERE GiaoVienID = @MaGV";
+                        // Trả lại trạng thái cho GV
+                        string sql2 = "UPDATE GiaoVien SET TrangThai = N'Chưa Phân Công' WHERE GiaoVienID = @MaGV";
                         DataProvider.ExcuteNonQuery_trans(sql2, CommandType.Text, new SqlParameter[] { new SqlParameter("@MaGV", maGVCu) }, conn, tran);
 
                         tran.Commit();
                         MessageBox.Show("Đã hủy vai trò chủ nhiệm của lớp!");
+
+                        // --- BỔ SUNG: Cập nhật lại danh sách GV bên trái ---
+                        FilterGiaoVien();
                     }
-                    catch { tran.Rollback(); }
+                    catch (Exception ex)
+                    {
+                        tran.Rollback();
+                        MessageBox.Show("Lỗi: " + ex.Message);
+                    }
                 }
             }
         }
@@ -255,42 +268,35 @@ namespace InterFace_FINAL_QLHS.GiaoVu
                         SqlParameter[] p1 = { new SqlParameter("@MaPC", maPC) };
                         DataProvider.ExcuteNonQuery_trans(sqlDeletePC, CommandType.Text, p1, conn, tran);
 
-                        // 2. Kiểm tra xem GV này có phải là chủ nhiệm của lớp này không
+                        // 2. Kiểm tra xem GV này có phải là chủ nhiệm lớp này không
                         string sqlCheckCN = "SELECT COUNT(*) FROM Lop WHERE MaLop = @MaLop AND GiaoVienID = @MaGV";
-                        SqlParameter[] pCheck = {
-                    new SqlParameter("@MaLop", maLop),
-                    new SqlParameter("@MaGV", maGV)
-                };
-
-                        // Sử dụng ExecuteScalar để lấy số lượng dòng thỏa mãn
                         SqlCommand cmdCheck = new SqlCommand(sqlCheckCN, conn, tran);
-                        cmdCheck.Parameters.AddRange(pCheck);
+                        cmdCheck.Parameters.AddWithValue("@MaLop", maLop);
+                        cmdCheck.Parameters.AddWithValue("@MaGV", maGV);
                         int count = (int)cmdCheck.ExecuteScalar();
 
                         if (count > 0)
                         {
-                            // 3. Nếu đúng là chủ nhiệm, gỡ mã GV khỏi bảng Lop
+                            // 3. Gỡ chủ nhiệm
                             string sqlUpdateLop = "UPDATE Lop SET GiaoVienID = NULL WHERE MaLop = @MaLop";
-                            SqlParameter[] p2 = { new SqlParameter("@MaLop", maLop) };
-                            DataProvider.ExcuteNonQuery_trans(sqlUpdateLop, CommandType.Text, p2, conn, tran);
+                            DataProvider.ExcuteNonQuery_trans(sqlUpdateLop, CommandType.Text, new SqlParameter[] { new SqlParameter("@MaLop", maLop) }, conn, tran);
 
                             // 4. Trả lại trạng thái cho Giáo viên
                             string sqlUpdateGV = "UPDATE GiaoVien SET TrangThai = N'Chưa Phân Công' WHERE GiaoVienID = @MaGV";
-                            SqlParameter[] p3 = { new SqlParameter("@MaGV", maGV) };
-                            DataProvider.ExcuteNonQuery_trans(sqlUpdateGV, CommandType.Text, p3, conn, tran);
+                            DataProvider.ExcuteNonQuery_trans(sqlUpdateGV, CommandType.Text, new SqlParameter[] { new SqlParameter("@MaGV", maGV) }, conn, tran);
                         }
 
                         tran.Commit();
-                        MessageBox.Show("Đã hủy phân công môn học và vai trò chủ nhiệm (nếu có) thành công!");
+                        MessageBox.Show("Đã hủy phân công thành công!");
 
-                        // Reload lại dữ liệu
-                        LoadDanhSachPhanCong(maLop);
-                        FilterGiaoVien(); // Để cập nhật lại trạng thái "Chưa chủ nhiệm" bên bảng trái
+                        // --- CẬP NHẬT GIAO DIỆN ---
+                        LoadDanhSachPhanCong(maLop); // Load lại bảng bên phải
+                        FilterGiaoVien();           // Cập nhật lại bảng bên trái
                     }
                     catch (Exception ex)
                     {
                         tran.Rollback();
-                        MessageBox.Show("Lỗi khi hủy phân công: " + ex.Message);
+                        MessageBox.Show("Lỗi: " + ex.Message);
                     }
                 }
             }

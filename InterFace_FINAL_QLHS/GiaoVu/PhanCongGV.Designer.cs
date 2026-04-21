@@ -228,7 +228,7 @@
             this.btn.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btn.Location = new System.Drawing.Point(3, 60);
             this.btn.Name = "btn";
-            this.btn.Size = new System.Drawing.Size(144, 32);
+            this.btn.Size = new System.Drawing.Size(150, 32);
             this.btn.TabIndex = 1;
             this.btn.Text = "Hủy chủ nhiệm";
             this.btn.UseVisualStyleBackColor = true;
@@ -238,9 +238,9 @@
             // 
             this.btnChonLopChuNhiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChonLopChuNhiem.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnChonLopChuNhiem.Location = new System.Drawing.Point(399, 60);
+            this.btnChonLopChuNhiem.Location = new System.Drawing.Point(393, 60);
             this.btnChonLopChuNhiem.Name = "btnChonLopChuNhiem";
-            this.btnChonLopChuNhiem.Size = new System.Drawing.Size(144, 32);
+            this.btnChonLopChuNhiem.Size = new System.Drawing.Size(150, 32);
             this.btnChonLopChuNhiem.TabIndex = 0;
             this.btnChonLopChuNhiem.Text = "Lớp chủ nhiệm";
             this.btnChonLopChuNhiem.UseVisualStyleBackColor = true;
