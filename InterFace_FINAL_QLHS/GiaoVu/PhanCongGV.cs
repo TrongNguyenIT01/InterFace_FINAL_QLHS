@@ -165,7 +165,7 @@ namespace InterFace_FINAL_QLHS.GiaoVu
                     DataProvider.ExcuteNonQuery_trans(sqlLop, CommandType.Text, p1, conn, tran);
 
                     // Bước C: Cập nhật trạng thái cho Giáo viên mới
-                    string sqlGV = "UPDATE GiaoVien SET TrangThai = N'Đã chủ nhiệm' WHERE GiaoVienID = @MaGV";
+                    string sqlGV = "UPDATE GiaoVien SET TrangThai = N'Đã Phân Công GVCN' WHERE GiaoVienID = @MaGV";
                     SqlParameter[] p2 = { new SqlParameter("@MaGV", maGV) };
                     DataProvider.ExcuteNonQuery_trans(sqlGV, CommandType.Text, p2, conn, tran);
 
@@ -221,7 +221,7 @@ namespace InterFace_FINAL_QLHS.GiaoVu
                         DataProvider.ExcuteNonQuery_trans(sql1, CommandType.Text, pCheck, conn, tran);
 
                         // Trả lại trạng thái cho GV
-                        string sql2 = "UPDATE GiaoVien SET TrangThai = N'Chưa chủ nhiệm' WHERE GiaoVienID = @MaGV";
+                        string sql2 = "UPDATE GiaoVien SET TrangThai = N'Chưa Phân Công' WHERE GiaoVienID = @MaGV";
                         DataProvider.ExcuteNonQuery_trans(sql2, CommandType.Text, new SqlParameter[] { new SqlParameter("@MaGV", maGVCu) }, conn, tran);
 
                         tran.Commit();
@@ -275,7 +275,7 @@ namespace InterFace_FINAL_QLHS.GiaoVu
                             DataProvider.ExcuteNonQuery_trans(sqlUpdateLop, CommandType.Text, p2, conn, tran);
 
                             // 4. Trả lại trạng thái cho Giáo viên
-                            string sqlUpdateGV = "UPDATE GiaoVien SET TrangThai = N'Chưa chủ nhiệm' WHERE GiaoVienID = @MaGV";
+                            string sqlUpdateGV = "UPDATE GiaoVien SET TrangThai = N'Chưa Phân Công' WHERE GiaoVienID = @MaGV";
                             SqlParameter[] p3 = { new SqlParameter("@MaGV", maGV) };
                             DataProvider.ExcuteNonQuery_trans(sqlUpdateGV, CommandType.Text, p3, conn, tran);
                         }

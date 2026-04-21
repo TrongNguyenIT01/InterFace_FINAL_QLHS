@@ -25,6 +25,16 @@ namespace InterFace_FINAL_QLHS.Admin
             cbChuyenMon.DisplayMember = "TenCM";
             cbChuyenMon.ValueMember = "MaCM";
         }
+
+        private void Cls_F()
+        {
+            txtHoTen.Clear();
+            txtDiaChi.Clear();
+            txtEmail.Clear();
+            txtSDT.Clear();
+            cbChucVu.SelectedIndex = -1;
+            cbChuyenMon.SelectedIndex = -1;
+        }
         //Mã hóa mk  
         internal static string HashPassword(string password)
         {
@@ -213,7 +223,8 @@ namespace InterFace_FINAL_QLHS.Admin
                 {
                   
                    MessageBox.Show($"Cấp tài khoản thành công!\nUsername: {sp[0].Value}\nPassword mặc định: 123456", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                    
+                    Cls_F();
 
                 }
                 else
