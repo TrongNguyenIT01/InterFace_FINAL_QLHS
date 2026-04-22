@@ -56,7 +56,7 @@
             this.lblDSNamHOc.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblDSNamHOc.Location = new System.Drawing.Point(15, 60);
             this.lblDSNamHOc.Name = "lblDSNamHOc";
-            this.lblDSNamHOc.Size = new System.Drawing.Size(147, 19);
+            this.lblDSNamHOc.Size = new System.Drawing.Size(175, 23);
             this.lblDSNamHOc.TabIndex = 1;
             this.lblDSNamHOc.Text = "Danh sách Năm Học:";
             // 
@@ -66,7 +66,7 @@
             this.lblThongTinThayDOi.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblThongTinThayDOi.Location = new System.Drawing.Point(550, 60);
             this.lblThongTinThayDOi.Name = "lblThongTinThayDOi";
-            this.lblThongTinThayDOi.Size = new System.Drawing.Size(76, 19);
+            this.lblThongTinThayDOi.Size = new System.Drawing.Size(93, 23);
             this.lblThongTinThayDOi.TabIndex = 2;
             this.lblThongTinThayDOi.Text = "Thông tin:";
             // 
@@ -76,7 +76,7 @@
             this.lblMaNamHoc.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lblMaNamHoc.Location = new System.Drawing.Point(550, 100);
             this.lblMaNamHoc.Name = "lblMaNamHoc";
-            this.lblMaNamHoc.Size = new System.Drawing.Size(93, 19);
+            this.lblMaNamHoc.Size = new System.Drawing.Size(115, 23);
             this.lblMaNamHoc.TabIndex = 4;
             this.lblMaNamHoc.Text = "Mã Năm Học:";
             // 
@@ -86,7 +86,7 @@
             this.txtMaNH.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtMaNH.Location = new System.Drawing.Point(688, 97);
             this.txtMaNH.Name = "txtMaNH";
-            this.txtMaNH.Size = new System.Drawing.Size(300, 25);
+            this.txtMaNH.Size = new System.Drawing.Size(300, 30);
             this.txtMaNH.TabIndex = 5;
             // 
             // lblTenNamHoc
@@ -95,7 +95,7 @@
             this.lblTenNamHoc.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lblTenNamHoc.Location = new System.Drawing.Point(550, 150);
             this.lblTenNamHoc.Name = "lblTenNamHoc";
-            this.lblTenNamHoc.Size = new System.Drawing.Size(94, 19);
+            this.lblTenNamHoc.Size = new System.Drawing.Size(117, 23);
             this.lblTenNamHoc.TabIndex = 6;
             this.lblTenNamHoc.Text = "Tên Năm Học:";
             // 
@@ -105,7 +105,7 @@
             this.txtTenNH.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtTenNH.Location = new System.Drawing.Point(688, 147);
             this.txtTenNH.Name = "txtTenNH";
-            this.txtTenNH.Size = new System.Drawing.Size(300, 25);
+            this.txtTenNH.Size = new System.Drawing.Size(300, 30);
             this.txtTenNH.TabIndex = 7;
             // 
             // btnThem
@@ -164,7 +164,7 @@
             // 
             // ThongTinNamHoc
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 450);
             this.Controls.Add(this.dgvDSNamHoc);
