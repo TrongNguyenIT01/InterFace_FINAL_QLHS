@@ -185,10 +185,128 @@ namespace InterFace_FINAL_QLHS.GiaoVu
 
         private void btnXepLop_Click(object sender, EventArgs e)
         {
-            if (cbKhoiTN.SelectedIndex == 0)
+            if (cbKhoiTN.SelectedIndex == -1 || cbKhoiTN.SelectedValue == null)
             {
-                MessageBox.Show("Vui lòng chọn khối lớp để xếp lớp tự động.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Vui lòng chọn khối lớp để xếp lớp tự động.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
+            }
+
+            string khoiChon = cbKhoiTN.SelectedValue.ToString();
+            string soKhoi = new string(khoiChon.Where(char.IsDigit).ToArray());
+
+            if (string.IsNullOrEmpty(soKhoi))
+            {
+                MessageBox.Show("Không thể xác định số khối!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // 1. Lấy danh sách học sinh
+            string sqlHS = "SELECT * FROM TiepNhanHS WHERE TrangThai = N'Chưa Phân Lớp' AND KhoiLop = @Khoi";
+            SqlParameter[] p1 = { new SqlParameter("@Khoi", khoiChon) };
+            DataTable dtHS = DataProvider.SelectData(sqlHS, CommandType.Text, p1);
+
+            if (dtHS.Rows.Count == 0)
+            {
+                MessageBox.Show("Không còn học sinh nào cần phân lớp ở khối này.", "Thông báo");
+                return;
+            }
+
+            // 2. Lấy danh sách lớp
+            string sqlLop = "SELECT MaLop, TenLop, ISNULL(SiSo, 0) as SiSo, SiSoToiDa FROM Lop WHERE MaLop LIKE @SoKhoi + '%' ORDER BY SiSo ASC";
+            SqlParameter[] p2 = { new SqlParameter("@SoKhoi", soKhoi) };
+            DataTable dtLop = DataProvider.SelectData(sqlLop, CommandType.Text, p2);
+
+            if (dtLop.Rows.Count == 0)
+            {
+                MessageBox.Show($"Không tìm thấy lớp nào có Mã Lớp bắt đầu bằng '{soKhoi}'!", "Lỗi dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            using (SqlConnection conn = new SqlConnection(DataProvider.ChuoiKetNoi))
+            {
+                conn.Open();
+                SqlTransaction trans = conn.BeginTransaction();
+                try
+                {
+                    int lopIndex = 0;
+                    int count = 0;
+
+                    // Dựa vào ảnh image_36dc88.png, mã năm học của bạn là 'NH2526'
+                    string maNamHocHienTai = "NH2526";
+
+                    foreach (DataRow hs in dtHS.Rows)
+                    {
+                        bool daXep = false;
+                        int thuLai = 0;
+
+                        while (!daXep && thuLai < dtLop.Rows.Count)
+                        {
+                            DataRow currentLop = dtLop.Rows[lopIndex];
+                            int siSoHienTai = Convert.ToInt32(currentLop["SiSo"]);
+                            int siSoMax = Convert.ToInt32(currentLop["SiSoToiDa"]);
+
+                            if (siSoHienTai < siSoMax)
+                            {
+                                string maLop = currentLop["MaLop"].ToString();
+                                string maTN = hs["MaTiepNhan"].ToString();
+                                string maHS_Moi = "HS" + maTN;
+
+                                // A. Thêm HocSinh
+                                string sqlInsHS = "INSERT INTO HocSinh (MaHS, HoTen, NgaySinh, GioiTinh, DiaChi, Email, SoDienThoai, TenPh) " +
+                                                  "VALUES (@MaHS, @Ten, @NS, @GT, @DC, @Mail, @Sdt, @PH)";
+                                DataProvider.ExcuteNonQuery_trans(sqlInsHS, CommandType.Text, new SqlParameter[] {
+                                    new SqlParameter("@MaHS", maHS_Moi),
+                                    new SqlParameter("@Ten", hs["HoTen"]),
+                                    new SqlParameter("@NS", hs["NgaySinh"]),
+                                    new SqlParameter("@GT", hs["GioiTinh"]),
+                                    new SqlParameter("@DC", hs["DiaChi"]),
+                                    new SqlParameter("@Mail", hs["Email"] ?? (object)DBNull.Value),
+                                    new SqlParameter("@Sdt", hs["SoDienThoai"] ?? (object)DBNull.Value),
+                                    new SqlParameter("@PH", hs["TenPH"] ?? (object)DBNull.Value)
+                                }, conn, trans);
+
+                                // B. Thêm QuaTrinhHocTap (SỬA LẠI THEO ẢNH BẢNG CỦA BẠN: MaNamHoc thay vì MaHK)
+                                string maQT = "QT" + Guid.NewGuid().ToString().Substring(0, 8);
+                                string sqlInsQT = "INSERT INTO QuaTrinhHocTap (MaQuaTrinh, MaHS, MaNamHoc, MaLop, TrangThai) " +
+                                                  "VALUES (@QT, @MaHS, @MaNH, @Lop, N'Đang Học')";
+                                DataProvider.ExcuteNonQuery_trans(sqlInsQT, CommandType.Text, new SqlParameter[] {
+                                    new SqlParameter("@QT", maQT),
+                                    new SqlParameter("@MaHS", maHS_Moi),
+                                    new SqlParameter("@MaNH", maNamHocHienTai),
+                                    new SqlParameter("@Lop", maLop)
+                                }, conn, trans);
+
+                                // C. Cập nhật trạng thái Tiếp nhận
+                                string sqlUpTN = "UPDATE TiepNhanHS SET TrangThai = N'Đã Phân Lớp' WHERE MaTiepNhan = @MaTN";
+                                DataProvider.ExcuteNonQuery_trans(sqlUpTN, CommandType.Text, new SqlParameter[] { new SqlParameter("@MaTN", maTN) }, conn, trans);
+
+                                // D. Cập nhật Sĩ số
+                                string sqlUpLop = "UPDATE Lop SET SiSo = ISNULL(SiSo, 0) + 1 WHERE MaLop = @MaLop";
+                                DataProvider.ExcuteNonQuery_trans(sqlUpLop, CommandType.Text, new SqlParameter[] { new SqlParameter("@MaLop", maLop) }, conn, trans);
+
+                                currentLop["SiSo"] = siSoHienTai + 1;
+                                daXep = true;
+                                count++;
+                            }
+                            lopIndex = (lopIndex + 1) % dtLop.Rows.Count;
+                            thuLai++;
+                        }
+                    }
+
+                    trans.Commit();
+                    MessageBox.Show($"Đã phân lớp thành công cho {count} học sinh!", "Thành công");
+                }
+                catch (Exception ex)
+                {
+                    trans.Rollback();
+                    // Show lỗi chi tiết để dễ xử lý
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                    Load_DS_TN(khoiChon);
+                }
             }
         }
 
