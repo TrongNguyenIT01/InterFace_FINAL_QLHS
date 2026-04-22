@@ -57,7 +57,6 @@
             // panelThayDoiLop
             // 
             this.panelThayDoiLop.BackColor = System.Drawing.Color.White;
-            this.panelThayDoiLop.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelThayDoiLop.Controls.Add(this.lblTitle);
             this.panelThayDoiLop.Controls.Add(this.lblThongTinThayDoi);
             this.panelThayDoiLop.Dock = System.Windows.Forms.DockStyle.Top;
@@ -72,7 +71,7 @@
             this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(440, 10);
+            this.lblTitle.Location = new System.Drawing.Point(441, 11);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(332, 38);
             this.lblTitle.TabIndex = 0;
@@ -135,6 +134,7 @@
             // 
             // txtMaLop
             // 
+            this.txtMaLop.BackColor = System.Drawing.Color.Gainsboro;
             this.txtMaLop.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaLop.Location = new System.Drawing.Point(204, 17);
             this.txtMaLop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -154,6 +154,7 @@
             // 
             // txtTenLop
             // 
+            this.txtTenLop.BackColor = System.Drawing.Color.Gainsboro;
             this.txtTenLop.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenLop.Location = new System.Drawing.Point(204, 83);
             this.txtTenLop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -173,6 +174,7 @@
             // 
             // txtSiSoToiDa
             // 
+            this.txtSiSoToiDa.BackColor = System.Drawing.Color.Gainsboro;
             this.txtSiSoToiDa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSiSoToiDa.Location = new System.Drawing.Point(204, 146);
             this.txtSiSoToiDa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -238,6 +240,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.lblDanhSachLop);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 55);
@@ -256,6 +259,7 @@
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Controls.Add(this.txtTenLop);
             this.panel3.Controls.Add(this.lblGVChuNhiem);
             this.panel3.Controls.Add(this.lblTenLop);

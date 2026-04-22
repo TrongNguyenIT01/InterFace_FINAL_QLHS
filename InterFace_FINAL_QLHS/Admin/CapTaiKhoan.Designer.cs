@@ -107,6 +107,7 @@
             // 
             // txtHoTen
             // 
+            this.txtHoTen.BackColor = System.Drawing.Color.Gainsboro;
             this.txtHoTen.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHoTen.Location = new System.Drawing.Point(288, 3);
             this.txtHoTen.Name = "txtHoTen";
@@ -185,6 +186,7 @@
             // 
             // txtDiaChi
             // 
+            this.txtDiaChi.BackColor = System.Drawing.Color.Gainsboro;
             this.txtDiaChi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiaChi.Location = new System.Drawing.Point(288, 174);
             this.txtDiaChi.Name = "txtDiaChi";
@@ -205,6 +207,7 @@
             // 
             // txtEmail
             // 
+            this.txtEmail.BackColor = System.Drawing.Color.Gainsboro;
             this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(288, 231);
             this.txtEmail.Name = "txtEmail";
@@ -225,6 +228,7 @@
             // 
             // txtSDT
             // 
+            this.txtSDT.BackColor = System.Drawing.Color.Gainsboro;
             this.txtSDT.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSDT.Location = new System.Drawing.Point(288, 288);
             this.txtSDT.Name = "txtSDT";
@@ -257,6 +261,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.lblCapTaiKhoan);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -266,6 +271,7 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74F));
@@ -316,9 +322,9 @@
             this.btnCapTK.BackColor = System.Drawing.Color.LimeGreen;
             this.btnCapTK.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCapTK.ForeColor = System.Drawing.Color.White;
-            this.btnCapTK.Location = new System.Drawing.Point(451, 9);
+            this.btnCapTK.Location = new System.Drawing.Point(434, 3);
             this.btnCapTK.Name = "btnCapTK";
-            this.btnCapTK.Size = new System.Drawing.Size(251, 36);
+            this.btnCapTK.Size = new System.Drawing.Size(251, 48);
             this.btnCapTK.TabIndex = 18;
             this.btnCapTK.Text = "Cấp tài khoản";
             this.btnCapTK.UseVisualStyleBackColor = false;
@@ -326,6 +332,7 @@
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Controls.Add(this.btnCapTK);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 473);

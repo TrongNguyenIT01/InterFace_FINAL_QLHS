@@ -217,6 +217,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.lblDSmon);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 75);
@@ -235,6 +236,7 @@
             // 
             // panel4
             // 
+            this.panel4.BackColor = System.Drawing.Color.White;
             this.panel4.Controls.Add(this.lblThongTinthayDoi);
             this.panel4.Controls.Add(this.lblMaMon);
             this.panel4.Controls.Add(this.lblTenMon);

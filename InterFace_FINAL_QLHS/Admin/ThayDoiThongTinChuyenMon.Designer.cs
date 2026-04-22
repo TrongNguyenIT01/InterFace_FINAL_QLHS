@@ -196,6 +196,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.lblDScacchuyenmon);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 72);
@@ -214,6 +215,7 @@
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Controls.Add(this.txtMaCM);
             this.panel3.Controls.Add(this.txtTenCM);
             this.panel3.Controls.Add(this.lblTenMon);
