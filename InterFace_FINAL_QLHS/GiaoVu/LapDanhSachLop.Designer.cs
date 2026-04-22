@@ -103,7 +103,7 @@
             this.btnDelete.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnDelete.Location = new System.Drawing.Point(195, 17);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(152, 38);
+            this.btnDelete.Size = new System.Drawing.Size(172, 38);
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "Xóa Danh Sách";
             this.btnDelete.UseVisualStyleBackColor = false;
