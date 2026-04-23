@@ -31,6 +31,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
+            this.dtpNgayTN = new System.Windows.Forms.DateTimePicker();
             this.btnTaiMau = new System.Windows.Forms.Button();
             this.btnImport = new System.Windows.Forms.Button();
             this.btnTiepNhan = new System.Windows.Forms.Button();
@@ -52,8 +54,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dtpNgayTN = new System.Windows.Forms.DateTimePicker();
-            this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudKhoiLop)).BeginInit();
@@ -115,6 +115,24 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(941, 555);
             this.panel2.TabIndex = 1;
+            // 
+            // dtpNgaySinh
+            // 
+            this.dtpNgaySinh.CustomFormat = "yyyy-MM-dd";
+            this.dtpNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpNgaySinh.Location = new System.Drawing.Point(247, 83);
+            this.dtpNgaySinh.Name = "dtpNgaySinh";
+            this.dtpNgaySinh.Size = new System.Drawing.Size(464, 27);
+            this.dtpNgaySinh.TabIndex = 24;
+            // 
+            // dtpNgayTN
+            // 
+            this.dtpNgayTN.CustomFormat = "yyyy-MM-dd";
+            this.dtpNgayTN.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpNgayTN.Location = new System.Drawing.Point(247, 306);
+            this.dtpNgayTN.Name = "dtpNgayTN";
+            this.dtpNgayTN.Size = new System.Drawing.Size(467, 27);
+            this.dtpNgayTN.TabIndex = 23;
             // 
             // btnTaiMau
             // 
@@ -351,24 +369,6 @@
             this.label2.Size = new System.Drawing.Size(198, 19);
             this.label2.TabIndex = 0;
             this.label2.Text = "Nhập thông tin học sinh";
-            // 
-            // dtpNgayTN
-            // 
-            this.dtpNgayTN.CustomFormat = "yyyy-MM-dd";
-            this.dtpNgayTN.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayTN.Location = new System.Drawing.Point(247, 306);
-            this.dtpNgayTN.Name = "dtpNgayTN";
-            this.dtpNgayTN.Size = new System.Drawing.Size(467, 27);
-            this.dtpNgayTN.TabIndex = 23;
-            // 
-            // dtpNgaySinh
-            // 
-            this.dtpNgaySinh.CustomFormat = "yyyy-MM-dd";
-            this.dtpNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgaySinh.Location = new System.Drawing.Point(247, 83);
-            this.dtpNgaySinh.Name = "dtpNgaySinh";
-            this.dtpNgaySinh.Size = new System.Drawing.Size(464, 27);
-            this.dtpNgaySinh.TabIndex = 24;
             // 
             // TiepNhanHocSinh
             // 
