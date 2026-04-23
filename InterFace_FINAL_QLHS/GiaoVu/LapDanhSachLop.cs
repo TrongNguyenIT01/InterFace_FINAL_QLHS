@@ -231,8 +231,12 @@ namespace InterFace_FINAL_QLHS.GiaoVu
                     int lopIndex = 0;
                     int count = 0;
 
-                    // Dựa vào ảnh image_36dc88.png, mã năm học của bạn là 'NH2526'
-                    string maNamHocHienTai = "NH2526";
+                    if (cbNamHoc.SelectedIndex == 0 || cbNamHoc.SelectedValue == null)
+                    {
+                        MessageBox.Show("Chọn năm học để xếp lớp!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    string maNamHocHienTai = cbNamHoc.SelectedValue.ToString();
 
                     foreach (DataRow hs in dtHS.Rows)
                     {
@@ -249,32 +253,42 @@ namespace InterFace_FINAL_QLHS.GiaoVu
                             {
                                 string maLop = currentLop["MaLop"].ToString();
                                 string maTN = hs["MaTiepNhan"].ToString();
-                                string maHS_Moi = "HS" + maTN;
 
-                                // A. Thêm HocSinh
+                                string sqlGetSeq = "SELECT NEXT VALUE FOR Seq_HocSinh";
+                                int seqValue;
+                                using (SqlCommand cmdSeq = new SqlCommand(sqlGetSeq, conn, trans)) // Dùng biến 'trans' của nút tự động
+                                {
+                                    seqValue = Convert.ToInt32(cmdSeq.ExecuteScalar());
+                                }
+                                string maHS_Moi = "HS" + seqValue.ToString("D4");
+
+                                // ạo mã quá trình giống thủ công luôn (Mã HS + Mã Năm Học) cho gọn và nhất quán, bỏ Guid đi
+                                string maQT = maHS_Moi + maNamHocHienTai;
+                            
+
+
                                 string sqlInsHS = "INSERT INTO HocSinh (MaHS, HoTen, NgaySinh, GioiTinh, DiaChi, Email, SoDienThoai, TenPh) " +
                                                   "VALUES (@MaHS, @Ten, @NS, @GT, @DC, @Mail, @Sdt, @PH)";
                                 DataProvider.ExcuteNonQuery_trans(sqlInsHS, CommandType.Text, new SqlParameter[] {
-                                    new SqlParameter("@MaHS", maHS_Moi),
-                                    new SqlParameter("@Ten", hs["HoTen"]),
-                                    new SqlParameter("@NS", hs["NgaySinh"]),
-                                    new SqlParameter("@GT", hs["GioiTinh"]),
-                                    new SqlParameter("@DC", hs["DiaChi"]),
-                                    new SqlParameter("@Mail", hs["Email"] ?? (object)DBNull.Value),
-                                    new SqlParameter("@Sdt", hs["SoDienThoai"] ?? (object)DBNull.Value),
-                                    new SqlParameter("@PH", hs["TenPH"] ?? (object)DBNull.Value)
-                                }, conn, trans);
+                                            new SqlParameter("@MaHS", maHS_Moi),
+                                            new SqlParameter("@Ten", hs["HoTen"]),
+                                            new SqlParameter("@NS", hs["NgaySinh"]),
+                                            new SqlParameter("@GT", hs["GioiTinh"]),
+                                            new SqlParameter("@DC", hs["DiaChi"]),
+                                            new SqlParameter("@Mail", hs["Email"] ?? (object)DBNull.Value),
+                                            new SqlParameter("@Sdt", hs["SoDienThoai"] ?? (object)DBNull.Value),
+                                            new SqlParameter("@PH", hs["TenPH"] ?? (object)DBNull.Value)
+                                        }, conn, trans);
 
-                                // B. Thêm QuaTrinhHocTap (SỬA LẠI THEO ẢNH BẢNG CỦA BẠN: MaNamHoc thay vì MaHK)
-                                string maQT = "QT" + Guid.NewGuid().ToString().Substring(0, 8);
+                                // B. Thêm QuaTrinhHocTap 
                                 string sqlInsQT = "INSERT INTO QuaTrinhHocTap (MaQuaTrinh, MaHS, MaNamHoc, MaLop, TrangThai) " +
                                                   "VALUES (@QT, @MaHS, @MaNH, @Lop, N'Đang Học')";
                                 DataProvider.ExcuteNonQuery_trans(sqlInsQT, CommandType.Text, new SqlParameter[] {
-                                    new SqlParameter("@QT", maQT),
-                                    new SqlParameter("@MaHS", maHS_Moi),
-                                    new SqlParameter("@MaNH", maNamHocHienTai),
-                                    new SqlParameter("@Lop", maLop)
-                                }, conn, trans);
+                                        new SqlParameter("@QT", maQT),           // Dùng mã QT mới
+                                        new SqlParameter("@MaHS", maHS_Moi),
+                                        new SqlParameter("@MaNH", maNamHocHienTai),
+                                        new SqlParameter("@Lop", maLop)
+                                    }, conn, trans);
 
                                 // C. Cập nhật trạng thái Tiếp nhận
                                 string sqlUpTN = "UPDATE TiepNhanHS SET TrangThai = N'Đã Phân Lớp' WHERE MaTiepNhan = @MaTN";
@@ -457,7 +471,7 @@ namespace InterFace_FINAL_QLHS.GiaoVu
                         //  Cập nhật trạng thái bảng TiepNhanHS
                         string sqlUpdateTN = @"UPDATE TiepNhanHS SET TrangThai = @TrangThai WHERE MaTiepNhan = @MaTN";
                         SqlParameter[] pTN = {
-            new SqlParameter("@TrangThai", "Đang Học Lớp " + maLop),
+            new SqlParameter("@TrangThai", "Đã Phân Lớp"),
             new SqlParameter("@MaTN", maTN)
         };
                         DataProvider.ExcuteNonQuery_trans(sqlUpdateTN, CommandType.Text, pTN, conn, tran);
@@ -492,5 +506,101 @@ namespace InterFace_FINAL_QLHS.GiaoVu
             }
         }
 
+        private void Rut_HS() {
+            if (cbLop.SelectedIndex == 0 || cbLop.SelectedValue == null || cbLop.SelectedValue.ToString() == "--Chọn Lớp--")
+            {
+                MessageBox.Show("Chọn lớp cụ thể để rút học sinh!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (dgvLop.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Chọn ít nhất một học sinh trong danh sách lớp để rút!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string maLop = cbLop.SelectedValue.ToString();
+            string maNamHoc = cbNamHoc.SelectedValue.ToString();
+
+            // 2. Hiển thị cảnh báo xác nhận
+            DialogResult dr = MessageBox.Show(
+                $"Bạn có chắc chắn muốn rút {dgvLop.SelectedRows.Count} học sinh khỏi lớp {maLop}?\nThao tác này sẽ đưa học sinh trở lại danh sách Tiếp nhận và chờ phân lớp.\n Hãy đảm bảo rằng hành động này được thực hiện ở vào đầu năm học và học sinh chưa có bất kì điểm gì trong quá trình học tập",
+                "Cảnh báo rút học sinh",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (dr == DialogResult.Yes)
+            {
+                int soLuongThanhCong = 0;
+
+                using (SqlConnection conn = new SqlConnection(DataProvider.ChuoiKetNoi))
+                {
+                    conn.Open();
+
+                    foreach (DataGridViewRow row in dgvLop.SelectedRows)
+                    {
+                        string maHS = row.Cells["MaHs"].Value.ToString();
+                        string hoTen = row.Cells["HoTen"].Value.ToString();
+                        DateTime ngaySinh = Convert.ToDateTime(row.Cells["NgaySinh"].Value);
+
+                        SqlTransaction tran = conn.BeginTransaction();
+                        try
+                        {
+                            // Xóa  QuaTrinhHocTap
+                            string sqlDelQT = "DELETE FROM QuaTrinhHocTap WHERE MaHs = @MaHS";
+                            DataProvider.ExcuteNonQuery_trans(sqlDelQT, CommandType.Text, new SqlParameter[] {
+                                new SqlParameter("@MaHS", maHS)
+                            }, conn, tran);
+
+                            // Trả trạng thái trong TiepNhanHS về 'Chưa Phân Lớp'
+
+                            string sqlUpdateTN = "UPDATE TiepNhanHS SET TrangThai = N'Chưa Phân Lớp' WHERE HoTen = @HoTen AND NgaySinh = @NgaySinh";
+                            DataProvider.ExcuteNonQuery_trans(sqlUpdateTN, CommandType.Text, new SqlParameter[] {
+                                    new SqlParameter("@HoTen", hoTen),
+                                    new SqlParameter("@NgaySinh", ngaySinh) 
+                                }, conn, tran);
+
+                            //  Xóa học sinh khỏi bảng HocSinh 
+                            string sqlDelHS = "DELETE FROM HocSinh WHERE MaHs = @MaHS";
+                            DataProvider.ExcuteNonQuery_trans(sqlDelHS, CommandType.Text, new SqlParameter[] {
+                        new SqlParameter("@MaHS", maHS)
+                    }, conn, tran);
+
+                            // Bước D: Giảm Sĩ số của Lớp
+                            string sqlUpdLop = "UPDATE Lop SET SiSo = ISNULL(SiSo, 1) - 1 WHERE MaLop = @MaLop";
+                            DataProvider.ExcuteNonQuery_trans(sqlUpdLop, CommandType.Text, new SqlParameter[] {
+                        new SqlParameter("@MaLop", maLop)
+                    }, conn, tran);
+
+                            // Commit transaction
+                            tran.Commit();
+                            soLuongThanhCong++;
+                        }
+                        catch (Exception ex)
+                        {
+                            tran.Rollback();
+                            MessageBox.Show($"Lỗi khi rút học sinh {hoTen}: {ex.Message}", "Lỗi hệ thống", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                } // Đóng connection
+
+                // 3. Thông báo và Load lại dữ liệu
+                if (soLuongThanhCong > 0)
+                {
+                    MessageBox.Show($"Đã rút thành công {soLuongThanhCong} học sinh khỏi lớp {maLop}!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Reload lại GridView lớp và lưới Tiếp Nhận
+                    LoadThongTinLop(maLop);
+                    string khoiLopDangChon = cbKhoiTN.SelectedValue != null ? cbKhoiTN.SelectedValue.ToString() : "--Chọn Khối Lớp--";
+                    Load_DS_TN(khoiLopDangChon);
+                }
+            }
+        
+    }
+
+        private void btnRutKhoiLop_Click(object sender, EventArgs e)
+        {
+            Rut_HS();
+        }
     }
 }

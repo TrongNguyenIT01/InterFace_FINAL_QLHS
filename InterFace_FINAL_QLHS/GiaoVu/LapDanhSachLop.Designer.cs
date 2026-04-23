@@ -81,7 +81,7 @@
             this.cbNamHoc.FormattingEnabled = true;
             this.cbNamHoc.Location = new System.Drawing.Point(532, 23);
             this.cbNamHoc.Name = "cbNamHoc";
-            this.cbNamHoc.Size = new System.Drawing.Size(229, 31);
+            this.cbNamHoc.Size = new System.Drawing.Size(229, 26);
             this.cbNamHoc.TabIndex = 3;
             // 
             // btnExport
@@ -123,6 +123,7 @@
             this.btnRutKhoiLop.Text = "Rút khỏi danh sách";
             this.btnRutKhoiLop.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRutKhoiLop.UseVisualStyleBackColor = false;
+            this.btnRutKhoiLop.Click += new System.EventHandler(this.btnRutKhoiLop_Click);
             // 
             // btnXepLop
             // 
@@ -227,7 +228,7 @@
             this.cbKhoiTN.Location = new System.Drawing.Point(20, 16);
             this.cbKhoiTN.Margin = new System.Windows.Forms.Padding(2);
             this.cbKhoiTN.Name = "cbKhoiTN";
-            this.cbKhoiTN.Size = new System.Drawing.Size(263, 27);
+            this.cbKhoiTN.Size = new System.Drawing.Size(263, 24);
             this.cbKhoiTN.TabIndex = 1;
             // 
             // dgvLop
@@ -296,7 +297,7 @@
             this.cbLop.Location = new System.Drawing.Point(2, 16);
             this.cbLop.Margin = new System.Windows.Forms.Padding(2);
             this.cbLop.Name = "cbLop";
-            this.cbLop.Size = new System.Drawing.Size(122, 27);
+            this.cbLop.Size = new System.Drawing.Size(122, 24);
             this.cbLop.TabIndex = 3;
             // 
             // LapDanhSachLop

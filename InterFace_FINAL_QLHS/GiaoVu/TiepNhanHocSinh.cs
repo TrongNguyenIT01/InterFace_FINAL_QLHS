@@ -21,7 +21,36 @@ namespace InterFace_FINAL_QLHS
             InitializeComponent();
         }
 
+        // [THÊM MỚI] Hàm lấy quy định tuổi từ bảng ThamSo
+        private void LayQuyDinhTuoi(out int tuoiTT, out int tuoiTD)
+        {
+            tuoiTT = 15;
+            tuoiTD = 20;
 
+            string sql = "SELECT MaThamSo, GiaTri FROM ThamSo WHERE MaThamSo IN ('TuoiTT', 'TuoiTD')";
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(DataProvider.ChuoiKetNoi))
+                {
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string maTS = reader["MaThamSo"].ToString();
+                            int giaTri = Convert.ToInt32(reader["GiaTri"]);
+                            if (maTS == "TuoiTT") tuoiTT = giaTri;
+                            if (maTS == "TuoiTD") tuoiTD = giaTri;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Không thể lấy quy định tuổi từ CSDL: " + ex.Message, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
 
         private void btnTaiMau_Click(object sender, EventArgs e)
         {
@@ -40,9 +69,7 @@ namespace InterFace_FINAL_QLHS
                 }
                 catch (Exception ex)
                 {
-                    {
-                        MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -61,6 +88,8 @@ namespace InterFace_FINAL_QLHS
                     int Success = 0;
                     int Failed = 0;
 
+                    LayQuyDinhTuoi(out int tuoiTT, out int tuoiTD);
+
                     using (SqlConnection conn = new SqlConnection(DataProvider.ChuoiKetNoi))
                     {
                         conn.Open();
@@ -70,7 +99,7 @@ namespace InterFace_FINAL_QLHS
                             try
                             {
                                 string HoTen = worksheet.Cells[row, 1].Value?.ToString().Trim();
-                                DateTime NgaySinh =worksheet.Cells[row, 2].GetValue<DateTime>();
+                                DateTime NgaySinh = worksheet.Cells[row, 2].GetValue<DateTime>();
                                 string GioiTinh = worksheet.Cells[row, 3].Value?.ToString().Trim();
                                 string DiaChi = worksheet.Cells[row, 4].Value?.ToString().Trim();
                                 string Email = worksheet.Cells[row, 5].Value?.ToString().Trim();
@@ -79,6 +108,15 @@ namespace InterFace_FINAL_QLHS
                                 string TenPH = worksheet.Cells[row, 8].Value?.ToString().Trim();
                                 DateTime NgayTiepNhan = worksheet.Cells[row, 9].GetValue<DateTime>();
 
+                               
+                                int tuoiHS = NgayTiepNhan.Year - NgaySinh.Year;
+                                if (tuoiHS < tuoiTT || tuoiHS > tuoiTD)
+                                {
+                                    // Ghi nhận thất bại và báo lỗi cho dòng này, sau đó bỏ qua để chạy dòng tiếp theo
+                                    MessageBox.Show($"Import thất bại dòng {row}: Tuổi học sinh '{HoTen}' ({tuoiHS} tuổi) không hợp lệ.\nQuy định: Từ {tuoiTT} đến {tuoiTD} tuổi.", "Lỗi quy định", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    Failed++;
+                                    continue;
+                                }
 
                                 SqlTransaction tran = conn.BeginTransaction();
                                 try
@@ -88,17 +126,17 @@ namespace InterFace_FINAL_QLHS
                                     $"('TN'+ RIGHT('0000' + CAST(NEXT VALUE FOR Seq_TiepNhan AS Varchar),4), @HoTen, @NgaySinh, @GioiTinh, @DiaChi, @Email, @SoDienThoai, @KhoiLop, @TenPH, @NgayTiepNhan,@TrangThai)";
 
                                     SqlParameter[] sp = new SqlParameter[] {
-                                new SqlParameter("@HoTen", HoTen),
-                                new SqlParameter("@NgaySinh", NgaySinh),
-                                new SqlParameter("@GioiTinh", GioiTinh),
-                                new SqlParameter("@DiaChi", DiaChi),
-                                new SqlParameter("@Email", Email),
-                                new SqlParameter("@SoDienThoai", SDT),
-                                new SqlParameter("@KhoiLop", Khoi),
-                                new SqlParameter("@TenPH", TenPH),
-                                new SqlParameter("@NgayTiepNhan", NgayTiepNhan),
-                                new SqlParameter("@TrangThai", "Chưa Phân Lớp")
-                            };
+                                        new SqlParameter("@HoTen", HoTen),
+                                        new SqlParameter("@NgaySinh", NgaySinh),
+                                        new SqlParameter("@GioiTinh", GioiTinh),
+                                        new SqlParameter("@DiaChi", DiaChi),
+                                        new SqlParameter("@Email", Email),
+                                        new SqlParameter("@SoDienThoai", SDT),
+                                        new SqlParameter("@KhoiLop", Khoi),
+                                        new SqlParameter("@TenPH", TenPH),
+                                        new SqlParameter("@NgayTiepNhan", NgayTiepNhan),
+                                        new SqlParameter("@TrangThai", "Chưa Phân Lớp")
+                                    };
 
                                     DataProvider.ExcuteNonQuery_trans(sql, CommandType.Text, sp, conn, tran);
                                     tran.Commit();
@@ -116,11 +154,9 @@ namespace InterFace_FINAL_QLHS
                                 MessageBox.Show($"Lỗi định dạng dữ liệu Excel tại dòng {row}: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 Failed++;
                             }
-                        } // Đóng vòng lặp for ở đây
-                    } // Đóng using SqlConnection
+                        }
+                    }
 
-                    // 
-                    // hiện thông báo 1 lần
                     MessageBox.Show($"Quá trình Import hoàn tất!\n- Thành công: {Success} dòng.\n- Thất bại: {Failed} dòng.", "Thông báo kết quả", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -141,24 +177,37 @@ namespace InterFace_FINAL_QLHS
             }
         }
 
-        private bool kiemtradulieu() { 
-            if(string.IsNullOrWhiteSpace(txtHoTenHS.Text) || (!rbtnNam.Checked && !rbtnNu.Checked )
-                || string.IsNullOrWhiteSpace(txtDiaChi.Text)|| string.IsNullOrWhiteSpace(txtEmail.Text)
+        private bool kiemtradulieu()
+        {
+            if (string.IsNullOrWhiteSpace(txtHoTenHS.Text) || (!rbtnNam.Checked && !rbtnNu.Checked)
+                || string.IsNullOrWhiteSpace(txtDiaChi.Text) || string.IsNullOrWhiteSpace(txtEmail.Text)
                 || string.IsNullOrWhiteSpace(txtSDT.Text) || string.IsNullOrWhiteSpace(txtHoTenPH.Text))
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
+
             try
             {
                 var addr = new System.Net.Mail.MailAddress(txtEmail.Text);
-                return addr.Address == txtEmail.Text;
+                if (addr.Address != txtEmail.Text) return false;
             }
             catch
             {
                 MessageBox.Show("Định dạng email không hợp lệ!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+
+            // [THÊM MỚI] Kiểm tra quy định tuổi
+            LayQuyDinhTuoi(out int tuoiTT, out int tuoiTD);
+            int tuoiHS = dtpNgayTN.Value.Year - dtpNgaySinh.Value.Year;
+
+            if (tuoiHS < tuoiTT || tuoiHS > tuoiTD)
+            {
+                MessageBox.Show($"Độ tuổi học sinh không hợp lệ!\nTuổi hiện tại: {tuoiHS} tuổi.\nQuy định cho phép: Từ {tuoiTT} đến {tuoiTD} tuổi.", "Cảnh báo quy định", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
             return true;
         }
 
@@ -188,7 +237,7 @@ namespace InterFace_FINAL_QLHS
                     SqlTransaction tran = conn.BeginTransaction();
                     try
                     {
-                        DataProvider.ExcuteNonQuery_trans(sql,CommandType.Text, sp, conn, tran);
+                        DataProvider.ExcuteNonQuery_trans(sql, CommandType.Text, sp, conn, tran);
                         tran.Commit();
                         MessageBox.Show("Tiếp nhận học sinh thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -199,7 +248,9 @@ namespace InterFace_FINAL_QLHS
                     }
                 }
             }
-                
+
         }
+
+        
     }
 }
