@@ -39,13 +39,13 @@ namespace InterFace_FINAL_QLHS.Config
         public static DataRow getUserInfo(string input, string pass, int role)
         {
             string query = @"SELECT * FROM Users 
-                     WHERE (Email = @input OR MaUser = @input) 
+                     WHERE (Email = @input OR UserID = @input) 
                      AND Pass_word = @pass AND Quyen = @role";
             using (SqlConnection conn = new SqlConnection(DataProvider.ChuoiKetNoi))
             {
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@input", input);
-                cmd.Parameters.AddWithValue("@pass", pass);
+                cmd.Parameters.AddWithValue("@pass", Cap_TaiKhoan.HashPassword(pass));
                 cmd.Parameters.AddWithValue("@role", role);
 
                 SqlDataAdapter da = new SqlDataAdapter(cmd);

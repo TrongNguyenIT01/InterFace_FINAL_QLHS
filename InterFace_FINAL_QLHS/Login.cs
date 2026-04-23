@@ -72,7 +72,7 @@ namespace InterFace_FINAL_QLHS
                     DataRow User = Dang_Nhap.getUserInfo(txtDangnhap.Text, txtMatkhau.Text, role);
                     Session.UserName= User["UserName"].ToString();   
                     
-                    MessageBox.Show("Đăng nhập thành công!");
+                    MessageBox.Show("Đăng nhập thành công! ");
                    
                     
                     this.Hide();
