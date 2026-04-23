@@ -35,5 +35,27 @@ namespace InterFace_FINAL_QLHS.Config
             }
         
         }
+
+        public static DataRow getUserInfo(string input, string pass, int role)
+        {
+            string query = @"SELECT * FROM Users 
+                     WHERE (Email = @input OR MaUser = @input) 
+                     AND Pass_word = @pass AND Quyen = @role";
+            using (SqlConnection conn = new SqlConnection(DataProvider.ChuoiKetNoi))
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@input", input);
+                cmd.Parameters.AddWithValue("@pass", pass);
+                cmd.Parameters.AddWithValue("@role", role);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                    return dt.Rows[0];
+                return null;
+            }
+        }
     }
 }

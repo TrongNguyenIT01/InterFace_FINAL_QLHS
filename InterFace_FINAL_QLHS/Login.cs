@@ -56,7 +56,25 @@ namespace InterFace_FINAL_QLHS
 
                 if (dn)
                 {
+                    int role;
+                    if(cbVaitro.Text == "Admin")        
+                    {
+                        role = 0;
+                    }
+                    else if (cbVaitro.Text == "Giáo Viên")
+                    {
+                        role = 1;
+                    }
+                    else
+                    {
+                        role = 2;
+                    }
+                    DataRow User = Dang_Nhap.getUserInfo(txtDangnhap.Text, txtMatkhau.Text, role);
+                    Session.UserName= User["UserName"].ToString();   
+                    
                     MessageBox.Show("Đăng nhập thành công!");
+                   
+                    
                     this.Hide();
                     f.Owner = this;
                     f.Show();
