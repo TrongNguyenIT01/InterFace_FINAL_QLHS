@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.txtDiemChuan = new System.Windows.Forms.TextBox();
             this.txtTenMon = new System.Windows.Forms.TextBox();
             this.txtMaMon = new System.Windows.Forms.TextBox();
@@ -41,81 +42,91 @@
             this.lblTenMon = new System.Windows.Forms.Label();
             this.lblMaMon = new System.Windows.Forms.Label();
             this.lblDSmon = new System.Windows.Forms.Label();
-            this.lblTitle = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDanhSachMon)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.txtDiemChuan);
-            this.panel1.Controls.Add(this.txtTenMon);
-            this.panel1.Controls.Add(this.txtMaMon);
-            this.panel1.Controls.Add(this.dtgDanhSachMon);
-            this.panel1.Controls.Add(this.btnSua);
-            this.panel1.Controls.Add(this.btnXoa);
-            this.panel1.Controls.Add(this.btnThem);
-            this.panel1.Controls.Add(this.lblThongTinthayDoi);
-            this.panel1.Controls.Add(this.lblDiemChuan);
-            this.panel1.Controls.Add(this.lblTenMon);
-            this.panel1.Controls.Add(this.lblMaMon);
-            this.panel1.Controls.Add(this.lblDSmon);
             this.panel1.Controls.Add(this.lblTitle);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1021, 593);
+            this.panel1.Size = new System.Drawing.Size(1289, 75);
             this.panel1.TabIndex = 0;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.BackColor = System.Drawing.Color.White;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(446, 9);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(431, 41);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "Thay Đổi Thông Tin Môn Học";
             // 
             // txtDiemChuan
             // 
             this.txtDiemChuan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.txtDiemChuan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDiemChuan.Location = new System.Drawing.Point(644, 267);
+            this.txtDiemChuan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDiemChuan.Location = new System.Drawing.Point(202, 180);
             this.txtDiemChuan.Name = "txtDiemChuan";
-            this.txtDiemChuan.Size = new System.Drawing.Size(249, 34);
+            this.txtDiemChuan.Size = new System.Drawing.Size(644, 34);
             this.txtDiemChuan.TabIndex = 12;
             // 
             // txtTenMon
             // 
             this.txtTenMon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.txtTenMon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTenMon.Location = new System.Drawing.Point(644, 214);
+            this.txtTenMon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTenMon.Location = new System.Drawing.Point(202, 127);
             this.txtTenMon.Name = "txtTenMon";
-            this.txtTenMon.Size = new System.Drawing.Size(249, 34);
+            this.txtTenMon.Size = new System.Drawing.Size(644, 34);
             this.txtTenMon.TabIndex = 11;
             // 
             // txtMaMon
             // 
             this.txtMaMon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.txtMaMon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMaMon.Location = new System.Drawing.Point(644, 161);
+            this.txtMaMon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaMon.Location = new System.Drawing.Point(202, 74);
             this.txtMaMon.Name = "txtMaMon";
-            this.txtMaMon.Size = new System.Drawing.Size(249, 34);
+            this.txtMaMon.Size = new System.Drawing.Size(644, 34);
             this.txtMaMon.TabIndex = 10;
             // 
             // dtgDanhSachMon
             // 
             this.dtgDanhSachMon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgDanhSachMon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgDanhSachMon.Location = new System.Drawing.Point(6, 114);
+            this.dtgDanhSachMon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgDanhSachMon.Location = new System.Drawing.Point(0, 0);
             this.dtgDanhSachMon.Name = "dtgDanhSachMon";
             this.dtgDanhSachMon.ReadOnly = true;
             this.dtgDanhSachMon.RowHeadersWidth = 51;
             this.dtgDanhSachMon.RowTemplate.Height = 24;
-            this.dtgDanhSachMon.Size = new System.Drawing.Size(468, 441);
+            this.dtgDanhSachMon.Size = new System.Drawing.Size(1289, 485);
             this.dtgDanhSachMon.TabIndex = 9;
             // 
             // btnSua
             // 
+            this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSua.BackColor = System.Drawing.Color.Orange;
             this.btnSua.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSua.ForeColor = System.Drawing.Color.White;
-            this.btnSua.Location = new System.Drawing.Point(791, 371);
+            this.btnSua.Location = new System.Drawing.Point(1156, 103);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(102, 64);
+            this.btnSua.Size = new System.Drawing.Size(122, 81);
             this.btnSua.TabIndex = 8;
             this.btnSua.Text = "✎ Sửa";
             this.btnSua.UseVisualStyleBackColor = false;
@@ -123,12 +134,13 @@
             // 
             // btnXoa
             // 
+            this.btnXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnXoa.BackColor = System.Drawing.Color.Red;
             this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.ForeColor = System.Drawing.Color.White;
-            this.btnXoa.Location = new System.Drawing.Point(647, 371);
+            this.btnXoa.Location = new System.Drawing.Point(1012, 103);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(102, 64);
+            this.btnXoa.Size = new System.Drawing.Size(122, 81);
             this.btnXoa.TabIndex = 7;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
@@ -136,12 +148,13 @@
             // 
             // btnThem
             // 
+            this.btnThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnThem.BackColor = System.Drawing.Color.Lime;
             this.btnThem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem.ForeColor = System.Drawing.Color.White;
-            this.btnThem.Location = new System.Drawing.Point(506, 371);
+            this.btnThem.Location = new System.Drawing.Point(871, 103);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(102, 64);
+            this.btnThem.Size = new System.Drawing.Size(122, 81);
             this.btnThem.TabIndex = 6;
             this.btnThem.Text = "+ Thêm";
             this.btnThem.UseVisualStyleBackColor = false;
@@ -151,10 +164,10 @@
             // 
             this.lblThongTinthayDoi.AutoSize = true;
             this.lblThongTinthayDoi.BackColor = System.Drawing.Color.White;
-            this.lblThongTinthayDoi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblThongTinthayDoi.Location = new System.Drawing.Point(501, 114);
+            this.lblThongTinthayDoi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblThongTinthayDoi.Location = new System.Drawing.Point(12, 21);
             this.lblThongTinthayDoi.Name = "lblThongTinthayDoi";
-            this.lblThongTinthayDoi.Size = new System.Drawing.Size(190, 28);
+            this.lblThongTinthayDoi.Size = new System.Drawing.Size(210, 28);
             this.lblThongTinthayDoi.TabIndex = 5;
             this.lblThongTinthayDoi.Text = "Thông Tin Thay Đổi :";
             // 
@@ -162,10 +175,10 @@
             // 
             this.lblDiemChuan.AutoSize = true;
             this.lblDiemChuan.BackColor = System.Drawing.Color.White;
-            this.lblDiemChuan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiemChuan.Location = new System.Drawing.Point(501, 267);
+            this.lblDiemChuan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDiemChuan.Location = new System.Drawing.Point(12, 174);
             this.lblDiemChuan.Name = "lblDiemChuan";
-            this.lblDiemChuan.Size = new System.Drawing.Size(122, 28);
+            this.lblDiemChuan.Size = new System.Drawing.Size(132, 28);
             this.lblDiemChuan.TabIndex = 4;
             this.lblDiemChuan.Text = "Điểm Chuẩn:";
             // 
@@ -173,10 +186,10 @@
             // 
             this.lblTenMon.AutoSize = true;
             this.lblTenMon.BackColor = System.Drawing.Color.White;
-            this.lblTenMon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTenMon.Location = new System.Drawing.Point(501, 214);
+            this.lblTenMon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenMon.Location = new System.Drawing.Point(12, 121);
             this.lblTenMon.Name = "lblTenMon";
-            this.lblTenMon.Size = new System.Drawing.Size(91, 28);
+            this.lblTenMon.Size = new System.Drawing.Size(99, 28);
             this.lblTenMon.TabIndex = 3;
             this.lblTenMon.Text = "Tên Môn:";
             // 
@@ -184,10 +197,10 @@
             // 
             this.lblMaMon.AutoSize = true;
             this.lblMaMon.BackColor = System.Drawing.Color.White;
-            this.lblMaMon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMaMon.Location = new System.Drawing.Point(501, 161);
+            this.lblMaMon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMaMon.Location = new System.Drawing.Point(12, 68);
             this.lblMaMon.Name = "lblMaMon";
-            this.lblMaMon.Size = new System.Drawing.Size(95, 28);
+            this.lblMaMon.Size = new System.Drawing.Size(102, 28);
             this.lblMaMon.TabIndex = 2;
             this.lblMaMon.Text = "Mã Môn :";
             // 
@@ -195,29 +208,59 @@
             // 
             this.lblDSmon.AutoSize = true;
             this.lblDSmon.BackColor = System.Drawing.Color.White;
-            this.lblDSmon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDSmon.Location = new System.Drawing.Point(12, 83);
+            this.lblDSmon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDSmon.Location = new System.Drawing.Point(12, 3);
             this.lblDSmon.Name = "lblDSmon";
-            this.lblDSmon.Size = new System.Drawing.Size(159, 28);
+            this.lblDSmon.Size = new System.Drawing.Size(172, 28);
             this.lblDSmon.TabIndex = 1;
             this.lblDSmon.Text = "Danh Sách Môn :";
             // 
-            // lblTitle
+            // panel2
             // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.BackColor = System.Drawing.Color.White;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(186, 9);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(431, 41);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Thay Đổi Thông Tin Môn Học";
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.lblDSmon);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 75);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1289, 38);
+            this.panel2.TabIndex = 13;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.dtgDanhSachMon);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 113);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1289, 485);
+            this.panel3.TabIndex = 14;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Controls.Add(this.lblThongTinthayDoi);
+            this.panel4.Controls.Add(this.lblMaMon);
+            this.panel4.Controls.Add(this.lblTenMon);
+            this.panel4.Controls.Add(this.txtDiemChuan);
+            this.panel4.Controls.Add(this.btnThem);
+            this.panel4.Controls.Add(this.lblDiemChuan);
+            this.panel4.Controls.Add(this.btnSua);
+            this.panel4.Controls.Add(this.txtMaMon);
+            this.panel4.Controls.Add(this.btnXoa);
+            this.panel4.Controls.Add(this.txtTenMon);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(0, 598);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1289, 235);
+            this.panel4.TabIndex = 15;
             // 
             // ThayDoiMonHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1021, 593);
+            this.ClientSize = new System.Drawing.Size(1289, 833);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "ThayDoiMonHoc";
             this.Text = "ThayDoiMonHoc";
@@ -225,6 +268,11 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDanhSachMon)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -245,5 +293,8 @@
         private System.Windows.Forms.TextBox txtDiemChuan;
         private System.Windows.Forms.TextBox txtTenMon;
         private System.Windows.Forms.TextBox txtMaMon;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
     }
 }
