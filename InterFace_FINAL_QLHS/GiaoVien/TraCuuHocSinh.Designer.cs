@@ -76,12 +76,13 @@
             this.btnTim.TabIndex = 2;
             this.btnTim.Text = "Tìm";
             this.btnTim.UseVisualStyleBackColor = false;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // lblTitle
             // 
             this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lblTitle.Location = new System.Drawing.Point(276, 9);
+            this.lblTitle.Location = new System.Drawing.Point(286, 10);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(253, 30);
             this.lblTitle.TabIndex = 3;
@@ -93,11 +94,11 @@
             this.dgvDanhSachHocSinh.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDanhSachHocSinh.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDanhSachHocSinh.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDanhSachHocSinh.Location = new System.Drawing.Point(0, 0);
+            this.dgvDanhSachHocSinh.Location = new System.Drawing.Point(0, 148);
             this.dgvDanhSachHocSinh.Name = "dgvDanhSachHocSinh";
             this.dgvDanhSachHocSinh.RowHeadersWidth = 51;
             this.dgvDanhSachHocSinh.RowTemplate.Height = 24;
-            this.dgvDanhSachHocSinh.Size = new System.Drawing.Size(800, 450);
+            this.dgvDanhSachHocSinh.Size = new System.Drawing.Size(800, 302);
             this.dgvDanhSachHocSinh.TabIndex = 4;
             // 
             // lblNhaptenhoacmahocsinh
@@ -145,12 +146,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dgvDanhSachHocSinh);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dgvDanhSachHocSinh);
             this.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.Name = "TraCuuHocSinh";
             this.Text = "Tra Cứu Học Sinh";
+            this.Load += new System.EventHandler(this.TraCuuHocSinh_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachHocSinh)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
