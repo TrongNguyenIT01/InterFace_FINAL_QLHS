@@ -108,6 +108,12 @@
     <Compile Include="Admin\ThayDoiThongTinChuyenMon.Designer.cs">
       <DependentUpon>ThayDoiThongTinChuyenMon.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\ThietLapDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\ThietLapDiem.Designer.cs">
+      <DependentUpon>ThietLapDiem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\ThongTinHocKy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -254,6 +260,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\ThayDoiThongTinChuyenMon.resx">
       <DependentUpon>ThayDoiThongTinChuyenMon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\ThietLapDiem.resx">
+      <DependentUpon>ThietLapDiem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\ThongTinHocKy.resx">
       <DependentUpon>ThongTinHocKy.cs</DependentUpon>
