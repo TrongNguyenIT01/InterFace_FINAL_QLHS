@@ -91,7 +91,6 @@
             this.label4.Size = new System.Drawing.Size(73, 18);
             this.label4.TabIndex = 4;
             this.label4.Text = "Tên Loại:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -136,6 +135,7 @@
             this.btnThem.TabIndex = 9;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnXoa
             // 
@@ -146,6 +146,7 @@
             this.btnXoa.TabIndex = 10;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
@@ -156,6 +157,7 @@
             this.btnSua.TabIndex = 11;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // ThietLapDiem
             // 
@@ -176,6 +178,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ThietLapDiem";
             this.Text = "ThietLapDiem";
+            this.Load += new System.EventHandler(this.ThietLapDiem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoaiDiem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

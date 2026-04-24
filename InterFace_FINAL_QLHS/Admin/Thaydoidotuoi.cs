@@ -45,5 +45,30 @@ namespace InterFace_FINAL_QLHS.Admin
             }
             return true;
         }
+        private void btnXacNhan_Click(object sender, EventArgs e)
+        {
+            if (validateTuoi())
+            {
+                string sql = $"UPDATE ThamSo SET GiaTri = @TuoiMax WHERE MaThamSo = 'TuoiTD'; " +
+                             $"UPDATE ThamSo SET GiaTri = @TuoiMin WHERE MaThamSo = 'TuoiTT';";
+                SqlParameter[] parameters = new SqlParameter[]
+                {
+                    new SqlParameter("@TuoiMax", nbTuoitoidamoi.Value),
+                    new SqlParameter("@TuoiMin", nbTuoitoithieumoi.Value)
+                };
+
+                if (DataProvider.ExcuteNonQuery(sql, CommandType.Text, parameters) > 0)
+                {
+                    MessageBox.Show("Cập nhật độ tuổi thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    grboxThongtinhientai_Enter(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("Cập nhật độ tuổi thất bại!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+            }
+        }
     }
+
 }
