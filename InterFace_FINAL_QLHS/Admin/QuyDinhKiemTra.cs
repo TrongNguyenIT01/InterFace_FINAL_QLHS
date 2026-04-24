@@ -96,7 +96,7 @@ namespace InterFace_FINAL_QLHS.Admin
         {
             if (Kiemtra())
             {
-                Message.Show("ok");
+                MessageBox.Show("ok");
 
             }
         }
