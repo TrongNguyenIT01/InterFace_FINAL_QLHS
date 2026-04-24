@@ -64,7 +64,7 @@ namespace InterFace_FINAL_QLHS.Admin
         private bool Kiemtra()
         {
             if (cbLoaiDiem.SelectedValue == DBNull.Value || cbMonHoc.SelectedValue == DBNull.Value) {
-                MessageBox.Show("Loại Điểm Hoặc Môn Học KHÔNG Được Để trống", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning;
+                MessageBox.Show("Loại Điểm Hoặc Môn Học KHÔNG Được Để trống", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
               return false;
             }
             string maloai = cbLoaiDiem.SelectedValue.ToString();
