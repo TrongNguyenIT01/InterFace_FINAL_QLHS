@@ -36,12 +36,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.cbMonHoc = new System.Windows.Forms.ComboBox();
             this.cbLoaiDiem = new System.Windows.Forms.ComboBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numSL = new System.Windows.Forms.NumericUpDown();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuyDinhKT)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSL)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -121,18 +121,18 @@
             this.cbLoaiDiem.Size = new System.Drawing.Size(184, 21);
             this.cbLoaiDiem.TabIndex = 7;
             // 
-            // numericUpDown1
+            // numSL
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(190, 490);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.numSL.Location = new System.Drawing.Point(190, 490);
+            this.numSL.Maximum = new decimal(new int[] {
             7,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(183, 20);
-            this.numericUpDown1.TabIndex = 8;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.numSL.Name = "numSL";
+            this.numSL.Size = new System.Drawing.Size(183, 20);
+            this.numSL.TabIndex = 8;
+            this.numSL.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -158,6 +158,7 @@
             this.btnXoa.TabIndex = 10;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
@@ -168,6 +169,7 @@
             this.btnSua.TabIndex = 11;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // QuyDinhKiemTra
             // 
@@ -177,7 +179,7 @@
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnThem);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.numSL);
             this.Controls.Add(this.cbLoaiDiem);
             this.Controls.Add(this.cbMonHoc);
             this.Controls.Add(this.label5);
@@ -190,7 +192,7 @@
             this.Text = "QuyDinhKiemTra";
             this.Load += new System.EventHandler(this.QuyDinhKiemTra_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuyDinhKT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSL)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -206,7 +208,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cbMonHoc;
         private System.Windows.Forms.ComboBox cbLoaiDiem;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numSL;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnSua;

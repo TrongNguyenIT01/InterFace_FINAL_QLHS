@@ -26,9 +26,9 @@ namespace InterFace_FINAL_QLHS.Admin
             DataTable dt2 = DataProvider.TruyVan_LayDuLieu(sql2);
 
             cbLoaiDiem.DataSource = dt;
-            DataRow loaidiem =dt.NewRow();
+            DataRow loaidiem = dt.NewRow();
             loaidiem["TenLoaiDiem"] = "--Chọn loại điểm--";
-            loaidiem["MaLoaiDiem"]=DBNull.Value;
+            loaidiem["MaLoaiDiem"] = DBNull.Value;
             dt.Rows.InsertAt(loaidiem, 0);
             cbLoaiDiem.DisplayMember = "TenLoaiDiem";
             cbLoaiDiem.ValueMember = "MaLoaiDiem";
@@ -36,13 +36,13 @@ namespace InterFace_FINAL_QLHS.Admin
 
             //--
             cbMonHoc.DataSource = dt2;
-            DataRow monHoc =dt2.NewRow();
-            monHoc["TenMon"]= "--Chọn Môn--";
-            monHoc["MaMon"]= DBNull.Value;
+            DataRow monHoc = dt2.NewRow();
+            monHoc["TenMon"] = "--Chọn Môn--";
+            monHoc["MaMon"] = DBNull.Value;
             dt2.Rows.InsertAt(monHoc, 0);
             cbMonHoc.DisplayMember = "TenMon";
             cbMonHoc.ValueMember = "MaMon";
-            cbMonHoc.SelectedIndex = 0; 
+            cbMonHoc.SelectedIndex = 0;
         }
 
         private void Load_DGV()
@@ -63,29 +63,30 @@ namespace InterFace_FINAL_QLHS.Admin
 
         private bool Kiemtra()
         {
-            if (cbLoaiDiem.SelectedValue == DBNull.Value || cbMonHoc.SelectedValue == DBNull.Value) {
+            if (cbLoaiDiem.SelectedValue == DBNull.Value || cbMonHoc.SelectedValue == DBNull.Value)
+            {
                 MessageBox.Show("Loại Điểm Hoặc Môn Học KHÔNG Được Để trống", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-              return false;
+                return false;
             }
             string maloai = cbLoaiDiem.SelectedValue.ToString();
             string mamon = cbMonHoc.SelectedValue.ToString();
 
-       
-            string sql = @"SELECT 1 
-                   FROM QuyDinhDiem
-                   WHERE MaLoaiDiem = @maloai AND MaMon = @mamon";
+            
+            string sql = @"SELECT 1 FROM QuyDinhDiem WHERE MaLoaiDiem = @maloai AND MaMon = @mamon";
 
             SqlParameter[] sp = new SqlParameter[]
             {
                 new SqlParameter("@maloai", maloai),
                 new SqlParameter("@mamon", mamon)
-            };
+                    };
 
-      
+           
+            DataTable dt = DataProvider.SelectData(sql, CommandType.Text, sp);
 
-            if (DataProvider.ExcuteNonQuery(sql, CommandType.Text, sp)>0)
+           
+            if (dt.Rows.Count > 0)
             {
-                MessageBox.Show("Quy định kiểm tra này đã tồn tại!","Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Quy định kiểm tra này đã tồn tại!", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -96,9 +97,96 @@ namespace InterFace_FINAL_QLHS.Admin
         {
             if (Kiemtra())
             {
-                MessageBox.Show("ok");
+                using (SqlConnection conn = new SqlConnection(DataProvider.ChuoiKetNoi))
+                {
+                    conn.Open();
+                    SqlTransaction tran = conn.BeginTransaction();
+                    try
+                    {
+                        string sql = "INSERT INTO QuyDinhDiem (MaMon, MaLoaiDiem, SoLanKT) VALUES (@MaMon, @MaLoai, @SoLan)";
+                        SqlParameter[] paras = new SqlParameter[]
+                        {
+                            new SqlParameter("@MaMon", cbMonHoc.SelectedValue.ToString()),
+                            new SqlParameter("@MaLoai", cbLoaiDiem.SelectedValue.ToString()),
+                            new SqlParameter("@SoLan", (int)numSL.Value)
+                            };
+
+                        DataProvider.ExcuteNonQuery_trans(sql, CommandType.Text, paras, conn, tran);
+                        tran.Commit();
+                        MessageBox.Show("Thêm quy định thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        Load_DGV();
+                    }
+                    catch (Exception ex)
+                    {
+                        tran.Rollback();
+                        MessageBox.Show("Thêm quy định thất bại! Lỗi: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
 
             }
         }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            string sql = $"DELETE FROM QuyDinhDiem WHERE MaMon=@MaMon AND MaLoaiDiem =@MaLoai";
+            SqlParameter[] sp = new SqlParameter[]
+            {
+                new SqlParameter("@MaLoai", cbLoaiDiem.SelectedValue.ToString()),
+                new SqlParameter("@MaMon",cbMonHoc.SelectedValue.ToString())
+            };
+            if (MessageBox.Show("Bạn có chắc muốn xóa quy định điểm này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (DataProvider.ExcuteNonQuery(sql, CommandType.Text, sp) > 0)
+                {
+                    MessageBox.Show("Đã xóa loại điểm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Load_DGV();
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+          
+            if (cbLoaiDiem.SelectedValue == null || cbLoaiDiem.SelectedValue == DBNull.Value ||
+                cbMonHoc.SelectedValue == null || cbMonHoc.SelectedValue == DBNull.Value)
+            {
+                MessageBox.Show("Vui lòng chọn đầy đủ Môn Học và Loại Điểm!", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+       
+            string sql = "UPDATE QuyDinhDiem SET SoLanKT = @SoLan WHERE MaMon = @MaMon AND MaLoaiDiem = @MaLoai";
+
+            SqlParameter[] sp = new SqlParameter[]
+            {
+        new SqlParameter("@SoLan", (int)numSL.Value),
+        new SqlParameter("@MaMon", cbMonHoc.SelectedValue.ToString()),
+        new SqlParameter("@MaLoai", cbLoaiDiem.SelectedValue.ToString())
+            };
+
+           
+            try
+            {
+                if (DataProvider.ExcuteNonQuery(sql, CommandType.Text, sp) > 0)
+                {
+                    MessageBox.Show("Cập nhật quy định điểm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Load_DGV();
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy quy định này để cập nhật (Có thể chưa tồn tại)!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi cập nhật dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }
