@@ -33,13 +33,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbHSCNH = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbSNHN = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbSLHS = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panelTieuDe.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -83,7 +83,7 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.Gainsboro;
-            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.lbHSCNH);
             this.groupBox3.Controls.Add(this.button3);
             this.groupBox3.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.groupBox3.Location = new System.Drawing.Point(538, 19);
@@ -93,14 +93,14 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Học sinh chưa nhập học";
             // 
-            // label4
+            // lbHSCNH
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 49);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 19);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "label4";
+            this.lbHSCNH.AutoSize = true;
+            this.lbHSCNH.Location = new System.Drawing.Point(15, 49);
+            this.lbHSCNH.Name = "lbHSCNH";
+            this.lbHSCNH.Size = new System.Drawing.Size(51, 19);
+            this.lbHSCNH.TabIndex = 5;
+            this.lbHSCNH.Text = "label4";
             // 
             // button3
             // 
@@ -117,7 +117,7 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Gainsboro;
-            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.lbSNHN);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.groupBox2.Location = new System.Drawing.Point(275, 19);
@@ -127,14 +127,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Sinh nhật hôm nay";
             // 
-            // label3
+            // lbSNHN
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 49);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 19);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "label3";
+            this.lbSNHN.AutoSize = true;
+            this.lbSNHN.Location = new System.Drawing.Point(15, 49);
+            this.lbSNHN.Name = "lbSNHN";
+            this.lbSNHN.Size = new System.Drawing.Size(51, 19);
+            this.lbSNHN.TabIndex = 4;
+            this.lbSNHN.Text = "label3";
             // 
             // button2
             // 
@@ -151,7 +151,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Gainsboro;
-            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.lbSLHS);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.groupBox1.Location = new System.Drawing.Point(12, 19);
@@ -161,14 +161,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Số lượng học sinh";
             // 
-            // label2
+            // lbSLHS
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 49);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 19);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "label2";
+            this.lbSLHS.AutoSize = true;
+            this.lbSLHS.Location = new System.Drawing.Point(17, 49);
+            this.lbSLHS.Name = "lbSLHS";
+            this.lbSLHS.Size = new System.Drawing.Size(51, 19);
+            this.lbSLHS.TabIndex = 1;
+            this.lbSLHS.Text = "label2";
             // 
             // button1
             // 
@@ -215,10 +215,10 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbHSCNH;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbSNHN;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbSLHS;
     }
 }
