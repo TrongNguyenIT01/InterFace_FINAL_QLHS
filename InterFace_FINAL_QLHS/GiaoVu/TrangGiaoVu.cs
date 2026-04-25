@@ -53,6 +53,7 @@ namespace InterFace_FINAL_QLHS
                     btnXemBaoCaoHK.Text = "Báo cáo tổng kết học kỳ";
                     btnXemBaoCaoMon.Text = "Báo cáo tổng kết môn";
                     btnXemDiem.Text = "Xem bảng điểm môn";
+                    btnDoiPass.Text = "Đổi mật khẩu";
                     btnLogout.Text = "Đăng xuất";
                 }
             }
