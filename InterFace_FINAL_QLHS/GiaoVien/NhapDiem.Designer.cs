@@ -34,6 +34,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbMonHoc = new System.Windows.Forms.ComboBox();
             this.dgvDanhSachHS = new System.Windows.Forms.DataGridView();
+            this.btnExport = new System.Windows.Forms.Button();
+            this.btnImport = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachHS)).BeginInit();
@@ -67,7 +69,7 @@
             this.btnTim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTim.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnTim.ForeColor = System.Drawing.Color.White;
-            this.btnTim.Location = new System.Drawing.Point(523, 23);
+            this.btnTim.Location = new System.Drawing.Point(601, 23);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(120, 40);
             this.btnTim.TabIndex = 2;
@@ -82,7 +84,7 @@
             this.btnLuuDiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLuuDiem.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnLuuDiem.ForeColor = System.Drawing.Color.White;
-            this.btnLuuDiem.Location = new System.Drawing.Point(668, 23);
+            this.btnLuuDiem.Location = new System.Drawing.Point(746, 23);
             this.btnLuuDiem.Name = "btnLuuDiem";
             this.btnLuuDiem.Size = new System.Drawing.Size(120, 40);
             this.btnLuuDiem.TabIndex = 3;
@@ -94,7 +96,7 @@
             // 
             this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lblTitle.Location = new System.Drawing.Point(237, 0);
+            this.lblTitle.Location = new System.Drawing.Point(276, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(321, 30);
             this.lblTitle.TabIndex = 4;
@@ -125,11 +127,13 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 35);
+            this.panel1.Size = new System.Drawing.Size(878, 35);
             this.panel1.TabIndex = 8;
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnImport);
+            this.panel2.Controls.Add(this.btnExport);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.cbMonHoc);
             this.panel2.Controls.Add(this.lblChonLop);
@@ -141,7 +145,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 35);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 108);
+            this.panel2.Size = new System.Drawing.Size(878, 108);
             this.panel2.TabIndex = 9;
             // 
             // label1
@@ -170,14 +174,44 @@
             this.dgvDanhSachHS.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDanhSachHS.Location = new System.Drawing.Point(0, 143);
             this.dgvDanhSachHS.Name = "dgvDanhSachHS";
-            this.dgvDanhSachHS.Size = new System.Drawing.Size(800, 307);
+            this.dgvDanhSachHS.Size = new System.Drawing.Size(878, 397);
             this.dgvDanhSachHS.TabIndex = 10;
+            // 
+            // btnExport
+            // 
+            this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExport.BackColor = System.Drawing.Color.Blue;
+            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExport.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnExport.ForeColor = System.Drawing.Color.White;
+            this.btnExport.Location = new System.Drawing.Point(601, 65);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(120, 40);
+            this.btnExport.TabIndex = 10;
+            this.btnExport.Text = "Export Excel";
+            this.btnExport.UseVisualStyleBackColor = false;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
+            // btnImport
+            // 
+            this.btnImport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnImport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImport.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnImport.ForeColor = System.Drawing.Color.White;
+            this.btnImport.Location = new System.Drawing.Point(746, 65);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(120, 40);
+            this.btnImport.TabIndex = 11;
+            this.btnImport.Text = "Import";
+            this.btnImport.UseVisualStyleBackColor = false;
+            this.btnImport.Click += new System.EventHandler(this.btnImportExcel_Click);
             // 
             // NhapDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(878, 540);
             this.Controls.Add(this.dgvDanhSachHS);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -201,5 +235,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbMonHoc;
         private System.Windows.Forms.DataGridView dgvDanhSachHS;
+        private System.Windows.Forms.Button btnImport;
+        private System.Windows.Forms.Button btnExport;
     }
 }

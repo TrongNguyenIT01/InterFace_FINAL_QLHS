@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using OfficeOpenXml;
+using System.IO;
 
 namespace InterFace_FINAL_QLHS.GiaoVien
 {
@@ -261,7 +263,7 @@ namespace InterFace_FINAL_QLHS.GiaoVien
             string MaLop = cbChonLop.SelectedValue?.ToString() ?? "";
             string MaMon = cbMonHoc.SelectedValue?.ToString() ?? "";
             string MaHK = cbChonHocKy.SelectedValue?.ToString() ?? "";
-            if (MessageBox.Show("Kiểm Tra kỹ trước khi lưu điểm, vì khi đã nhập lên hệ thống thì điểm không thể sửa!!", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) { return; }
+            if (MessageBox.Show("Thực Hiện Lưu Điểm?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) { return; }
 
 
             if (string.IsNullOrEmpty(MaLop) || string.IsNullOrEmpty(MaMon) || string.IsNullOrEmpty(MaHK))
@@ -383,12 +385,13 @@ namespace InterFace_FINAL_QLHS.GiaoVien
                 END
                 ELSE
                 BEGIN
-                    INSERT INTO DiemCK (MaHS, MaLop, MaHK, MaMon, Diem) 
-                    VALUES (@MaHS, @MaLop, @MaHK, @MaMon, @Diem)
+                    INSERT INTO DiemCK (MaDiemCK,MaHS, MaLop, MaHK, MaMon, Diem) 
+                    VALUES (@Madiem,@MaHS, @MaLop, @MaHK, @MaMon, @Diem)
                 END";
 
             SqlParameter[] paras = new SqlParameter[]
             {
+                new SqlParameter("@Madiem",maHS +"_CK"),
                 new SqlParameter("@MaHS", maHS),
                 new SqlParameter("@MaLop", maLop),
                 new SqlParameter("@MaHK", maHK),
@@ -399,5 +402,133 @@ namespace InterFace_FINAL_QLHS.GiaoVien
             DataProvider.ExcuteNonQuery_trans(sql, CommandType.Text, paras, conn, tran);
         }
 
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+
+            if (dgvDanhSachHS.Rows.Count == 0 || dgvDanhSachHS.Columns.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu để xuất!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            ExcelPackage.License.SetNonCommercialPersonal("My Name");
+
+            using (SaveFileDialog sfd = new SaveFileDialog { Filter = "Excel Workbook|*.xlsx", FileName = $"Bang_Diem_Mon_{cbMonHoc.Text}_Lop_{cbChonLop.SelectedValue.ToString()}.xlsx" })
+            {
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        FileInfo file = new FileInfo(sfd.FileName);
+                        using (ExcelPackage package = new ExcelPackage(file))
+                        {
+                            ExcelWorksheet ws = package.Workbook.Worksheets.Add("NhapDiem");
+
+                            //  dòng 1 làm dòng CHỨA TÊN CỘT THẬT 
+                            for (int i = 0; i < dgvDanhSachHS.Columns.Count; i++)
+                            {
+                                ws.Cells[1, i + 1].Value = dgvDanhSachHS.Columns[i].Name; // VD: Diem_TP_1
+                            }
+                            ws.Row(1).Hidden = true; // Ẩn dòng mã cột 
+
+                            //  Dùng dòng 2 làm HEADER TEXT 
+                            for (int i = 0; i < dgvDanhSachHS.Columns.Count; i++)
+                            {
+                                ws.Cells[2, i + 1].Value = dgvDanhSachHS.Columns[i].HeaderText;
+                                ws.Cells[2, i + 1].Style.Font.Bold = true;
+                            }
+
+                            //  Đổ dữ liệu từ DGV xuống - từ dòng 3
+                            for (int i = 0; i < dgvDanhSachHS.Rows.Count; i++)
+                            {
+                                if (dgvDanhSachHS.Rows[i].IsNewRow) continue;
+                                for (int j = 0; j < dgvDanhSachHS.Columns.Count; j++)
+                                {
+                                    ws.Cells[i + 3, j + 1].Value = dgvDanhSachHS.Rows[i].Cells[j].Value?.ToString();
+                                }
+                            }
+
+                            // AutoFit các cột 
+                            ws.Cells[ws.Dimension.Address].AutoFitColumns();
+
+                            package.Save();
+                            MessageBox.Show("Xuất file Excel mẫu thành công! Giáo viên có thể mở file này để nhập điểm.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi khi xuất file: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+        private void btnImportExcel_Click(object sender, EventArgs e)
+        {
+            if (dgvDanhSachHS.Rows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng Chọn Lớp/Môn và bấm TÌM để tạo khung điểm trước khi Import!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            ExcelPackage.License.SetNonCommercialPersonal("My Name");
+
+            using (OpenFileDialog ofd = new OpenFileDialog { Filter = "Excel Workbook|*.xlsx" })
+            {
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        FileInfo file = new FileInfo(ofd.FileName);
+                        using (ExcelPackage package = new ExcelPackage(file))
+                        {
+                            ExcelWorksheet ws = package.Workbook.Worksheets.FirstOrDefault();
+                            if (ws == null) return;
+
+                            int rowCount = ws.Dimension.Rows;
+                            int colCount = ws.Dimension.Columns;
+
+                            // Bắt đầu đọc từ dòng 3 
+                            for (int row = 3; row <= rowCount; row++)
+                            {
+                                // Lấy Mã HS ở cột đầu tiên 
+                                string maHS_Excel = ws.Cells[row, 1].Value?.ToString() ?? "";
+                                if (string.IsNullOrEmpty(maHS_Excel)) continue;
+
+                                // Tìm dòng trên DGV có khớp Mã HS này không
+                                foreach (DataGridViewRow dgvRow in dgvDanhSachHS.Rows)
+                                {
+                                    if (dgvRow.IsNewRow) continue;
+                                    string maHS_DGV = dgvRow.Cells["MaHS"].Value?.ToString() ?? "";
+
+                                    if (maHS_Excel == maHS_DGV)
+                                    {
+                                        // Nếu khớp học sinh, lặp qua các cột điểm để lấy dữ liệu đắp vào DGV
+                                        for (int col = 1; col <= colCount; col++)
+                                        {
+                                            // Lấy cái tên cột thật (Diem_TP_1) ở dòng số 1 đang bị ẩn
+                                            string colName = ws.Cells[1, col].Value?.ToString() ?? "";
+
+                                            // Chỉ lấy những cột bắt đầu bằng Diem_
+                                            if (colName.StartsWith("Diem_") && dgvDanhSachHS.Columns.Contains(colName))
+                                            {
+                                                dgvRow.Cells[colName].Value = ws.Cells[row, col].Value?.ToString() ?? "";
+                                            }
+                                        }
+                                        break; // Đã tìm thấy và điền xong HS này, thoát vòng lặp tìm HS để sang HS tiếp theo của Excel
+                                    }
+                                }
+                            }
+
+                            MessageBox.Show("Đã tải dữ liệu từ Excel lên màn hình!\nVui lòng kiểm tra lại và bấm LƯU để ghi vào Cơ sở dữ liệu.", "Hoàn tất Import", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                           
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi khi đọc file Excel: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
     }
 }
