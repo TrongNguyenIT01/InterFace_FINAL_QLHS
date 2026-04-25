@@ -103,7 +103,47 @@ namespace InterFace_FINAL_QLHS.Admin
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            if (!KiemTraDuLieu()) return;
+            //if (cbGVCN.SelectedIndex == 0)
+            //{
+            //    MessageBox.Show($"Vui lòng chọn giáo viên!", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
 
+            using (SqlConnection conn = new SqlConnection(DataProvider.ChuoiKetNoi))
+            {
+                conn.Open();
+                SqlTransaction tran = conn.BeginTransaction();
+                try
+                {
+
+                    string sqlLop = "INSERT INTO Lop (MaLop, TenLop, SiSoToiDa, GiaoVienID) VALUES (@malop, @tenlop, @sisomax, @gvcn)";
+                    SqlParameter[] spLop = {
+                new SqlParameter("@malop", txtMaLop.Text.Trim()),
+                new SqlParameter("@tenlop", txtTenLop.Text.Trim()),
+                new SqlParameter("@sisomax", txtSiSoToiDa.Text.Trim()),
+                new SqlParameter("@gvcn", cbGVCN.SelectedValue)
+            };
+                    DataProvider.ExcuteNonQuery_trans(sqlLop, CommandType.Text, spLop, conn, tran);
+
+                    //update gv
+                    string sqlGV = $"UPDATE GiaoVien SET TrangThai = @tt WHERE GiaoVienID = @id";
+                    DataProvider.ExcuteNonQuery_trans(sqlGV, CommandType.Text,
+                        new SqlParameter[] {
+                    new SqlParameter("@tt", TrangThai_2),
+                    new SqlParameter("@id", cbGVCN.SelectedValue)
+                        }, conn, tran);
+
+                    tran.Commit();
+                    MessageBox.Show("Thêm lớp thành công!");
+                    LamMoiGiaoDien();
+                }
+                catch (Exception ex)
+                {
+                    tran.Rollback();
+                    MessageBox.Show("Lỗi thêm lớp: " + ex.Message);
+                }
+            }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)

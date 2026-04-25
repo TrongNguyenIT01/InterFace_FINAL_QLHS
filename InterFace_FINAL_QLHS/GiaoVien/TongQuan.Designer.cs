@@ -34,10 +34,10 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.dgvDSLopDangDay = new System.Windows.Forms.DataGridView();
             this.btnTim = new System.Windows.Forms.Button();
-            this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.lblTimLop = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtTimKiem = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSLopDangDay)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -60,11 +60,11 @@
             this.dgvDSLopDangDay.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDSLopDangDay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDSLopDangDay.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDSLopDangDay.Location = new System.Drawing.Point(0, 0);
+            this.dgvDSLopDangDay.Location = new System.Drawing.Point(0, 162);
             this.dgvDSLopDangDay.Name = "dgvDSLopDangDay";
             this.dgvDSLopDangDay.RowHeadersWidth = 51;
             this.dgvDSLopDangDay.RowTemplate.Height = 24;
-            this.dgvDSLopDangDay.Size = new System.Drawing.Size(800, 450);
+            this.dgvDSLopDangDay.Size = new System.Drawing.Size(800, 288);
             this.dgvDSLopDangDay.TabIndex = 2;
             // 
             // btnTim
@@ -79,14 +79,7 @@
             this.btnTim.TabIndex = 3;
             this.btnTim.Text = "Tìm";
             this.btnTim.UseVisualStyleBackColor = false;
-            // 
-            // txtTimKiem
-            // 
-            this.txtTimKiem.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtTimKiem.Location = new System.Drawing.Point(12, 46);
-            this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Size = new System.Drawing.Size(180, 30);
-            this.txtTimKiem.TabIndex = 1;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // lblTimLop
             // 
@@ -117,17 +110,26 @@
             this.panel2.Size = new System.Drawing.Size(800, 109);
             this.panel2.TabIndex = 6;
             // 
+            // txtTimKiem
+            // 
+            this.txtTimKiem.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtTimKiem.Location = new System.Drawing.Point(12, 46);
+            this.txtTimKiem.Name = "txtTimKiem";
+            this.txtTimKiem.Size = new System.Drawing.Size(180, 30);
+            this.txtTimKiem.TabIndex = 1;
+            // 
             // TongQuan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dgvDSLopDangDay);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dgvDSLopDangDay);
             this.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.Name = "TongQuan";
             this.Text = "Tổng Quan";
+            this.Load += new System.EventHandler(this.TongQuan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSLopDangDay)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -141,9 +143,9 @@
 
         private System.Windows.Forms.DataGridView dgvDSLopDangDay;
         private System.Windows.Forms.Button btnTim;
-        private System.Windows.Forms.TextBox txtTimKiem;
         private System.Windows.Forms.Label lblTimLop;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox txtTimKiem;
     }
 }

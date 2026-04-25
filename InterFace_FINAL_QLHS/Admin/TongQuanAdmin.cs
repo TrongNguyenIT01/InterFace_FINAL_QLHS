@@ -156,5 +156,15 @@ namespace InterFace_FINAL_QLHS.Admin
         {
             OpenChildForm(new DoiPassSauDangNhap());
         }
+
+        private void btnThietLapDiem_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ThietLapDiem());
+        }
+
+        private void btnLanKT_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new QuyDinhKiemTra());
+        }
     }
 }
