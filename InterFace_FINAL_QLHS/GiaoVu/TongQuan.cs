@@ -33,7 +33,10 @@ namespace InterFace_FINAL_QLHS
                 SqlCommand cmd2 = new SqlCommand("SELECT COUNT(*) FROM HocSinh WHERE DAY(NgaySinh) = DAY(GETDATE()) AND MONTH(NgaySinh) = MONTH(GETDATE())", conn);
                 lbSNHN.Text = cmd2.ExecuteScalar().ToString();
 
-                
+                string sqlChuaNhapHoc = "SELECT COUNT(*) FROM TiepNhanHS WHERE TrangThai = N'Chưa Phân Lớp'";
+                SqlCommand cmd3 = new SqlCommand(sqlChuaNhapHoc, conn);
+                lbHSCNH.Text = cmd3.ExecuteScalar().ToString();
+
             }
         }
     }

@@ -55,6 +55,9 @@ namespace InterFace_FINAL_QLHS.Admin
                     btnChuyenMon.Text = "Chuyên môn";
                     btnThongTinHK.Text = "Thông tin học kỳ";
                     btnThongTinNamHoc.Text = "Thông tin năm học";
+                    btnThietLapDiem.Text = "Thiết lập điểm";
+                    btnLanKT.Text = "Thiết lập quy định lần kiểm tra";
+                    btnDoiPass.Text = "Đổi mật khẩu";
                     btnDangXuat.Text = "Đăng xuất";
                 }
             }

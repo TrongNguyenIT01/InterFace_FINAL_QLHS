@@ -54,7 +54,7 @@
             // 
             // lblTieuDe
             // 
-            this.lblTieuDe.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblTieuDe.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTieuDe.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTieuDe.Location = new System.Drawing.Point(374, 0);
             this.lblTieuDe.Name = "lblTieuDe";
@@ -133,11 +133,12 @@
             // 
             // btnThem
             // 
+            this.btnThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnThem.BackColor = System.Drawing.Color.LimeGreen;
             this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem.ForeColor = System.Drawing.Color.White;
-            this.btnThem.Location = new System.Drawing.Point(735, 97);
+            this.btnThem.Location = new System.Drawing.Point(714, 97);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(127, 77);
             this.btnThem.TabIndex = 10;
@@ -147,11 +148,12 @@
             // 
             // btnXoa
             // 
+            this.btnXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnXoa.BackColor = System.Drawing.Color.Red;
             this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.ForeColor = System.Drawing.Color.White;
-            this.btnXoa.Location = new System.Drawing.Point(1053, 97);
+            this.btnXoa.Location = new System.Drawing.Point(1032, 97);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(127, 77);
             this.btnXoa.TabIndex = 11;
@@ -161,11 +163,12 @@
             // 
             // btnSua
             // 
+            this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSua.BackColor = System.Drawing.Color.Orange;
             this.btnSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSua.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSua.ForeColor = System.Drawing.Color.White;
-            this.btnSua.Location = new System.Drawing.Point(894, 97);
+            this.btnSua.Location = new System.Drawing.Point(873, 97);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(127, 77);
             this.btnSua.TabIndex = 12;
