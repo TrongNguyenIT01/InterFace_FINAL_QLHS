@@ -16,5 +16,15 @@ namespace InterFace_FINAL_QLHS.GiaoVu
         {
             InitializeComponent();
         }
+
+        private void load_cb()
+        {
+
+        }
+
+        private void BangDiemMon_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

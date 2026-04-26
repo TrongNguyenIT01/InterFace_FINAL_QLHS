@@ -38,39 +38,105 @@ namespace InterFace_FINAL_QLHS.GiaoVien
             }
         }
 
-        private void load_CB()
-        {
-            string sql = @"
-                SELECT pc.*, mh.TenMon
-                FROM PhanCongGiangDay pc
-                JOIN MonHoc mh ON pc.MaMon = mh.MaMon
-                WHERE pc.GiaoVienID = @IDGV";
 
-            SqlParameter[] parameters = new SqlParameter[]
-            {
-        new SqlParameter("@IDGV", IDGV)
+        private void LoadHocKy()
+        {
+            string sql = "SELECT DISTINCT MaHK FROM PhanCongGiangDay WHERE GiaoVienID = @IDGV";
+            SqlParameter[] param = { new SqlParameter("@IDGV", IDGV) };
+
+            DataTable dtHK = DataProvider.SelectData(sql, CommandType.Text, param);
+
+            // Gỡ event tạm thời 
+            cbChonHocKy.SelectedIndexChanged -= cbChonHocKy_SelectedIndexChanged;
+
+            cbChonHocKy.DataSource = dtHK;
+            cbChonHocKy.DisplayMember = "MaHK";
+            cbChonHocKy.ValueMember = "MaHK";
+            cbChonHocKy.SelectedIndex = -1;
+
+            // Gắn lại event
+            cbChonHocKy.SelectedIndexChanged += cbChonHocKy_SelectedIndexChanged;
+
+            // Khóa các ComboBox phía sau
+            cbChonLop.Enabled = false;
+            cbMonHoc.Enabled = false;
+
+            // Xóa trắng dữ liệu cũ nếu có
+            cbChonLop.DataSource = null;
+            cbMonHoc.DataSource = null;
+        }
+
+        // 2. Load Lớp dựa vào Học Kỳ đã chọn
+        private void LoadLop(string maHK)
+        {
+            string sql = "SELECT DISTINCT MaLop FROM PhanCongGiangDay WHERE GiaoVienID = @IDGV AND MaHK = @MaHK";
+            SqlParameter[] parameters = {
+                new SqlParameter("@IDGV", IDGV),
+                new SqlParameter("@MaHK", maHK)
             };
 
-   
-            DataTable dtPhanCong = DataProvider.SelectData(sql, CommandType.Text, parameters);
+            DataTable dtLop = DataProvider.SelectData(sql, CommandType.Text, parameters);
 
-            if (dtPhanCong != null && dtPhanCong.Rows.Count > 0)
+            cbChonLop.SelectedIndexChanged -= cbChonLop_SelectedIndexChanged;
+
+            cbChonLop.DataSource = dtLop;
+            cbChonLop.DisplayMember = "MaLop";
+            cbChonLop.ValueMember = "MaLop";
+            cbChonLop.SelectedIndex = -1;
+
+            cbChonLop.SelectedIndexChanged += cbChonLop_SelectedIndexChanged;
+
+            // Mở khóa lớp, tiếp tục khóa môn học
+            cbChonLop.Enabled = true;
+            cbMonHoc.Enabled = false;
+            cbMonHoc.DataSource = null;
+        }
+
+        // 3. Load Môn dựa vào Học Kỳ và Lớp đã chọn
+        private void LoadMonHoc(string maHK, string maLop)
+        {
+            string sql = @"
+        SELECT DISTINCT pc.MaMon, mh.TenMon 
+        FROM PhanCongGiangDay pc
+        JOIN MonHoc mh ON pc.MaMon = mh.MaMon
+        WHERE pc.GiaoVienID = @IDGV AND pc.MaHK = @MaHK AND pc.MaLop = @MaLop";
+
+            SqlParameter[] parameters = {
+        new SqlParameter("@IDGV", IDGV),
+        new SqlParameter("@MaHK", maHK),
+        new SqlParameter("@MaLop", maLop)
+    };
+
+            DataTable dtMon = DataProvider.SelectData(sql, CommandType.Text, parameters);
+
+            cbMonHoc.DataSource = dtMon;
+            cbMonHoc.DisplayMember = "TenMon";
+            cbMonHoc.ValueMember = "MaMon";
+            cbMonHoc.SelectedIndex = -1;
+
+            // Mở khóa môn học
+            cbMonHoc.Enabled = true;
+        }
+
+        // Khi giáo viên chọn Học Kỳ
+        private void cbChonHocKy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+            if (cbChonHocKy.SelectedIndex != -1 && cbChonHocKy.SelectedValue != null)
             {
-                
-                DataView viewLop = new DataView(dtPhanCong);
-                cbChonLop.DataSource = viewLop.ToTable(true, "MaLop");
-                cbChonLop.DisplayMember = "MaLop";
-                cbChonLop.ValueMember = "MaLop";
+                string maHK = cbChonHocKy.SelectedValue.ToString();
+                LoadLop(maHK); 
+            }
+        }
 
-                DataView viewHocKy = new DataView(dtPhanCong);
-                cbChonHocKy.DataSource = viewHocKy.ToTable(true, "MaHK");
-                cbChonHocKy.DisplayMember = "MaHK";
-                cbChonHocKy.ValueMember = "MaHK";
-
-                DataView viewMonHoc = new DataView(dtPhanCong);
-                cbMonHoc.DataSource = viewMonHoc.ToTable(true, "MaMon", "TenMon");
-                cbMonHoc.DisplayMember = "TenMon";
-                cbMonHoc.ValueMember = "MaMon";
+        // Khi giáo viên chọn Lớp
+        private void cbChonLop_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbChonLop.SelectedIndex != -1 && cbChonLop.SelectedValue != null && cbChonHocKy.SelectedValue != null)
+            {
+                string maHK = cbChonHocKy.SelectedValue.ToString();
+                string maLop = cbChonLop.SelectedValue.ToString();
+                LoadMonHoc(maHK, maLop); 
             }
         }
         private void LoadDiemLopHoc()
@@ -250,7 +316,8 @@ namespace InterFace_FINAL_QLHS.GiaoVien
         }
         private void NhapDiem_Load(object sender, EventArgs e)
         {
-            load_CB();
+            //load_CB();
+            LoadHocKy();
         }
 
         private void btnTim_Click(object sender, EventArgs e)
