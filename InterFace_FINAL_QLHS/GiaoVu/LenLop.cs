@@ -88,7 +88,7 @@ namespace InterFace_FINAL_QLHS.GiaoVu
                             int soLenLop = Convert.ToInt32(sp[3].Value);
                             int soLuuBan = Convert.ToInt32(sp[4].Value);
 
-                            // TẠO THÔNG BÁO THỐNG KÊ HOÀNH TRÁNG
+                          
                             string thongBao = $"Đã hoàn tất quá trình tổng kết năm học {maNamHienTai}!\n\n" +
                                               $"BÁO CÁO KẾT QUẢ:\n" +
                                               $" Tốt nghiệp (Khối 12): {soTotNghiep} học sinh\n" +
