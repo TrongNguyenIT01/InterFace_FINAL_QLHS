@@ -45,7 +45,6 @@ namespace InterFace_FINAL_QLHS.GiaoVien
 
                 dgvDanhSachHocSinh.DataSource = dt;
                 dgvDanhSachHocSinh.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                MessageBox.Show("Đang tìm cho User: " + Session.UserName);
             }
             catch (Exception ex)
             {
