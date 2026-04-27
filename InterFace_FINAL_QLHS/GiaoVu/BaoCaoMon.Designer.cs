@@ -80,16 +80,17 @@
             this.btnXuatFileBaoCaoMon.TabIndex = 3;
             this.btnXuatFileBaoCaoMon.Text = "Xuất File";
             this.btnXuatFileBaoCaoMon.UseVisualStyleBackColor = false;
+            this.btnXuatFileBaoCaoMon.Click += new System.EventHandler(this.btnXuatFileBaoCaoMon_Click);
             // 
             // btnTaoBaoCao
             // 
             this.btnTaoBaoCao.BackColor = System.Drawing.Color.LightGreen;
             this.btnTaoBaoCao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTaoBaoCao.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnTaoBaoCao.Location = new System.Drawing.Point(696, 25);
+            this.btnTaoBaoCao.Location = new System.Drawing.Point(671, 25);
             this.btnTaoBaoCao.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnTaoBaoCao.Name = "btnTaoBaoCao";
-            this.btnTaoBaoCao.Size = new System.Drawing.Size(105, 28);
+            this.btnTaoBaoCao.Size = new System.Drawing.Size(130, 28);
             this.btnTaoBaoCao.TabIndex = 2;
             this.btnTaoBaoCao.Text = "Tạo báo cáo";
             this.btnTaoBaoCao.UseVisualStyleBackColor = false;

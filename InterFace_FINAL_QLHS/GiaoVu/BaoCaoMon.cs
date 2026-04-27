@@ -1,8 +1,12 @@
-﻿using System;
+﻿using OfficeOpenXml;
+using OfficeOpenXml.Style;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -118,5 +122,113 @@ namespace InterFace_FINAL_QLHS.GiaoVu
          
             dgvBaoCaoMon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
+
+        private void btnXuatFileBaoCaoMon_Click(object sender, EventArgs e)
+        {
+   
+
+   
+            // 1. Kiểm tra dữ liệu trên lưới trước khi xuất
+            if (dgvBaoCaoMon.Rows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng bấm 'Tạo Báo Cáo' để có dữ liệu trước khi xuất file!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            
+            ExcelPackage.License.SetNonCommercialPersonal("MyName");
+
+            // 3. Khởi tạo hộp thoại lưu file
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "Excel Workbook|*.xlsx";
+            
+                sfd.FileName = $"Bao_Cao_Mon_{cbMon.Text.Replace(" ", "_")}_{cbHocKy.Text}.xlsx";
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        FileInfo file = new FileInfo(sfd.FileName);
+                        using (ExcelPackage package = new ExcelPackage(file))
+                        {
+                            // Tạo một Sheet mới tên là "Báo Cáo "
+                            ExcelWorksheet ws = package.Workbook.Worksheets.Add("BaoCaoMon");
+
+                            // 4. TIÊU ĐỀ BÁO CÁO (Merge từ cột A đến F - 6 cột)
+                            ws.Cells["A1:F1"].Merge = true;
+                            ws.Cells["A1"].Value = $"BÁO CÁO TỔNG KẾT Môn {cbMon.Text}";
+                            ws.Cells["A1"].Style.Font.Size = 18;
+                            ws.Cells["A1"].Style.Font.Bold = true;
+                            ws.Cells["A1"].Style.Font.Color.SetColor(System.Drawing.Color.DarkGreen);
+                            ws.Cells["A1"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+
+                            ws.Cells["A2:F2"].Merge = true;
+                            ws.Cells["A2"].Value = "Học kỳ: " + cbHocKy.Text;
+                            ws.Cells["A2"].Style.Font.Size = 13;
+                            ws.Cells["A2"].Style.Font.Italic = true;
+                            ws.Cells["A2"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+
+                            // 5. ĐỔ HEADER (Dòng số 4)
+                            for (int i = 0; i < dgvBaoCaoMon.Columns.Count; i++)
+                            {
+                                var cell = ws.Cells[4, i + 1];
+                                cell.Value = dgvBaoCaoMon.Columns[i].HeaderText;
+
+                                // Định dạng Header: Chữ đậm, nền xám, căn giữa, có khung
+                                cell.Style.Font.Bold = true;
+                                cell.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                                cell.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                cell.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(220, 220, 220));
+                                cell.Style.Border.BorderAround(ExcelBorderStyle.Thin);
+                            }
+
+                            // 6. ĐỔ DỮ LIỆU TỪ GRIDVIEW (Từ dòng số 5)
+                            for (int i = 0; i < dgvBaoCaoMon.Rows.Count; i++)
+                            {
+                                // Bỏ qua dòng trống cuối cùng nếu có
+                                if (dgvBaoCaoMon.Rows[i].IsNewRow) continue;
+
+                                for (int j = 0; j < dgvBaoCaoMon.Columns.Count; j++)
+                                {
+                                    var cell = ws.Cells[i + 5, j + 1];
+                                    var value = dgvBaoCaoMon.Rows[i].Cells[j].Value;
+
+                                    // Điền giá trị vào cell
+                                    cell.Value = value;
+
+                                    // Kẻ khung cho từng ô dữ liệu
+                                    cell.Style.Border.BorderAround(ExcelBorderStyle.Thin);
+
+                                    // Định dạng căn giữa cho các cột số lượng và STT
+                                    if (j != 2) // Trừ cột Tên Lớp (thường để căn trái cho dễ đọc)
+                                    {
+                                        cell.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                                    }
+
+                                    // Định dạng riêng cho cột Tỷ Lệ (Cột thứ 6 - index 5)
+                                    if (dgvBaoCaoMon.Columns[j].HeaderText == "Tỷ Lệ")
+                                    {
+                                        cell.Style.Numberformat.Format = "0.00\"%\"";
+                                    }
+                                }
+                            }
+
+                            // 7. CĂN CHỈNH TỰ ĐỘNG ĐỘ RỘNG CỘT
+                            ws.Cells[ws.Dimension.Address].AutoFitColumns();
+
+                            // 8. LƯU FILE
+                            package.Save();
+                            MessageBox.Show("Xuất file Excel báo cáo thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi trong quá trình xuất file: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+    
     }
 }
