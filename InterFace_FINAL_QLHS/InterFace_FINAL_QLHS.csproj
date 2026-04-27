@@ -208,6 +208,12 @@
     <Compile Include="GiaoVu\LapDanhSachLop.Designer.cs">
       <DependentUpon>LapDanhSachLop.cs</DependentUpon>
     </Compile>
+    <Compile Include="GiaoVu\LenLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoVu\LenLop.Designer.cs">
+      <DependentUpon>LenLop.cs</DependentUpon>
+    </Compile>
     <Compile Include="GiaoVu\PhanCongGV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -316,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GiaoVu\LapDanhSachLop.resx">
       <DependentUpon>LapDanhSachLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GiaoVu\LenLop.resx">
+      <DependentUpon>LenLop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GiaoVu\PhanCongGV.resx">
       <DependentUpon>PhanCongGV.cs</DependentUpon>
