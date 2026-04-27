@@ -1,14 +1,19 @@
-﻿using System;
+﻿using InterFace_FINAL_QLHS.Config;
+using OfficeOpenXml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using System.Security.AccessControl;
+using System.Windows.Media;
+
 
 namespace InterFace_FINAL_QLHS.GiaoVu
 {
@@ -602,5 +607,108 @@ namespace InterFace_FINAL_QLHS.GiaoVu
         {
             Rut_HS();
         }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            // 1. Kiểm tra dữ liệu trên DataGridView
+            // Giả sử tên lưới của bạn là dgvDanhSachLop (thay đổi nếu tên khác)
+            if (dgvLop.Rows.Count == 0 || (dgvLop.Rows.Count == 1 && dgvLop.Rows[0].IsNewRow))
+            {
+                MessageBox.Show("Không có dữ liệu trong danh sách để xuất file!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 2. Cấu hình bản quyền EPPlus (Cách này giải quyết triệt để lỗi gạch đỏ/read-only)
+            // Bạn có thể thay "Hệ thống QLHS" bằng biến chứa tên người dùng nếu muốn
+            OfficeOpenXml.ExcelPackage.License.SetNonCommercialPersonal("Hệ thống Quản lý Học sinh");
+
+            // 3. Khởi tạo hộp thoại lưu file
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "Excel Workbook|*.xlsx";
+                sfd.Title = "Chọn nơi lưu danh sách lớp";
+                sfd.FileName = "Danh_Sach_Lop_" + cbLop.Text + ".xlsx";
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        FileInfo file = new FileInfo(sfd.FileName);
+
+                        // Nếu file đã tồn tại thì xóa đi để tạo mới hoàn toàn
+                        if (file.Exists) file.Delete();
+
+                        using (ExcelPackage package = new ExcelPackage(file))
+                        {
+                            ExcelWorksheet ws = package.Workbook.Worksheets.Add("DanhSachLop");
+
+                            // 1. TRANG TRÍ TIÊU ĐỀ CHÍNH (Dòng 1)
+                            // Giả sử bảng có khoảng 6 cột (từ A đến F)
+                            ws.Cells["A1:F1"].Merge = true;
+                            ws.Cells["A1"].Value = "DANH SÁCH HỌC SINH";
+                            ws.Cells["A1"].Style.Font.Size = 16;
+                            ws.Cells["A1"].Style.Font.Bold = true;
+                            ws.Cells["A1"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
+
+                            // 2. HIỂN THỊ MÃ LỚP (Dòng 2)
+                            // Lấy giá trị từ ComboBox lớp của bạn (ví dụ: cbLop)
+                            ws.Cells["A2:F2"].Merge = true;
+                            ws.Cells["A2"].Value = "Lớp: " + (cbLop.Text ?? "........");
+                            ws.Cells["A2"].Style.Font.Italic = true;
+                            ws.Cells["A2"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
+
+                            // 3. ĐỔ HEADER (Dòng 4 - Chừa khoảng trống cho đẹp)
+                            int columnCount = dgvLop.Columns.Count;
+                            for (int i = 0; i < columnCount; i++)
+                            {
+                                var cell = ws.Cells[4, i + 1];
+                                cell.Value = dgvLop.Columns[i].HeaderText;
+
+                                // Style cho Header
+                                cell.Style.Font.Bold = true;
+                                cell.Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
+                                cell.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.LightSkyBlue);
+                                cell.Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Thin);
+                                cell.Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
+                            }
+
+                            // 4. ĐỔ DỮ LIỆU VÀ XỬ LÝ ĐỊNH DẠNG NGÀY THÁNG (Bắt đầu dòng 5)
+                            int rowIndex = 5;
+                            for (int i = 0; i < dgvLop.Rows.Count; i++)
+                            {
+                                if (dgvLop.Rows[i].IsNewRow) continue;
+
+                                for (int j = 0; j < columnCount; j++)
+                                {
+                                    var cell = ws.Cells[rowIndex, j + 1];
+                                    var value = dgvLop.Rows[i].Cells[j].Value;
+
+                                    cell.Value = value;
+                                    cell.Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Thin);
+
+                                    // FIX LỖI CÓ GIỜ: Kiểm tra nếu là cột "Ngày Sinh"
+                                    if (dgvLop.Columns[j].HeaderText.Contains("Ngày Sinh"))
+                                    {
+                                        // Định dạng chuẩn VN: Ngày/Tháng/Năm
+                                        cell.Style.Numberformat.Format = "dd/mm/yyyy";
+                                        cell.Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
+                                    }
+                                }
+                                rowIndex++;
+                            }
+
+                            ws.Cells[ws.Dimension.Address].AutoFitColumns();
+                            MessageBox.Show("Xuất file Excel danh sách lớp thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            package.Save();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi trong quá trình xuất file: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
     }
 }
