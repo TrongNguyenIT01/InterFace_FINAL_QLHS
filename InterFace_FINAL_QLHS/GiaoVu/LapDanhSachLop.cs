@@ -710,5 +710,16 @@ namespace InterFace_FINAL_QLHS.GiaoVu
             }
         }
 
+        private void btnLenLop_Click(object sender, EventArgs e)
+        {
+            using (LenLop frm = new LenLop())
+            {
+                
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                   
+                }
+            }
+        }
     }
 }
