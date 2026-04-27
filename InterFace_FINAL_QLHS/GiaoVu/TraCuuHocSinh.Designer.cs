@@ -35,6 +35,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvDanhSachHocSinh = new System.Windows.Forms.DataGridView();
+            this.cbNamHoc = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachHocSinh)).BeginInit();
@@ -42,6 +43,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.cbNamHoc);
             this.panel1.Controls.Add(this.cbKhoiLop);
             this.panel1.Controls.Add(this.btnTimHS);
             this.panel1.Controls.Add(this.txtTimHS);
@@ -59,7 +61,7 @@
             this.cbKhoiLop.Location = new System.Drawing.Point(175, 27);
             this.cbKhoiLop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbKhoiLop.Name = "cbKhoiLop";
-            this.cbKhoiLop.Size = new System.Drawing.Size(137, 27);
+            this.cbKhoiLop.Size = new System.Drawing.Size(170, 27);
             this.cbKhoiLop.TabIndex = 3;
             // 
             // btnTimHS
@@ -118,6 +120,16 @@
             this.dgvDanhSachHocSinh.Size = new System.Drawing.Size(1021, 460);
             this.dgvDanhSachHocSinh.TabIndex = 3;
             // 
+            // cbNamHoc
+            // 
+            this.cbNamHoc.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbNamHoc.FormattingEnabled = true;
+            this.cbNamHoc.Location = new System.Drawing.Point(351, 25);
+            this.cbNamHoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbNamHoc.Name = "cbNamHoc";
+            this.cbNamHoc.Size = new System.Drawing.Size(170, 27);
+            this.cbNamHoc.TabIndex = 4;
+            // 
             // TraCuuHocSinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -148,5 +160,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbKhoiLop;
         private System.Windows.Forms.DataGridView dgvDanhSachHocSinh;
+        private System.Windows.Forms.ComboBox cbNamHoc;
     }
 }

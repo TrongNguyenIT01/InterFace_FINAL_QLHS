@@ -19,66 +19,59 @@ namespace InterFace_FINAL_QLHS.GiaoVu
             InitializeComponent();
         }
 
-        private void LoadComboBoxLop()
-        {
-            string sql = "SELECT MaLop, TenLop FROM Lop";
-            DataTable dt = DataProvider.TruyVan_LayDuLieu(sql);
 
-            // Thêm một lựa chọn "Tất cả lớp"
-            DataRow dr = dt.NewRow();
-            dr["MaLop"] = "";
-            dr["TenLop"] = "--- Chọn Lớp ---";
-            dt.Rows.InsertAt(dr, 0);
-
-            cbKhoiLop.DataSource = dt;
-            cbKhoiLop.DisplayMember = "TenLop";
-            cbKhoiLop.ValueMember = "MaLop";
-        }
-
-        private void LoadData()
-        {
-            string searchKeyword = "%" + txtTimHS.Text.Trim() + "%";
-            string maLop = cbKhoiLop.SelectedValue?.ToString() ?? "";
-
-            string sql = @"
-                SELECT 
-                    hs.MaHS AS [Mã HS], 
-                    hs.HoTen AS [Họ Tên], 
-                    l.TenLop AS [Lớp],
-                    CAST(ISNULL((SELECT AVG(Diem) FROM DiemCK d WHERE d.MaHS = hs.MaHS AND d.MaHK = 'HK1'), 0) AS DECIMAL(4,2)) AS [TB Học Kỳ I],
-                    CAST(ISNULL((SELECT AVG(Diem) FROM DiemCK d WHERE d.MaHS = hs.MaHS AND d.MaHK = 'HK2'), 0) AS DECIMAL(4,2)) AS [TB Học Kỳ II]
-                FROM HocSinh hs
-                JOIN QuaTrinhHocTap qtht ON hs.MaHS = qtht.MaHS
-                JOIN Lop l ON qtht.MaLop = l.MaLop
-                WHERE (hs.MaHS LIKE @Search OR hs.HoTen LIKE @Search)";
-
-            // Nếu người dùng chọn lớp cụ thể thì thêm điều kiện lọc
-            if (!string.IsNullOrEmpty(maLop))
-            {
-                sql += " AND l.MaLop = @MaLop";
-            }
-
-            SqlParameter[] paras = new SqlParameter[]
-            {
-                new SqlParameter("@Search", searchKeyword),
-                new SqlParameter("@MaLop", maLop)
-            };
-
-            DataTable dt = DataProvider.SelectData(sql, CommandType.Text, paras);
-            dgvDanhSachHocSinh.DataSource = dt;
-
-            // Tùy chỉnh giao diện Grid cho đẹp giống Figma
-            dgvDanhSachHocSinh.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-        }
         private void btnTimHS_Click(object sender, EventArgs e)
         {
-            LoadData();
+            try
+            {
+                string search = txtTimHS.Text.Trim();
+                string maLop = cbKhoiLop.SelectedValue?.ToString();
+
+                // KHÔNG viết chết NH2526 nữa, mà lấy từ ComboBox
+                if (cbNamHoc.SelectedValue == null)
+                {
+                    MessageBox.Show("Vui lòng chọn năm học!");
+                    return;
+                }
+                string maNamHoc = cbNamHoc.SelectedValue.ToString();
+
+                SqlParameter[] paras = new SqlParameter[]
+                {
+                    new SqlParameter("@SearchTerm", string.IsNullOrEmpty(search) ? (object)DBNull.Value : search),
+                    new SqlParameter("@MaLop", string.IsNullOrEmpty(maLop) ? (object)DBNull.Value : maLop),
+                    new SqlParameter("@MaNamHoc", maNamHoc)
+                };
+
+                DataTable dt = DataProvider.SelectData("sp_TraCuuHocSinh_Dynamic", CommandType.StoredProcedure, paras);
+                dgvDanhSachHocSinh.DataSource = dt;
+
+                // Tùy chỉnh cột nếu cần (Đảm bảo đã chạy ALTER PROCEDURE để có tiêu đề tiếng Việt)
+                dgvDanhSachHocSinh.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi xảy ra: " + ex.Message);
+            }
         }
 
         private void TraCuuHocSinh_Load(object sender, EventArgs e)
         {
-            LoadComboBoxLop();
-            LoadData();
+            // 1. Lấy danh sách Lớp
+            DataTable dtLop = DataProvider.TruyVan_LayDuLieu("SELECT MaLop, TenLop FROM Lop");
+            DataRow drLop = dtLop.NewRow();
+            drLop["MaLop"] = "";
+            drLop["TenLop"] = "--- Tất cả lớp ---";
+            dtLop.Rows.InsertAt(drLop, 0);
+
+            cbKhoiLop.DataSource = dtLop;
+            cbKhoiLop.DisplayMember = "TenLop";
+            cbKhoiLop.ValueMember = "MaLop";
+
+            // 2. Lấy danh sách Năm Học (Mới thêm)
+            DataTable dtNamHoc = DataProvider.TruyVan_LayDuLieu("SELECT MaNamHoc, TenNamHoc FROM NamHoc ORDER BY TenNamHoc DESC");
+            cbNamHoc.DataSource = dtNamHoc;
+            cbNamHoc.DisplayMember = "TenNamHoc";
+            cbNamHoc.ValueMember = "MaNamHoc";
         }
     }
 }
