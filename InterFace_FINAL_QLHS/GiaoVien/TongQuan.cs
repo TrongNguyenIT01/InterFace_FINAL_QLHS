@@ -39,7 +39,7 @@ namespace InterFace_FINAL_QLHS.GiaoVien
                         L.MaLop AS [Mã Lớp],
                         L.TenLop AS [Tên Lớp], 
                         MH.TenMon AS [Môn Giảng Dạy], 
-                        L.SiSo AS [Sĩ Số],
+                        (SELECT COUNT(*) FROM QuaTrinhHocTap qt WHERE qt.MaLop = L.MaLop) AS [Sỉ Số],
                         HK.HocKy AS [Học Kỳ]
                     FROM PhanCongGiangDay PC
                     INNER JOIN Lop L ON PC.MaLop = L.MaLop

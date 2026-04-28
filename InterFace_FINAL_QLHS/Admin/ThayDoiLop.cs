@@ -24,6 +24,8 @@ namespace InterFace_FINAL_QLHS.Admin
         }
 
         private void Load_ds() {
+            string update_SS ="Update Lop Set SiSo = (Select Count (*) From QuaTrinhHocTap qt where qt.MaLop = Lop.MaLop)" ;
+            DataTable dt2 = DataProvider.TruyVan_LayDuLieu(update_SS);
             string sql = @"SELECT * FROM Lop";
 
             DataTable dt = DataProvider.TruyVan_LayDuLieu(sql);
