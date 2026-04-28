@@ -63,9 +63,9 @@
             this.btnSidebar.Image = ((System.Drawing.Image)(resources.GetObject("btnSidebar.Image")));
             this.btnSidebar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSidebar.Location = new System.Drawing.Point(0, 0);
-            this.btnSidebar.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.btnSidebar.Margin = new System.Windows.Forms.Padding(11, 10, 11, 10);
             this.btnSidebar.Name = "btnSidebar";
-            this.btnSidebar.Size = new System.Drawing.Size(206, 28);
+            this.btnSidebar.Size = new System.Drawing.Size(275, 34);
             this.btnSidebar.TabIndex = 0;
             this.btnSidebar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSidebar.UseVisualStyleBackColor = true;
@@ -77,10 +77,10 @@
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogout.Location = new System.Drawing.Point(0, 456);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLogout.Location = new System.Drawing.Point(0, 562);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(206, 28);
+            this.btnLogout.Size = new System.Drawing.Size(275, 34);
             this.btnLogout.TabIndex = 9;
             this.btnLogout.Text = "Đăng xuất";
             this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -105,9 +105,9 @@
             this.panelSidebar.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.panelSidebar.ForeColor = System.Drawing.Color.DarkBlue;
             this.panelSidebar.Location = new System.Drawing.Point(0, 0);
-            this.panelSidebar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelSidebar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelSidebar.Name = "panelSidebar";
-            this.panelSidebar.Size = new System.Drawing.Size(206, 484);
+            this.panelSidebar.Size = new System.Drawing.Size(275, 596);
             this.panelSidebar.TabIndex = 0;
             // 
             // btnDoiPass
@@ -116,10 +116,10 @@
             this.btnDoiPass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDoiPass.Image = ((System.Drawing.Image)(resources.GetObject("btnDoiPass.Image")));
             this.btnDoiPass.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDoiPass.Location = new System.Drawing.Point(0, 428);
-            this.btnDoiPass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDoiPass.Location = new System.Drawing.Point(0, 528);
+            this.btnDoiPass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDoiPass.Name = "btnDoiPass";
-            this.btnDoiPass.Size = new System.Drawing.Size(206, 28);
+            this.btnDoiPass.Size = new System.Drawing.Size(275, 34);
             this.btnDoiPass.TabIndex = 10;
             this.btnDoiPass.Text = "Đổi mật khẩu";
             this.btnDoiPass.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -132,10 +132,10 @@
             this.btnSapXepGV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSapXepGV.Image = ((System.Drawing.Image)(resources.GetObject("btnSapXepGV.Image")));
             this.btnSapXepGV.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSapXepGV.Location = new System.Drawing.Point(0, 224);
-            this.btnSapXepGV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSapXepGV.Location = new System.Drawing.Point(0, 272);
+            this.btnSapXepGV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSapXepGV.Name = "btnSapXepGV";
-            this.btnSapXepGV.Size = new System.Drawing.Size(206, 28);
+            this.btnSapXepGV.Size = new System.Drawing.Size(275, 34);
             this.btnSapXepGV.TabIndex = 8;
             this.btnSapXepGV.Text = "Sắp xếp giáo viên";
             this.btnSapXepGV.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -148,10 +148,10 @@
             this.btnXemBaoCaoHK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXemBaoCaoHK.Image = ((System.Drawing.Image)(resources.GetObject("btnXemBaoCaoHK.Image")));
             this.btnXemBaoCaoHK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXemBaoCaoHK.Location = new System.Drawing.Point(0, 196);
-            this.btnXemBaoCaoHK.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnXemBaoCaoHK.Location = new System.Drawing.Point(0, 238);
+            this.btnXemBaoCaoHK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXemBaoCaoHK.Name = "btnXemBaoCaoHK";
-            this.btnXemBaoCaoHK.Size = new System.Drawing.Size(206, 28);
+            this.btnXemBaoCaoHK.Size = new System.Drawing.Size(275, 34);
             this.btnXemBaoCaoHK.TabIndex = 7;
             this.btnXemBaoCaoHK.Text = "Báo cáo tổng kết học kỳ";
             this.btnXemBaoCaoHK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -164,10 +164,10 @@
             this.btnXemBaoCaoMon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXemBaoCaoMon.Image = ((System.Drawing.Image)(resources.GetObject("btnXemBaoCaoMon.Image")));
             this.btnXemBaoCaoMon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXemBaoCaoMon.Location = new System.Drawing.Point(0, 168);
-            this.btnXemBaoCaoMon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnXemBaoCaoMon.Location = new System.Drawing.Point(0, 204);
+            this.btnXemBaoCaoMon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXemBaoCaoMon.Name = "btnXemBaoCaoMon";
-            this.btnXemBaoCaoMon.Size = new System.Drawing.Size(206, 28);
+            this.btnXemBaoCaoMon.Size = new System.Drawing.Size(275, 34);
             this.btnXemBaoCaoMon.TabIndex = 6;
             this.btnXemBaoCaoMon.Text = "Báo cáo tổng kết môn";
             this.btnXemBaoCaoMon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -180,10 +180,10 @@
             this.btnXemDiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXemDiem.Image = ((System.Drawing.Image)(resources.GetObject("btnXemDiem.Image")));
             this.btnXemDiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXemDiem.Location = new System.Drawing.Point(0, 140);
-            this.btnXemDiem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnXemDiem.Location = new System.Drawing.Point(0, 170);
+            this.btnXemDiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXemDiem.Name = "btnXemDiem";
-            this.btnXemDiem.Size = new System.Drawing.Size(206, 28);
+            this.btnXemDiem.Size = new System.Drawing.Size(275, 34);
             this.btnXemDiem.TabIndex = 5;
             this.btnXemDiem.Text = "Xem bảng điểm môn";
             this.btnXemDiem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -196,10 +196,10 @@
             this.btnTraCuuHocSinh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTraCuuHocSinh.Image = ((System.Drawing.Image)(resources.GetObject("btnTraCuuHocSinh.Image")));
             this.btnTraCuuHocSinh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTraCuuHocSinh.Location = new System.Drawing.Point(0, 112);
-            this.btnTraCuuHocSinh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTraCuuHocSinh.Location = new System.Drawing.Point(0, 136);
+            this.btnTraCuuHocSinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTraCuuHocSinh.Name = "btnTraCuuHocSinh";
-            this.btnTraCuuHocSinh.Size = new System.Drawing.Size(206, 28);
+            this.btnTraCuuHocSinh.Size = new System.Drawing.Size(275, 34);
             this.btnTraCuuHocSinh.TabIndex = 4;
             this.btnTraCuuHocSinh.Text = "Tra cứu học sinh";
             this.btnTraCuuHocSinh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -212,10 +212,10 @@
             this.btnDanhSachLop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDanhSachLop.Image = ((System.Drawing.Image)(resources.GetObject("btnDanhSachLop.Image")));
             this.btnDanhSachLop.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDanhSachLop.Location = new System.Drawing.Point(0, 84);
-            this.btnDanhSachLop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDanhSachLop.Location = new System.Drawing.Point(0, 102);
+            this.btnDanhSachLop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDanhSachLop.Name = "btnDanhSachLop";
-            this.btnDanhSachLop.Size = new System.Drawing.Size(206, 28);
+            this.btnDanhSachLop.Size = new System.Drawing.Size(275, 34);
             this.btnDanhSachLop.TabIndex = 3;
             this.btnDanhSachLop.Text = "Lập danh sách lớp";
             this.btnDanhSachLop.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -228,10 +228,10 @@
             this.btnTiepNhanHocSinh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTiepNhanHocSinh.Image = ((System.Drawing.Image)(resources.GetObject("btnTiepNhanHocSinh.Image")));
             this.btnTiepNhanHocSinh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTiepNhanHocSinh.Location = new System.Drawing.Point(0, 56);
-            this.btnTiepNhanHocSinh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTiepNhanHocSinh.Location = new System.Drawing.Point(0, 68);
+            this.btnTiepNhanHocSinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTiepNhanHocSinh.Name = "btnTiepNhanHocSinh";
-            this.btnTiepNhanHocSinh.Size = new System.Drawing.Size(206, 28);
+            this.btnTiepNhanHocSinh.Size = new System.Drawing.Size(275, 34);
             this.btnTiepNhanHocSinh.TabIndex = 2;
             this.btnTiepNhanHocSinh.Text = "Tiếp nhận học sinh";
             this.btnTiepNhanHocSinh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -244,10 +244,10 @@
             this.btnTongQuan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTongQuan.Image = ((System.Drawing.Image)(resources.GetObject("btnTongQuan.Image")));
             this.btnTongQuan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTongQuan.Location = new System.Drawing.Point(0, 28);
-            this.btnTongQuan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTongQuan.Location = new System.Drawing.Point(0, 34);
+            this.btnTongQuan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTongQuan.Name = "btnTongQuan";
-            this.btnTongQuan.Size = new System.Drawing.Size(206, 28);
+            this.btnTongQuan.Size = new System.Drawing.Size(275, 34);
             this.btnTongQuan.TabIndex = 1;
             this.btnTongQuan.Text = "Tổng quan";
             this.btnTongQuan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -261,45 +261,46 @@
             this.btnXepChong,
             this.btnChiaNgang,
             this.btnChiaDoc});
-            this.statusStrip1.Location = new System.Drawing.Point(206, 462);
+            this.statusStrip1.Location = new System.Drawing.Point(275, 570);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(542, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 13, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(722, 26);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // btnXepChong
             // 
             this.btnXepChong.Name = "btnXepChong";
-            this.btnXepChong.Size = new System.Drawing.Size(64, 17);
+            this.btnXepChong.Size = new System.Drawing.Size(80, 20);
             this.btnXepChong.Text = "Xếp chồng";
             this.btnXepChong.Click += new System.EventHandler(this.btnXepChong_Click);
             // 
             // btnChiaNgang
             // 
             this.btnChiaNgang.Name = "btnChiaNgang";
-            this.btnChiaNgang.Size = new System.Drawing.Size(68, 17);
+            this.btnChiaNgang.Size = new System.Drawing.Size(84, 20);
             this.btnChiaNgang.Text = "Chia ngang";
             this.btnChiaNgang.Click += new System.EventHandler(this.btnChiaNgang_Click);
             // 
             // btnChiaDoc
             // 
             this.btnChiaDoc.Name = "btnChiaDoc";
-            this.btnChiaDoc.Size = new System.Drawing.Size(54, 17);
+            this.btnChiaDoc.Size = new System.Drawing.Size(67, 20);
             this.btnChiaDoc.Text = "Chia dọc";
             this.btnChiaDoc.Click += new System.EventHandler(this.btnChiaDoc_Click);
             // 
             // TrangGiaoVu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(748, 484);
+            this.ClientSize = new System.Drawing.Size(997, 596);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.panelSidebar);
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "TrangGiaoVu";
             this.Text = "GiaoVu";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panelSidebar.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
