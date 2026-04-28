@@ -322,7 +322,7 @@
             this.btnCapTK.BackColor = System.Drawing.Color.LimeGreen;
             this.btnCapTK.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCapTK.ForeColor = System.Drawing.Color.White;
-            this.btnCapTK.Location = new System.Drawing.Point(434, 3);
+            this.btnCapTK.Location = new System.Drawing.Point(424, 3);
             this.btnCapTK.Name = "btnCapTK";
             this.btnCapTK.Size = new System.Drawing.Size(251, 48);
             this.btnCapTK.TabIndex = 18;

@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvLoaiDiem = new System.Windows.Forms.DataGridView();
@@ -56,7 +58,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(571, 9);
+            this.label1.Location = new System.Drawing.Point(574, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(297, 41);
@@ -77,10 +79,26 @@
             // dgvLoaiDiem
             // 
             this.dgvLoaiDiem.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLoaiDiem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvLoaiDiem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLoaiDiem.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvLoaiDiem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvLoaiDiem.Location = new System.Drawing.Point(0, 0);
-            this.dgvLoaiDiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvLoaiDiem.Margin = new System.Windows.Forms.Padding(4);
             this.dgvLoaiDiem.Name = "dgvLoaiDiem";
             this.dgvLoaiDiem.ReadOnly = true;
             this.dgvLoaiDiem.RowHeadersWidth = 51;
@@ -125,7 +143,7 @@
             this.txtMaLoaiDiem.BackColor = System.Drawing.Color.Gainsboro;
             this.txtMaLoaiDiem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaLoaiDiem.Location = new System.Drawing.Point(224, 73);
-            this.txtMaLoaiDiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMaLoaiDiem.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaLoaiDiem.Multiline = true;
             this.txtMaLoaiDiem.Name = "txtMaLoaiDiem";
             this.txtMaLoaiDiem.Size = new System.Drawing.Size(563, 34);
@@ -136,7 +154,7 @@
             this.txtHeSo.BackColor = System.Drawing.Color.Gainsboro;
             this.txtHeSo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHeSo.Location = new System.Drawing.Point(224, 197);
-            this.txtHeSo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtHeSo.Margin = new System.Windows.Forms.Padding(4);
             this.txtHeSo.Multiline = true;
             this.txtHeSo.Name = "txtHeSo";
             this.txtHeSo.Size = new System.Drawing.Size(563, 34);
@@ -147,7 +165,7 @@
             this.txtTenLoai.BackColor = System.Drawing.Color.Gainsboro;
             this.txtTenLoai.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenLoai.Location = new System.Drawing.Point(224, 137);
-            this.txtTenLoai.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTenLoai.Margin = new System.Windows.Forms.Padding(4);
             this.txtTenLoai.Multiline = true;
             this.txtTenLoai.Name = "txtTenLoai";
             this.txtTenLoai.Size = new System.Drawing.Size(563, 34);
@@ -160,7 +178,7 @@
             this.btnThem.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem.ForeColor = System.Drawing.Color.White;
             this.btnThem.Location = new System.Drawing.Point(804, 118);
-            this.btnThem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(4);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(199, 69);
             this.btnThem.TabIndex = 9;
@@ -175,7 +193,7 @@
             this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.ForeColor = System.Drawing.Color.White;
             this.btnXoa.Location = new System.Drawing.Point(1218, 118);
-            this.btnXoa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnXoa.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(199, 69);
             this.btnXoa.TabIndex = 10;
@@ -190,7 +208,7 @@
             this.btnSua.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSua.ForeColor = System.Drawing.Color.White;
             this.btnSua.Location = new System.Drawing.Point(1011, 118);
-            this.btnSua.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSua.Margin = new System.Windows.Forms.Padding(4);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(199, 69);
             this.btnSua.TabIndex = 11;
@@ -254,7 +272,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ThietLapDiem";
             this.Text = "ThietLapDiem";
             this.Load += new System.EventHandler(this.ThietLapDiem_Load);
