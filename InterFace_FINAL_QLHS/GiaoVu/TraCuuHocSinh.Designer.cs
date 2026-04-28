@@ -28,14 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbNamHoc = new System.Windows.Forms.ComboBox();
             this.cbKhoiLop = new System.Windows.Forms.ComboBox();
             this.btnTimHS = new System.Windows.Forms.Button();
             this.txtTimHS = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvDanhSachHocSinh = new System.Windows.Forms.DataGridView();
-            this.cbNamHoc = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachHocSinh)).BeginInit();
@@ -54,8 +56,20 @@
             this.panel1.Size = new System.Drawing.Size(1021, 68);
             this.panel1.TabIndex = 0;
             // 
+            // cbNamHoc
+            // 
+            this.cbNamHoc.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbNamHoc.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbNamHoc.FormattingEnabled = true;
+            this.cbNamHoc.Location = new System.Drawing.Point(351, 25);
+            this.cbNamHoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbNamHoc.Name = "cbNamHoc";
+            this.cbNamHoc.Size = new System.Drawing.Size(222, 27);
+            this.cbNamHoc.TabIndex = 4;
+            // 
             // cbKhoiLop
             // 
+            this.cbKhoiLop.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbKhoiLop.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cbKhoiLop.FormattingEnabled = true;
             this.cbKhoiLop.Location = new System.Drawing.Point(175, 27);
@@ -66,6 +80,7 @@
             // 
             // btnTimHS
             // 
+            this.btnTimHS.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnTimHS.BackColor = System.Drawing.Color.LightBlue;
             this.btnTimHS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTimHS.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -80,6 +95,7 @@
             // 
             // txtTimHS
             // 
+            this.txtTimHS.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtTimHS.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtTimHS.Location = new System.Drawing.Point(24, 27);
             this.txtTimHS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -99,6 +115,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label1.Location = new System.Drawing.Point(310, 2);
@@ -110,7 +127,23 @@
             // dgvDanhSachHocSinh
             // 
             this.dgvDanhSachHocSinh.BackgroundColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDanhSachHocSinh.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDanhSachHocSinh.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDanhSachHocSinh.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDanhSachHocSinh.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDanhSachHocSinh.Location = new System.Drawing.Point(0, 117);
             this.dgvDanhSachHocSinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -119,16 +152,6 @@
             this.dgvDanhSachHocSinh.RowTemplate.Height = 24;
             this.dgvDanhSachHocSinh.Size = new System.Drawing.Size(1021, 460);
             this.dgvDanhSachHocSinh.TabIndex = 3;
-            // 
-            // cbNamHoc
-            // 
-            this.cbNamHoc.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.cbNamHoc.FormattingEnabled = true;
-            this.cbNamHoc.Location = new System.Drawing.Point(351, 25);
-            this.cbNamHoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbNamHoc.Name = "cbNamHoc";
-            this.cbNamHoc.Size = new System.Drawing.Size(170, 27);
-            this.cbNamHoc.TabIndex = 4;
             // 
             // TraCuuHocSinh
             // 

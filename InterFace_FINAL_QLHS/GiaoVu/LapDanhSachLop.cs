@@ -601,7 +601,7 @@ namespace InterFace_FINAL_QLHS.GiaoVu
                 }
             }
         
-    }
+        }
 
         private void btnRutKhoiLop_Click(object sender, EventArgs e)
         {
@@ -644,7 +644,7 @@ namespace InterFace_FINAL_QLHS.GiaoVu
 
                             // 1. TRANG TRÍ TIÊU ĐỀ CHÍNH (Dòng 1)
                             // Giả sử bảng có khoảng 6 cột (từ A đến F)
-                            ws.Cells["A1:F1"].Merge = true;
+                            ws.Cells["A1:H1"].Merge = true;
                             ws.Cells["A1"].Value = "DANH SÁCH HỌC SINH";
                             ws.Cells["A1"].Style.Font.Size = 16;
                             ws.Cells["A1"].Style.Font.Bold = true;
@@ -652,7 +652,7 @@ namespace InterFace_FINAL_QLHS.GiaoVu
 
                             // 2. HIỂN THỊ MÃ LỚP (Dòng 2)
                             // Lấy giá trị từ ComboBox lớp của bạn (ví dụ: cbLop)
-                            ws.Cells["A2:F2"].Merge = true;
+                            ws.Cells["A2:H2"].Merge = true;
                             ws.Cells["A2"].Value = "Lớp: " + (cbLop.Text ?? "........");
                             ws.Cells["A2"].Style.Font.Italic = true;
                             ws.Cells["A2"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;

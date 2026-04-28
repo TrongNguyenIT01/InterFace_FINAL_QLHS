@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnXuatFileBaoCaoHocKy = new System.Windows.Forms.Button();
@@ -52,9 +54,10 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(269, 68);
+            this.label1.Location = new System.Drawing.Point(274, 68);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(253, 38);
             this.label1.TabIndex = 3;
@@ -62,6 +65,7 @@
             // 
             // btnXuatFileBaoCaoHocKy
             // 
+            this.btnXuatFileBaoCaoHocKy.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnXuatFileBaoCaoHocKy.BackColor = System.Drawing.Color.LightGreen;
             this.btnXuatFileBaoCaoHocKy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXuatFileBaoCaoHocKy.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -75,6 +79,7 @@
             // 
             // btnTaoBaoCaoHocKy
             // 
+            this.btnTaoBaoCaoHocKy.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnTaoBaoCaoHocKy.BackColor = System.Drawing.Color.LightGreen;
             this.btnTaoBaoCaoHocKy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTaoBaoCaoHocKy.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -88,6 +93,7 @@
             // 
             // cbHocKyBaoCaoHocKy
             // 
+            this.cbHocKyBaoCaoHocKy.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbHocKyBaoCaoHocKy.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cbHocKyBaoCaoHocKy.FormattingEnabled = true;
             this.cbHocKyBaoCaoHocKy.Location = new System.Drawing.Point(35, 28);
@@ -97,7 +103,23 @@
             // 
             // dgvBaoCaoHocKy
             // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBaoCaoHocKy.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvBaoCaoHocKy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBaoCaoHocKy.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvBaoCaoHocKy.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvBaoCaoHocKy.Location = new System.Drawing.Point(0, 126);
             this.dgvBaoCaoHocKy.Name = "dgvBaoCaoHocKy";
