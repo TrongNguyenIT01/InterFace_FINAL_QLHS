@@ -31,8 +31,7 @@ namespace InterFace_FINAL_QLHS.GiaoVien
                                 gv.Email,
                                 gv.SoDienThoai,
                                 cm.TenCM,
-                                gv.TrangThai,
-                                ISNULL(l.MaLop, N'Không Chủ nhiệm') AS LopChuNhiem
+                                ISNULL(l.MaLop,N'Không Có') AS LopChuNhiem
                            FROM GiaoVien gv
                            JOIN ChuyenMon cm ON gv.MaCM = cm.MaCM
                            LEFT JOIN Lop l ON gv.GiaoVienID = l.GiaoVienID
@@ -111,12 +110,7 @@ namespace InterFace_FINAL_QLHS.GiaoVien
                 Width = 120
             });
 
-            dgvThongTinGV.Columns.Add(new DataGridViewTextBoxColumn()
-            {
-                DataPropertyName = "TrangThai",
-                HeaderText = "Trạng Thái",
-                Width = 100
-            });
+   
             dgvThongTinGV.Columns.Add(new DataGridViewTextBoxColumn()
             {
                 DataPropertyName = "LopChuNhiem",
