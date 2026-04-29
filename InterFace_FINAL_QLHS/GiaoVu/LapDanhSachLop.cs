@@ -87,11 +87,11 @@ namespace InterFace_FINAL_QLHS.GiaoVu
                    $"LEFT JOIN GiaoVien gv on l.GiaoVienID = gv.GiaoVienID Where l.MaLop=N'{lop}'";
             }
             DataTable dt = DataProvider.TruyVan_LayDuLieu(sql);
-            txtGVCN.Text = dt.Rows[0]["HoTen"] == DBNull.Value ? "" : dt.Rows[0]["HoTen"].ToString();
-            txtSiSo.Text = dt.Rows[0]["SiSo"] == DBNull.Value ? "" : dt.Rows[0]["SiSo"].ToString();
+
 
             DataRow row = dt.NewRow();
             row["MaLop"] = "--Chọn Lớp--";
+        
             dt.Rows.InsertAt(row, 0);
 
             cbLop.DataSource = dt;
