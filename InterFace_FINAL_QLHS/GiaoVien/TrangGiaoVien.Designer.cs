@@ -50,8 +50,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightGray;
-            this.panel1.Controls.Add(this.btnDangXuat);
             this.panel1.Controls.Add(this.btnDoiMK);
+            this.panel1.Controls.Add(this.btnDangXuat);
             this.panel1.Controls.Add(this.btnTTGV);
             this.panel1.Controls.Add(this.btnTraCuuHS);
             this.panel1.Controls.Add(this.btnNhapDiem);
@@ -86,15 +86,16 @@
             // btnDoiMK
             // 
             this.btnDoiMK.BackColor = System.Drawing.Color.LightBlue;
+            this.btnDoiMK.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnDoiMK.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.btnDoiMK.ForeColor = System.Drawing.Color.DarkBlue;
             this.btnDoiMK.Image = ((System.Drawing.Image)(resources.GetObject("btnDoiMK.Image")));
             this.btnDoiMK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDoiMK.Location = new System.Drawing.Point(0, 235);
+            this.btnDoiMK.Location = new System.Drawing.Point(0, 335);
             this.btnDoiMK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDoiMK.Name = "btnDoiMK";
             this.btnDoiMK.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.btnDoiMK.Size = new System.Drawing.Size(364, 50);
+            this.btnDoiMK.Size = new System.Drawing.Size(364, 58);
             this.btnDoiMK.TabIndex = 5;
             this.btnDoiMK.Text = "Đổi Mật Khẩu";
             this.btnDoiMK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
