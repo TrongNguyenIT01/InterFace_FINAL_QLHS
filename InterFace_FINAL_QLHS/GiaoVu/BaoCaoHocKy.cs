@@ -21,48 +21,90 @@ namespace InterFace_FINAL_QLHS.GiaoVu
             InitializeComponent();
         }
 
+        private void LoadHocKyTheoNam(string maNamHoc)
+        {
+            // Chỉ lấy những Học kỳ có MaNamHoc tương ứng
+            string sql = $"SELECT MaHK, HocKy FROM HocKy WHERE MaNamHoc = '{maNamHoc}'";
+            DataTable dtHK = DataProvider.TruyVan_LayDuLieu(sql);
+
+            cbHocKyBaoCaoHocKy.DataSource = dtHK;
+            cbHocKyBaoCaoHocKy.DisplayMember = "HocKy";
+            cbHocKyBaoCaoHocKy.ValueMember = "MaHK";
+        }
+
         private void BaoCaoHocKy_Load(object sender, EventArgs e)
         {
-            // Lấy danh sách học kỳ từ bảng HocKy
-            string sql = "SELECT MaHK, HocKy FROM HocKy";
-            DataTable dt = DataProvider.TruyVan_LayDuLieu(sql);
+            // 1. Đổ dữ liệu Năm Học
+            DataTable dtNH = DataProvider.TruyVan_LayDuLieu("SELECT MaNamHoc, TenNamHoc FROM NamHoc");
+            cbNamHoc.DataSource = dtNH;
+            cbNamHoc.DisplayMember = "TenNamHoc";
+            cbNamHoc.ValueMember = "MaNamHoc";
 
-            cbHocKyBaoCaoHocKy.DataSource = dt;
-            cbHocKyBaoCaoHocKy.DisplayMember = "HocKy"; // Hiển thị tên học kỳ
-            cbHocKyBaoCaoHocKy.ValueMember = "MaHK";    // Giá trị ẩn bên dưới là mã học kỳ
+            // 2. Gọi hàm nạp Học kỳ cho năm học đang hiển thị mặc định
+            if (cbNamHoc.SelectedValue != null)
+            {
+                LoadHocKyTheoNam(cbNamHoc.SelectedValue.ToString());
+            }
         }
+
+
 
         private void btnTaoBaoCaoHocKy_Click(object sender, EventArgs e)
         {
-            // 1. Kiểm tra xem đã chọn học kỳ chưa
-            if (cbHocKyBaoCaoHocKy.SelectedValue == null)
+            if (cbHocKyBaoCaoHocKy.SelectedValue == null || cbNamHoc.SelectedValue == null)
             {
-                MessageBox.Show("Vui lòng chọn một học kỳ để báo cáo!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng chọn đầy đủ thông tin!", "Thông báo");
                 return;
             }
 
             try
             {
-                // 2. Lấy mã học kỳ từ ComboBox
                 string maHK = cbHocKyBaoCaoHocKy.SelectedValue.ToString();
+                string maNH = cbNamHoc.SelectedValue.ToString();
 
-                // 3. Chuẩn bị tham số cho Procedure
-                SqlParameter[] paras = new SqlParameter[]
-                {
-            new SqlParameter("@MaHK", maHK)
-                };
+                // Viết lại logic của Procedure nhưng có thêm điều kiện Năm Học (MaNamHoc)
+                // SQL này sẽ join bảng Lop với QuaTrinhHocTap để lọc chính xác học sinh theo năm
+                string sql = $@"
+            SELECT 
+                ROW_NUMBER() OVER (ORDER BY L.TenLop) AS STT,
+                L.MaLop AS [Mã Lớp],
+                L.TenLop AS [Tên Lớp],
+                L.SiSo AS [Sỉ Số],
+                (
+                    SELECT COUNT(*) 
+                    FROM (
+                        SELECT qtht.MaHS
+                        FROM QuaTrinhHocTap qtht
+                        WHERE qtht.MaLop = L.MaLop AND qtht.MaNamHoc = '{maNH}'
+                        GROUP BY qtht.MaHS
+                    ) AS DSHS
+                    WHERE NOT EXISTS (
+                        SELECT 1 
+                        FROM MonHoc mh
+                        WHERE ISNULL(dbo.fn_TinhDiemTBMon(DSHS.MaHS, mh.MaMon, '{maHK}'), 0) < mh.DiemChuan
+                    )
+                ) AS [Số Lượng Đạt]
+            INTO #TempBaoCao
+            FROM Lop L;
 
-                // 4. Gọi Procedure thông qua DataProvider
-                // Lưu ý: CommandType phải là StoredProcedure nếu bạn gọi trực tiếp tên, 
-                // hoặc dùng Text nếu viết "EXEC sp_..."
-                DataTable dt = DataProvider.SelectData("sp_BaoCaoTongKetHocKy", CommandType.StoredProcedure, paras);
+            SELECT 
+                STT, [Mã Lớp], [Tên Lớp], [Sỉ Số], [Số Lượng Đạt],
+                CASE 
+                    WHEN [Sỉ Số] > 0 THEN ROUND((CAST([Số Lượng Đạt] AS FLOAT) / [Sỉ Số]) * 100, 2)
+                    ELSE 0 
+                END AS [Tỷ Lệ]
+            FROM #TempBaoCao;
 
-                // 5. Hiển thị lên lưới
+            DROP TABLE #TempBaoCao;";
+
+                // Gọi DataProvider để lấy dữ liệu với câu SQL thuần
+                DataTable dt = DataProvider.TruyVan_LayDuLieu(sql);
+
                 if (dt != null)
                 {
                     dgvBaoCaoHocKy.DataSource = dt;
 
-                    // Định dạng lại cột Tỷ lệ cho đẹp (thêm dấu %)
+                    // Định dạng cột Tỷ lệ (nếu có)
                     if (dgvBaoCaoHocKy.Columns.Contains("Tỷ Lệ"))
                     {
                         dgvBaoCaoHocKy.Columns["Tỷ Lệ"].DefaultCellStyle.Format = "0.00'%'";
@@ -71,7 +113,7 @@ namespace InterFace_FINAL_QLHS.GiaoVu
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi tạo báo cáo: " + ex.Message);
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
 
@@ -179,5 +221,14 @@ namespace InterFace_FINAL_QLHS.GiaoVu
             }
         }
 
+        private void cbNamHoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Kiểm tra xem đã có giá trị chọn chưa để tránh lỗi lúc khởi tạo
+            if (cbNamHoc.SelectedValue != null && cbNamHoc.ValueMember != "")
+            {
+                string maNamChon = cbNamHoc.SelectedValue.ToString();
+                LoadHocKyTheoNam(maNamChon);
+            }
+        }
     }
 }
