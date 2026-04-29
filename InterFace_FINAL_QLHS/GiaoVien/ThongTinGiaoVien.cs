@@ -31,9 +31,11 @@ namespace InterFace_FINAL_QLHS.GiaoVien
                                 gv.Email,
                                 gv.SoDienThoai,
                                 cm.TenCM,
-                                gv.TrangThai
+                                gv.TrangThai,
+                                ISNULL(l.MaLop, N'Không Chủ nhiệm') AS LopChuNhiem
                            FROM GiaoVien gv
                            JOIN ChuyenMon cm ON gv.MaCM = cm.MaCM
+                           LEFT JOIN Lop l ON gv.GiaoVienID = l.GiaoVienID
                            WHERE gv.GiaoVienID = @IDGV";
 
             SqlParameter[] param = {
@@ -115,6 +117,12 @@ namespace InterFace_FINAL_QLHS.GiaoVien
                 HeaderText = "Trạng Thái",
                 Width = 100
             });
+            dgvThongTinGV.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                DataPropertyName = "LopChuNhiem",
+                HeaderText = "Lớp Chủ Nhiệm",
+                Width = 120
+            });
         }
 
         private void dgvLopDangDay_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -153,13 +161,17 @@ namespace InterFace_FINAL_QLHS.GiaoVien
                         L.TenLop AS [Tên Lớp], 
                         MH.TenMon AS [Môn Giảng Dạy], 
                         L.SiSo AS [Sĩ Số],
-                        HK.HocKy AS [Học Kỳ]
+                        HK.HocKy AS [Học Kỳ],
+                        NH.TenNamHoc AS [Năm Học]
+                        
                     FROM PhanCongGiangDay PC
                     INNER JOIN Lop L ON PC.MaLop = L.MaLop
                     INNER JOIN MonHoc MH ON PC.MaMon = MH.MaMon
                     INNER JOIN HocKy HK ON PC.MaHK = HK.MaHK
+                    INNER Join NamHoc NH ON HK.MaNamHoc = NH.MaNamHoc
+                   
                     WHERE PC.GiaoVienID = @maGV";
-
+                 
                 // Nếu người dùng có nhập từ khóa tìm kiếm
                 if (!string.IsNullOrEmpty(keyword))
                 {

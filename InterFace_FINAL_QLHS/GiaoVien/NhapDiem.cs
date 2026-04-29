@@ -165,6 +165,7 @@ namespace InterFace_FINAL_QLHS.GiaoVien
                     JOIN LoaiDiem ld ON qd.MaLoaiDiem = ld.MaLoaiDiem
                     WHERE qd.MaMon = @MaMon";
 
+
             SqlParameter[] paraCauTruc = { new SqlParameter("@MaMon", MaMon) };
             DataTable dtCauTruc = DataProvider.SelectData(sqlCauTruc, CommandType.Text, paraCauTruc);
 
