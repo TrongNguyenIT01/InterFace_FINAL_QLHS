@@ -341,14 +341,18 @@ namespace InterFace_FINAL_QLHS.GiaoVu
 
             string maLop = cbChonLop.SelectedValue.ToString();
             string maMon = cbMon.SelectedValue?.ToString() ?? "";
-            string maHK = cbHocKy.SelectedValue.ToString(); // Thêm dòng này
+            string maHK = cbHocKy.SelectedValue.ToString();
 
-            string sql = @"SELECT PC.MaPC, GV.HoTen, Mon.TenMon, HK.HocKy, GV.GiaoVienID 
+            // Sửa câu SQL tại đây để JOIN thêm bảng NamHoc
+            string sql = @"SELECT PC.MaPC, GV.HoTen, Mon.TenMon, 
+                   (HK.HocKy + ' (' + NH.TenNamHoc + ')') as HocKy, 
+                   GV.GiaoVienID 
                    FROM PhanCongGiangDay PC
                    JOIN GiaoVien GV ON PC.GiaoVienID = GV.GiaoVienID
                    JOIN MonHoc Mon ON PC.MaMon = Mon.MaMon
                    JOIN HocKy HK ON PC.MaHK = HK.MaHK
-                   WHERE PC.MaLop = @MaLop AND PC.MaHK = @MaHK"; // Thêm điều kiện lọc học kỳ
+                   JOIN NamHoc NH ON HK.MaNamHoc = NH.MaNamHoc
+                   WHERE PC.MaLop = @MaLop AND PC.MaHK = @MaHK";
 
             List<SqlParameter> paras = new List<SqlParameter>();
             paras.Add(new SqlParameter("@MaLop", maLop));
@@ -409,10 +413,17 @@ namespace InterFace_FINAL_QLHS.GiaoVu
                 cbMon.DisplayMember = "TenMon";
                 cbMon.ValueMember = "MaMon";
 
-                DataTable dtHK = DataProvider.TruyVan_LayDuLieu("SELECT MaHK, HocKy FROM HocKy");
+                // 4. Load Danh sách Học kỳ kèm Năm học
+                string sqlHK = @"SELECT HK.MaHK, 
+                        (HK.HocKy + ' - ' + NH.TenNamHoc) AS HienThiHK 
+                        FROM HocKy HK 
+                        JOIN NamHoc NH ON HK.MaNamHoc = NH.MaNamHoc";
+                
+
+                DataTable dtHK = DataProvider.TruyVan_LayDuLieu(sqlHK);
                 cbHocKy.DataSource = dtHK;
-                cbHocKy.DisplayMember = "HocKy"; // Hiển thị: Học kỳ 1, Học kỳ 2...
-                cbHocKy.ValueMember = "MaHK";    // Giá trị lưu: HK01, HK02...
+                cbHocKy.DisplayMember = "HienThiHK";
+                cbHocKy.ValueMember = "MaHK";       
             }
             catch (Exception ex)
             {

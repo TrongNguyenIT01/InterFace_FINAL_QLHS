@@ -1,16 +1,17 @@
-﻿using System;
+﻿using OfficeOpenXml;
+using OfficeOpenXml.Style;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using OfficeOpenXml;
-using OfficeOpenXml.Style;
-using System.IO;
+using static InterFace_FINAL_QLHS.QuenMK;
 
 namespace InterFace_FINAL_QLHS.GiaoVu
 {
@@ -127,7 +128,7 @@ namespace InterFace_FINAL_QLHS.GiaoVu
             }
 
             // 2. Cấu hình bản quyền EPPlus (Bắt buộc cho phiên bản mới)
-            ExcelPackage.License.SetNonCommercialPersonal("Nguyen Cao Hoang Phu");
+            ExcelPackage.License.SetNonCommercialPersonal(UserSession.CurrentUsername);
 
             // 3. Khởi tạo hộp thoại lưu file
             using (SaveFileDialog sfd = new SaveFileDialog())

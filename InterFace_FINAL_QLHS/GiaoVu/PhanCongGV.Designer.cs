@@ -66,7 +66,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1110, 100);
+            this.panel1.Size = new System.Drawing.Size(1344, 100);
             this.panel1.TabIndex = 0;
             // 
             // btnHuyLop
@@ -77,7 +77,7 @@
             this.btnHuyLop.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnHuyLop.Image = ((System.Drawing.Image)(resources.GetObject("btnHuyLop.Image")));
             this.btnHuyLop.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHuyLop.Location = new System.Drawing.Point(942, 25);
+            this.btnHuyLop.Location = new System.Drawing.Point(1059, 25);
             this.btnHuyLop.Name = "btnHuyLop";
             this.btnHuyLop.Size = new System.Drawing.Size(156, 36);
             this.btnHuyLop.TabIndex = 1;
@@ -94,7 +94,7 @@
             this.btnPhanCong.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnPhanCong.Image = ((System.Drawing.Image)(resources.GetObject("btnPhanCong.Image")));
             this.btnPhanCong.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnPhanCong.Location = new System.Drawing.Point(12, 25);
+            this.btnPhanCong.Location = new System.Drawing.Point(129, 25);
             this.btnPhanCong.Name = "btnPhanCong";
             this.btnPhanCong.Size = new System.Drawing.Size(156, 36);
             this.btnPhanCong.TabIndex = 0;
@@ -120,8 +120,8 @@
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.LightGray;
             this.splitContainer1.Panel2.Controls.Add(this.dgvChonLopGV);
             this.splitContainer1.Panel2.Controls.Add(this.panel3);
-            this.splitContainer1.Size = new System.Drawing.Size(1110, 525);
-            this.splitContainer1.SplitterDistance = 555;
+            this.splitContainer1.Size = new System.Drawing.Size(1344, 633);
+            this.splitContainer1.SplitterDistance = 672;
             this.splitContainer1.TabIndex = 1;
             this.splitContainer1.Resize += new System.EventHandler(this.splitContainer1_Resize);
             // 
@@ -150,7 +150,7 @@
             this.dgvChonGV.Name = "dgvChonGV";
             this.dgvChonGV.RowHeadersWidth = 51;
             this.dgvChonGV.RowTemplate.Height = 24;
-            this.dgvChonGV.Size = new System.Drawing.Size(555, 427);
+            this.dgvChonGV.Size = new System.Drawing.Size(672, 535);
             this.dgvChonGV.TabIndex = 1;
             // 
             // panel2
@@ -161,7 +161,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(555, 98);
+            this.panel2.Size = new System.Drawing.Size(672, 98);
             this.panel2.TabIndex = 0;
             // 
             // cbChuyenMon
@@ -169,7 +169,7 @@
             this.cbChuyenMon.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbChuyenMon.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cbChuyenMon.FormattingEnabled = true;
-            this.cbChuyenMon.Location = new System.Drawing.Point(337, 20);
+            this.cbChuyenMon.Location = new System.Drawing.Point(403, 20);
             this.cbChuyenMon.Name = "cbChuyenMon";
             this.cbChuyenMon.Size = new System.Drawing.Size(215, 27);
             this.cbChuyenMon.TabIndex = 1;
@@ -180,7 +180,7 @@
             this.txtNhapTenGV.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtNhapTenGV.Location = new System.Drawing.Point(12, 20);
             this.txtNhapTenGV.Name = "txtNhapTenGV";
-            this.txtNhapTenGV.Size = new System.Drawing.Size(319, 27);
+            this.txtNhapTenGV.Size = new System.Drawing.Size(340, 27);
             this.txtNhapTenGV.TabIndex = 0;
             this.txtNhapTenGV.TextChanged += new System.EventHandler(this.txtNhapTenGV_TextChanged);
             // 
@@ -209,7 +209,7 @@
             this.dgvChonLopGV.Name = "dgvChonLopGV";
             this.dgvChonLopGV.RowHeadersWidth = 51;
             this.dgvChonLopGV.RowTemplate.Height = 24;
-            this.dgvChonLopGV.Size = new System.Drawing.Size(551, 427);
+            this.dgvChonLopGV.Size = new System.Drawing.Size(668, 535);
             this.dgvChonLopGV.TabIndex = 1;
             // 
             // panel3
@@ -223,7 +223,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(551, 98);
+            this.panel3.Size = new System.Drawing.Size(668, 98);
             this.panel3.TabIndex = 0;
             // 
             // cbHocKy
@@ -233,7 +233,7 @@
             this.cbHocKy.FormattingEnabled = true;
             this.cbHocKy.Location = new System.Drawing.Point(367, 20);
             this.cbHocKy.Name = "cbHocKy";
-            this.cbHocKy.Size = new System.Drawing.Size(176, 27);
+            this.cbHocKy.Size = new System.Drawing.Size(298, 27);
             this.cbHocKy.TabIndex = 4;
             this.cbHocKy.SelectedIndexChanged += new System.EventHandler(this.cbHocKy_SelectedIndexChanged);
             // 
@@ -276,7 +276,7 @@
             // 
             this.btnChonLopChuNhiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChonLopChuNhiem.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnChonLopChuNhiem.Location = new System.Drawing.Point(393, 60);
+            this.btnChonLopChuNhiem.Location = new System.Drawing.Point(515, 60);
             this.btnChonLopChuNhiem.Name = "btnChonLopChuNhiem";
             this.btnChonLopChuNhiem.Size = new System.Drawing.Size(150, 32);
             this.btnChonLopChuNhiem.TabIndex = 0;
@@ -288,7 +288,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1110, 625);
+            this.ClientSize = new System.Drawing.Size(1344, 733);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel1);
             this.Name = "PhanCongGV";
