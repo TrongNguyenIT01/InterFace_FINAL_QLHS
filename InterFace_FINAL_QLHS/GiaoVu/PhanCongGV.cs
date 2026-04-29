@@ -404,7 +404,7 @@ namespace InterFace_FINAL_QLHS.GiaoVu
                 // 2. Load Danh sách Lớp (Cần thiết để chọn lớp bên phải)
                 DataTable dtLop = DataProvider.TruyVan_LayDuLieu("SELECT MaLop, TenLop FROM Lop");
                 cbChonLop.DataSource = dtLop;
-                cbChonLop.DisplayMember = "TenLop";
+                cbChonLop.DisplayMember = "MaLop";
                 cbChonLop.ValueMember = "MaLop";
 
                 // 3. Load Danh sách Môn học
