@@ -109,6 +109,7 @@
             this.linkLienhequantrivien.TabIndex = 10;
             this.linkLienhequantrivien.TabStop = true;
             this.linkLienhequantrivien.Text = "Liên hệ Quản Trị Viên";
+            this.linkLienhequantrivien.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLienhequantrivien_LinkClicked);
             // 
             // linkQuenmk
             // 

@@ -124,5 +124,11 @@ namespace InterFace_FINAL_QLHS
             Form f = new QuenMatKhau();
             f.Show();
         }
+
+        private void linkLienhequantrivien_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ThongTinAdmin frmAdmin = new ThongTinAdmin();
+            frmAdmin.ShowDialog();
+        }
     }
 }

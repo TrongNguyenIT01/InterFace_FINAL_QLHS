@@ -259,6 +259,12 @@
       <DependentUpon>QuenMatKhau.cs</DependentUpon>
     </Compile>
     <Compile Include="QuenMK.cs" />
+    <Compile Include="ThongTinAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThongTinAdmin.Designer.cs">
+      <DependentUpon>ThongTinAdmin.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Admin\CapTaiKhoan.resx">
       <DependentUpon>CapTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
@@ -356,6 +362,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QuenMatKhau.resx">
       <DependentUpon>QuenMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongTinAdmin.resx">
+      <DependentUpon>ThongTinAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
