@@ -301,6 +301,7 @@
             this.Name = "TrangGiaoVu";
             this.Text = "GiaoVu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.TrangGiaoVu_Load);
             this.panelSidebar.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();

@@ -1,4 +1,5 @@
-﻿using InterFace_FINAL_QLHS.GiaoVu;
+﻿using InterFace_FINAL_QLHS.Admin;
+using InterFace_FINAL_QLHS.GiaoVu;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -163,6 +164,12 @@ namespace InterFace_FINAL_QLHS
         private void btnDoiPass_Click(object sender, EventArgs e)
         {
             OpenChildForm(new DoiPassSauDangNhap());
+        }
+
+        private void TrangGiaoVu_Load(object sender, EventArgs e)
+        {
+            TongQuan frm = new TongQuan();
+            OpenChildForm(frm);
         }
     }
 }

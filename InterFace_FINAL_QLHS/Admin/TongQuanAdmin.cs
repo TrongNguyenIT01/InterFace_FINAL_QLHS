@@ -169,5 +169,11 @@ namespace InterFace_FINAL_QLHS.Admin
         {
             OpenChildForm(new QuyDinhKiemTra());
         }
+
+        private void TongQuanAdmin_Load(object sender, EventArgs e)
+        {
+            Cap_TaiKhoan frm = new Cap_TaiKhoan();
+            OpenChildForm(frm);
+        }
     }
 }

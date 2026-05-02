@@ -343,6 +343,7 @@
             this.Name = "TongQuanAdmin";
             this.Text = "Admin";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.TongQuanAdmin_Load);
             this.panel1.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();

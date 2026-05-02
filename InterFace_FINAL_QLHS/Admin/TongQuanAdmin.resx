@@ -120,20 +120,20 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnLanKT.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAEDSURBVEhL7ZS9agJBEIA/UETU3lJJo51BhFik8m18C2ufwN4u2ESQWCiIafIAwReIhT8oBhVJ
-        lTAwB8vAwe1drvOD4W7ndr65W46BOylTAt6BHdCwD5NSAD6AX40j8Gg3xUXkSxV/AkO9PwFtu9mXoh6L
-        CPdAGcgAM82tbIEP7psH0QVawEXXA1sUFZEvVLIFek6Tb72+6Nd4Y+U1zfedJqO48rxz5hvgQfMd4Efz
-        r0DW1EVC5PMQ+e0/5WtH/pyGvKL5J+CapvyclrzpyN/iyoWpSr6MXEaA5MdAztR4EfzTVV3LhJQhJrlJ
-        UrkQNBDqwME5lsRyIWiQNEKxG+PGnej8AYHyesTrxOA/AAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAQNJREFUSEvt
+        lL1qAkEQgD9QRNTeUkmjnUGEWKTybXwLa5/A3i7YRJBYKIhp8gDBF4iFPygGFUmVMDAHy8DB7V2u84Ph
+        bud2vrlbjoE7KVMC3oEd0LAPk1IAPoBfjSPwaDfFReRLFX8CQ70/AW272ZeiHosI90AZyAAzza1sgQ/u
+        mwfRBVrARdcDWxQVkS9UsgV6TpNvvb7o13hj5TXN950mo7jyvHPmG+BB8x3gR/OvQNbURULk8xD57T/l
+        a0f+nIa8ovkn4Jqm/JyWvOnI3+LKhalKvoxcRoDkx0DO1HgR/NNVXcuElCEmuUlSuRA0EOrAwTmWxHIh
+        aJA0QrEb48ad6PwBgfJ6xOvE4D8AAAAASUVORK5CYII=
 </value>
   </data>
   <data name="btnThietLapDiem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAACDSURBVEhL7ZVBCoAwDATj/1+n+B6VggWpO8TV4qkDe8kk22MjBgZLROydsrblhXbpayZ64CZM
-        sAeFCfagMMEeFCbYo4SaZeCNEmqWgTfbKQp1qU09qrttrrf/P6CEmmXgjRJqloE3KEywB4UJ9qAwwR4U
-        JthTRa/cHpjF0tuUz2vwjAMBbabEH+CuIQAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAINJREFUSEvt
+        lUEKgDAMBOP/X6f4HpWCBak7xNXiqQN7ySTbYyMGBktE7J2ytuWFdulrJnrgJkywB4UJ9qAwwR4UJtij
+        hJpl4I0SapaBN9spCnWpTT2qu22ut/8/oISaZeCNEmqWgTcoTLAHhQn2oDDBHhQm2FNFr9wemMXS25TP
+        a/CMAwFtpsQf4K4hAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="btnDoiPass.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

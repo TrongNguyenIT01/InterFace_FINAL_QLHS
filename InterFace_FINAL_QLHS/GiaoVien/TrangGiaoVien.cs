@@ -132,5 +132,11 @@ namespace InterFace_FINAL_QLHS.GiaoVien
             this.Owner.Show();
             this.Close();
         }
+
+        private void TrangGiaoVien_Load(object sender, EventArgs e)
+        {
+            TongQuan frm = new TongQuan();
+            OpenChildForm(frm);
+        }
     }
 }
