@@ -389,5 +389,8 @@
   <ItemGroup>
     <None Include="Resources\logout-box-line.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CSDL\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
