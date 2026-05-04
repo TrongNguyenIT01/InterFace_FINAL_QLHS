@@ -13,10 +13,8 @@ public class DataProvider
     {
         //Máy Nguyễn
         get { return @"Data Source=.;Initial Catalog=QLHS;Integrated Security=True;Encrypt=False"; } 
-        //Máy Kiên
-        //get { return @"Data Source=.;Initial Catalog=QLHS;Integrated Security=True;Encrypt=False"; }
-        //Máy Phú
-        //get.....
+        
+  
     }
 
     public static bool TruyVan_XuLy(string sql)
