@@ -366,6 +366,7 @@
     <EmbeddedResource Include="ThongTinAdmin.resx">
       <DependentUpon>ThongTinAdmin.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="CSDL\QLHS.bak" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -389,8 +390,6 @@
   <ItemGroup>
     <None Include="Resources\logout-box-line.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CSDL\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
